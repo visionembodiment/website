@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #480d37;
+  --primary-light: #6b1751;
+  --primary-dark: #2d0822;
+  --secondary: #d4af37;
+  --secondary-light: #e6c757;
+  --secondary-dark: #b59416;
+  --accent: #f4e4e9;
+  --text-dark: #2d3436;
+  --text-light: #636e72;
+  --background: #fafafa;
+  --white: #ffffff;
+  --success: #10b981;
+  --error: #ef4444;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-foreground: var(--text-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--text-dark);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition-colors duration-200 font-medium;
+}
+
+.btn-secondary {
+  @apply bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition-colors duration-200 font-medium;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 p-6;
+}
