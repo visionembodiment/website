@@ -69,7 +69,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className={cn("relative bg-gradient-to-b from-purple-50 to-white", designSystem.sections.mobilePadding, designSystem.sections.desktopPadding)}>
+      <section className={cn("relative bg-gradient-to-b from-purple-50 to-white", designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -128,10 +128,10 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className={cn("bg-white", designSystem.sections.mobilePadding, designSystem.sections.desktopPadding)}>
+      <section className={cn("bg-white", designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
-          <div className="text-center mb-12">
-            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
+          <div className={cn("text-center", designSystem.spacing.margin.xl)}>
+            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
               Transform Through Sacred Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -139,7 +139,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
@@ -148,32 +148,32 @@ export default function Home() {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-purple-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={cn("bg-purple-50", designSystem.spacing.section.full)}>
+        <div className={designSystem.sections.container}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-purple-900 mb-6">
+              <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
                 Meet Your Guide
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className={cn(designSystem.text.body, designSystem.spacing.margin.md)}>
                 I'm Alina Rain, an embodiment coach and spiritual guide dedicated to helping 
                 you bridge the gap between your vision and reality. With over a decade of 
                 experience in transformational coaching, I combine ancient wisdom traditions 
                 with modern psychological insights.
               </p>
-              <p className="text-lg text-gray-700 mb-8">
+              <p className={cn(designSystem.text.body, designSystem.spacing.margin.lg)}>
                 My approach is rooted in the belief that true transformation happens when 
                 we align our mind, body, and spirit. Through our work together, you'll 
                 discover your authentic self and learn to embody your highest potential.
               </p>
               <Link
                 href="/about"
-                className="inline-block bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition-colors font-medium"
+                className={designSystem.buttons.primarySmall}
               >
                 Read My Full Story
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className={cn("grid grid-cols-2", designSystem.spacing.gap.sm)}>
               <div className="bg-white rounded-lg p-6 text-center shadow-md">
                 <div className="text-3xl mb-2">🎓</div>
                 <h4 className="font-semibold text-purple-900">Certified Coach</h4>
@@ -200,10 +200,10 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
+      <section className={cn("bg-white", designSystem.spacing.section.full)}>
+        <div className={designSystem.sections.container}>
+          <div className={cn("text-center", designSystem.spacing.margin.xl)}>
+            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
               Client Transformations
             </h2>
             <p className="text-xl text-gray-600">
@@ -211,16 +211,16 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className={cn("text-center mt-12")}>
             <Link
               href="/testimonials"
-              className="inline-block border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium"
+              className={designSystem.buttons.secondarySmall}
             >
               Read More Success Stories
             </Link>
@@ -229,17 +229,17 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-b from-purple-900 to-purple-800 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={cn("bg-gradient-to-b from-purple-900 to-purple-800 text-white", designSystem.spacing.section.full)}>
+        <div className={designSystem.sections.container}>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className={cn("text-4xl font-bold", designSystem.spacing.margin.sm)}>
               Join the Vision Embodiment Community
             </h2>
-            <p className="text-xl mb-8 text-purple-100">
+            <p className={cn("text-xl text-purple-100", designSystem.spacing.margin.lg)}>
               Receive weekly wisdom, transformation tips, and exclusive offers
             </p>
             
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form className={cn("flex flex-col sm:flex-row max-w-md mx-auto", designSystem.spacing.gap.sm)}>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -248,7 +248,7 @@ export default function Home() {
               />
               <button
                 type="submit"
-                className="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors font-medium"
+                className={designSystem.buttons.cta}
               >
                 Subscribe
               </button>
@@ -262,19 +262,19 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={cn("bg-white", designSystem.spacing.section.full)}>
+        <div className={designSystem.sections.container}>
           <div className="bg-purple-50 rounded-2xl p-12 text-center">
             <h2 className={cn(designSystem.text.heading2, "mb-4")}>
               Ready to Begin Your Transformation?
             </h2>
-            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            <p className={cn("text-xl text-gray-700 max-w-2xl mx-auto", designSystem.spacing.margin.lg)}>
               Take the first step towards embodying your vision. Book a complimentary 
               discovery session to explore how we can work together.
             </p>
             <Link
               href="/booking"
-              className="inline-block bg-purple-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium text-lg"
+              className={cn(designSystem.buttons.primary, "text-lg")}
             >
               Book Your Free Discovery Call
             </Link>

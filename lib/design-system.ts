@@ -1,7 +1,7 @@
 export const designSystem = {
   cards: {
-    base: "relative bg-white rounded-2xl shadow-xl overflow-hidden",
-    hover: "hover:shadow-2xl hover:-translate-y-1 transition-all duration-300",
+    base: "relative bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden",
+    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300",
     padding: "p-6",
     bordered: "border border-gray-200",
   },
@@ -15,9 +15,31 @@ export const designSystem = {
     block: "block w-full text-center",
   },
   
+  spacing: {
+    section: {
+      mobile: "py-8",
+      desktop: "md:py-12",
+      full: "py-8 md:py-12",
+    },
+    gap: {
+      xs: "gap-2",
+      sm: "gap-4",
+      md: "gap-6",
+      lg: "gap-8",
+      xl: "gap-12",
+    },
+    margin: {
+      xs: "mb-2",
+      sm: "mb-4",
+      md: "mb-6",
+      lg: "mb-8",
+      xl: "mb-12",
+    },
+  },
+  
   sections: {
-    mobilePadding: "py-6",
-    desktopPadding: "md:py-16",
+    mobilePadding: "py-8",
+    desktopPadding: "md:py-12",
     container: "container mx-auto px-4 sm:px-6 lg:px-8",
   },
   
