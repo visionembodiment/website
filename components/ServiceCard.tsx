@@ -7,7 +7,6 @@ interface ServiceCardProps {
   price: string;
   duration: string;
   href: string;
-  icon?: string;
 }
 
 export default function ServiceCard({

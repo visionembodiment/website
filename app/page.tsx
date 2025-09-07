@@ -2,68 +2,24 @@ import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import { designSystem, cn } from '@/lib/design-system';
+import { homePageContent } from '@/lib/content';
 
 export default function Home() {
-  const services = [
-    {
-      title: 'Mind Games Reading',
-      description: 'Unlock your subconscious patterns and transform limiting beliefs through guided exploration.',
-      price: '$15',
-      duration: '60 minutes',
-      href: '/services/mind-games-reading',
-      icon: '🧠',
-    },
-    {
-      title: 'One-to-One Coaching',
-      description: 'Personalized transformation journey with weekly sessions and continuous support.',
-      price: '$200',
-      duration: '60 minutes',
-      href: '/services/one-to-one',
-      icon: '💜',
-    },
-    {
-      title: 'Archetypal Tarot',
-      description: 'Deep dive into your archetypal patterns using ancient wisdom and modern psychology.',
-      price: '$175',
-      duration: '90 minutes',
-      href: '/services/archetypal-tarot',
-      icon: '🔮',
-    },
-  ];
+  const { promotion, hero, services, about, testimonials, newsletter, cta } = homePageContent;
 
-  const testimonials = [
-    {
-      name: 'Sarah Mitchell',
-      service: 'One-to-One Coaching',
-      content: "Working with Alina has been transformative. Her intuitive guidance helped me break through patterns I've struggled with for years.",
-      rating: 5,
-    },
-    {
-      name: 'Michael Chen',
-      service: 'Archetypal Tarot',
-      content: 'The archetypal reading was incredibly accurate and gave me profound insights into my life path. Highly recommended!',
-      rating: 5,
-    },
-    {
-      name: 'Emma Thompson',
-      service: 'Mind Games Reading',
-      content: "Alina's unique approach helped me understand my subconscious blocks. I feel more aligned and empowered than ever.",
-      rating: 5,
-    },
-  ];
 
   return (
     <>
       {/* Promotion Banner */}
       <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-3 px-4 text-center">
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-          <span className="text-lg font-semibold">🎉 Limited Time Offer!</span>
-          <span className="text-base sm:text-lg">Mind Games Reading - Only $15 (Regular $150)</span>
+          <span className="text-lg font-semibold">{promotion.emoji} {promotion.title}</span>
+          <span className="text-base sm:text-lg">{promotion.description}</span>
           <Link
-            href="/services/mind-games-reading"
+            href={promotion.href}
             className="inline-block bg-white text-yellow-600 px-4 py-1 rounded-full hover:bg-yellow-50 transition-colors font-semibold text-sm sm:text-base"
           >
-            Book Now →
+            {promotion.buttonText}
           </Link>
         </div>
       </div>
@@ -74,24 +30,23 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className={cn(designSystem.text.heading1, "mb-6")}>
-                Transform Your Vision Into Embodied Reality
+                {hero.title}
               </h1>
               <p className={cn(designSystem.text.body, "!text-xl mb-8")}>
-                Professional coaching and spiritual guidance to unlock your full potential 
-                and create lasting transformation in your life.
+                {hero.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/booking"
+                  href={hero.primaryButton.href}
                   className={cn(designSystem.buttons.primary, "text-lg")}
                 >
-                  Book Discovery Session
+                  {hero.primaryButton.text}
                 </Link>
                 <Link
-                  href="/about"
+                  href={hero.secondaryButton.href}
                   className={cn(designSystem.buttons.secondary, "text-lg")}
                 >
-                  Learn More
+                  {hero.secondaryButton.text}
                 </Link>
               </div>
               {/* <div className="flex items-center gap-6 mt-8 text-sm text-gray-600">
@@ -113,13 +68,12 @@ export default function Home() {
               <div className="bg-purple-200 rounded-full w-96 h-96 mx-auto opacity-20 absolute -top-10 -right-10"></div>
               <div className={cn(designSystem.cards.base, "p-8 text-center")}>
                 <div className="w-32 h-32 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-6xl">✨</span>
+                  <span className="text-6xl">{hero.profile.emoji}</span>
                 </div>
-                <h3 className={cn(designSystem.text.heading3, "mb-2")}>Alina Rain</h3>
-                <p className="text-purple-600 mb-4">Embodiment Coach & Spiritual Guide</p>
+                <h3 className={cn(designSystem.text.heading3, "mb-2")}>{hero.profile.name}</h3>
+                <p className="text-purple-600 mb-4">{hero.profile.title}</p>
                 <p className="text-gray-600">
-                  Helping visionaries and seekers transform their dreams into embodied reality 
-                  through ancient wisdom and modern coaching techniques.
+                  {hero.profile.description}
                 </p>
               </div>
             </div>
@@ -132,15 +86,15 @@ export default function Home() {
         <div className={designSystem.sections.container}>
           <div className={cn("text-center", designSystem.spacing.margin.xl)}>
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
-              Transform Through Sacred Services
+              {services.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the path that resonates with your soul's journey
+              {services.subtitle}
             </p>
           </div>
           
           <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
-            {services.map((service) => (
+            {services.items.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
           </div>
@@ -152,24 +106,19 @@ export default function Home() {
         <div className={designSystem.sections.container}>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
-              Meet Your Guide
+              {about.title}
             </h2>
             <p className={cn(designSystem.text.body, designSystem.spacing.margin.md)}>
-              I'm Alina Rain, an embodiment coach and spiritual guide dedicated to helping 
-              you bridge the gap between your vision and reality. With over a decade of 
-              experience in transformational coaching, I combine ancient wisdom traditions 
-              with modern psychological insights.
+              {about.intro}
             </p>
             <p className={cn(designSystem.text.body, designSystem.spacing.margin.lg)}>
-              My approach is rooted in the belief that true transformation happens when 
-              we align our mind, body, and spirit. Through our work together, you'll 
-              discover your authentic self and learn to embody your highest potential.
+              {about.philosophy}
             </p>
             <Link
-              href="/about"
+              href={about.buttonHref}
               className={designSystem.buttons.primarySmall}
             >
-              Read My Full Story
+              {about.buttonText}
             </Link>
           </div>
         </div>
@@ -180,25 +129,25 @@ export default function Home() {
         <div className={designSystem.sections.container}>
           <div className={cn("text-center", designSystem.spacing.margin.xl)}>
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
-              Client Transformations
+              {testimonials.title}
             </h2>
             <p className="text-xl text-gray-600">
-              Real stories from real people who"ve transformed their lives
+              {testimonials.subtitle}
             </p>
           </div>
           
           <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
-            {testimonials.map((testimonial) => (
+            {testimonials.items.map((testimonial) => (
               <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
           </div>
           
           <div className={cn("text-center mt-12")}>
             <Link
-              href="/testimonials"
+              href={testimonials.buttonHref}
               className={designSystem.buttons.secondarySmall}
             >
-              Read More Success Stories
+              {testimonials.buttonText}
             </Link>
           </div>
         </div>
@@ -209,16 +158,16 @@ export default function Home() {
         <div className={designSystem.sections.container}>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className={cn("text-4xl font-bold", designSystem.spacing.margin.sm)}>
-              Join the Vision Embodiment Community
+              {newsletter.title}
             </h2>
             <p className={cn("text-xl text-purple-100", designSystem.spacing.margin.lg)}>
-              Receive weekly wisdom, transformation tips, and exclusive offers
+              {newsletter.subtitle}
             </p>
             
             <form className={cn("flex flex-col sm:flex-row max-w-md mx-auto", designSystem.spacing.gap.sm)}>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={newsletter.placeholder}
                 className="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 required
               />
@@ -226,12 +175,12 @@ export default function Home() {
                 type="submit"
                 className={designSystem.buttons.cta}
               >
-                Subscribe
+                {newsletter.buttonText}
               </button>
             </form>
             
             <p className="mt-4 text-sm text-purple-200">
-              Join 1,000+ seekers. No spam, unsubscribe anytime.
+              {newsletter.disclaimer}
             </p>
           </div>
         </div>
@@ -242,17 +191,16 @@ export default function Home() {
         <div className={designSystem.sections.container}>
           <div className="bg-purple-50 rounded-2xl p-12 text-center">
             <h2 className={cn(designSystem.text.heading2, "mb-4")}>
-              Ready to Begin Your Transformation?
+              {cta.title}
             </h2>
             <p className={cn("text-xl text-gray-700 max-w-2xl mx-auto", designSystem.spacing.margin.lg)}>
-              Take the first step towards embodying your vision. Book a complimentary 
-              discovery session to explore how we can work together.
+              {cta.subtitle}
             </p>
             <Link
-              href="/booking"
+              href={cta.buttonHref}
               className={cn(designSystem.buttons.primary, "text-lg")}
             >
-              Book Your Free Discovery Call
+              {cta.buttonText}
             </Link>
           </div>
         </div>
