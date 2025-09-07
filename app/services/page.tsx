@@ -10,7 +10,6 @@ export default function ServicesPage() {
       duration: '60 minutes',
       href: '/services/mind-games-reading',
       icon: '🧠',
-      featured: true,
     },
     {
       title: 'One-to-One Coaching',

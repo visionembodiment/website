@@ -19,7 +19,6 @@ export default function Home() {
       duration: '60 minutes',
       href: '/services/one-to-one',
       icon: '💜',
-      featured: true,
     },
     {
       title: 'Archetypal Tarot',

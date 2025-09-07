@@ -7,7 +7,6 @@ interface ServiceCardProps {
   duration: string;
   href: string;
   icon?: string;
-  featured?: boolean;
 }
 
 export default function ServiceCard({
@@ -16,24 +15,13 @@ export default function ServiceCard({
   price,
   duration,
   href,
-  icon = '✨',
-  featured = false,
 }: ServiceCardProps) {
   return (
     <div
-      className={`relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
-        featured ? 'ring-2 ring-purple-500' : ''
-      }`}
+      className="relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
     >
-      {featured && (
-        <div className="absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">
-          Most Popular
-        </div>
-      )}
       
-      <div className="p-6">
-        <div className="text-4xl mb-4">{icon}</div>
-        
+      <div className="p-6">        
         <h3 className="text-xl font-bold text-purple-900 mb-2">{title}</h3>
         
         <p className="text-gray-600 mb-4 min-h-[60px]">{description}</p>
