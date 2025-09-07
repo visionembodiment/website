@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <>
       {/* Promotion Banner */}
-      <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-3 px-4 text-center">
+      <div className={cn(designSystem.colors.gradient.promotion, designSystem.colors.text.inverse, "py-3 px-4 text-center")}>
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-          <span className="text-lg font-semibold">{promotion.emoji} {promotion.title}</span>
-          <span className="text-base sm:text-lg">{promotion.description}</span>
+          <span className={cn(designSystem.fontSize.lg, designSystem.fontWeight.semibold)}>{promotion.emoji} {promotion.title}</span>
+          <span className={cn(designSystem.fontSize.base, "sm:text-lg")}>{promotion.description}</span>
           <Link
             href={promotion.href}
-            className="inline-block bg-white text-yellow-600 px-4 py-1 rounded-full hover:bg-yellow-50 transition-colors font-semibold text-sm sm:text-base"
+            className={cn("inline-block px-4 py-1 rounded-full transition-colors", designSystem.colors.background.primary, designSystem.colors.text.accent, designSystem.colors.hover.accentBg, designSystem.fontWeight.semibold, designSystem.fontSize.sm, "sm:text-base")}
           >
             {promotion.buttonText}
           </Link>
@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className={cn("relative bg-gradient-to-b from-purple-50 to-white", designSystem.spacing.section.full)}>
+      <section className={cn("relative", designSystem.colors.gradient.hero, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -67,12 +67,12 @@ export default function Home() {
             <div className="relative">
               <div className="bg-purple-200 rounded-full w-96 h-96 mx-auto opacity-20 absolute -top-10 -right-10"></div>
               <div className={cn(designSystem.cards.base, "p-8 text-center")}>
-                <div className="w-32 h-32 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div className={cn("w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center", designSystem.colors.background.tertiary)}>
                   <span className="text-6xl">{hero.profile.emoji}</span>
                 </div>
                 <h3 className={cn(designSystem.text.heading3, "mb-2")}>{hero.profile.name}</h3>
-                <p className="text-purple-600 mb-4">{hero.profile.title}</p>
-                <p className="text-gray-600">
+                <p className={cn(designSystem.colors.text.brandLight, "mb-4")}>{hero.profile.title}</p>
+                <p className={designSystem.colors.text.muted}>
                   {hero.profile.description}
                 </p>
               </div>
@@ -82,13 +82,13 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className={cn("bg-white", designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className={cn("text-center", designSystem.spacing.margin.xl)}>
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
               {services.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.muted, "max-w-3xl mx-auto")}>
               {services.subtitle}
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* About Preview Section */}
-      <section className={cn("bg-purple-50", designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
@@ -125,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={cn("bg-white", designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className={cn("text-center", designSystem.spacing.margin.xl)}>
             <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
@@ -154,13 +154,13 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className={cn("bg-gradient-to-b from-purple-900 to-purple-800 text-white", designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.gradient.newsletter, designSystem.colors.text.inverse, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className={cn("text-4xl font-bold", designSystem.spacing.margin.sm)}>
+            <h2 className={cn(designSystem.fontSize['4xl'], designSystem.fontWeight.bold, designSystem.spacing.margin.sm)}>
               {newsletter.title}
             </h2>
-            <p className={cn("text-xl text-purple-100", designSystem.spacing.margin.lg)}>
+            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.brandLightest, designSystem.spacing.margin.lg)}>
               {newsletter.subtitle}
             </p>
             
@@ -168,7 +168,7 @@ export default function Home() {
               <input
                 type="email"
                 placeholder={newsletter.placeholder}
-                className="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className={cn("flex-1 px-6 py-3 rounded-lg placeholder-gray-500 focus:outline-none", designSystem.colors.text.primary, designSystem.colors.focus.ring)}
                 required
               />
               <button
@@ -179,7 +179,7 @@ export default function Home() {
               </button>
             </form>
             
-            <p className="mt-4 text-sm text-purple-200">
+            <p className={cn("mt-4", designSystem.fontSize.sm, designSystem.colors.text.brandLighter)}>
               {newsletter.disclaimer}
             </p>
           </div>
@@ -187,13 +187,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className={cn("bg-white", designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
-          <div className="bg-purple-50 rounded-2xl p-12 text-center">
+          <div className={cn(designSystem.colors.background.secondary, "rounded-2xl p-12 text-center")}>
             <h2 className={cn(designSystem.text.heading2, "mb-4")}>
               {cta.title}
             </h2>
-            <p className={cn("text-xl text-gray-700 max-w-2xl mx-auto", designSystem.spacing.margin.lg)}>
+            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.secondary, "max-w-2xl mx-auto", designSystem.spacing.margin.lg)}>
               {cta.subtitle}
             </p>
             <Link

@@ -1,4 +1,74 @@
 export const designSystem = {
+  colors: {
+    background: {
+      primary: 'bg-white',
+      secondary: 'bg-purple-50',
+      tertiary: 'bg-purple-100',
+      accent: 'bg-yellow-50',
+      muted: 'bg-gray-50',
+      dark: 'bg-purple-900',
+      darkAlt: 'bg-purple-800',
+    },
+    text: {
+      primary: 'text-gray-900',
+      secondary: 'text-gray-700',
+      muted: 'text-gray-600',
+      mutedAlt: 'text-gray-500',
+      inverse: 'text-white',
+      brand: 'text-purple-900',
+      brandLight: 'text-purple-600',
+      brandLighter: 'text-purple-200',
+      brandLightest: 'text-purple-100',
+      accent: 'text-yellow-600',
+      success: 'text-green-500',
+      warning: 'text-yellow-400',
+    },
+    border: {
+      primary: 'border-gray-200',
+      secondary: 'border-purple-900',
+      accent: 'border-purple-800',
+      divider: 'border-t',
+    },
+    gradient: {
+      hero: 'bg-gradient-to-b from-purple-50 to-white',
+      promotion: 'bg-gradient-to-r from-yellow-500 to-yellow-600',
+      newsletter: 'bg-gradient-to-b from-purple-900 to-purple-800',
+    },
+    hover: {
+      primaryBg: 'hover:bg-purple-800',
+      secondaryBg: 'hover:bg-purple-50',
+      accentBg: 'hover:bg-yellow-50',
+      mutedBg: 'hover:bg-gray-50',
+      lightBg: 'hover:bg-gray-100',
+      primaryText: 'hover:text-purple-900',
+      inverseText: 'hover:text-white',
+      accentButton: 'hover:bg-yellow-700',
+    },
+    focus: {
+      ring: 'focus:ring-2 focus:ring-yellow-500',
+    },
+  },
+  
+  fontSize: {
+    xs: 'text-xs',
+    sm: 'text-sm',
+    base: 'text-base',
+    lg: 'text-lg',
+    xl: 'text-xl',
+    '2xl': 'text-2xl',
+    '3xl': 'text-3xl',
+    '4xl': 'text-4xl',
+    '5xl': 'text-5xl',
+    '6xl': 'text-6xl',
+  },
+  
+  fontWeight: {
+    normal: 'font-normal',
+    medium: 'font-medium',
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+  },
+  
   cards: {
     base: "relative bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden",
     hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300",

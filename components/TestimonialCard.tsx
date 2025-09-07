@@ -26,16 +26,16 @@ export default function TestimonialCard({
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
         ) : (
-          <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-            <span className="text-purple-600 font-bold text-lg">
+          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center mr-4", designSystem.colors.background.tertiary)}>
+            <span className={cn(designSystem.colors.text.brandLight, designSystem.fontWeight.bold, designSystem.fontSize.lg)}>
               {name.charAt(0).toUpperCase()}
             </span>
           </div>
         )}
         
         <div className="flex-1">
-          <h4 className="font-semibold text-gray-900">{name}</h4>
-          <p className="text-sm text-purple-600">{service}</p>
+          <h4 className={cn(designSystem.fontWeight.semibold, designSystem.colors.text.primary)}>{name}</h4>
+          <p className={cn(designSystem.fontSize.sm, designSystem.colors.text.brandLight)}>{service}</p>
         </div>
         
         <div className="flex">
@@ -43,7 +43,7 @@ export default function TestimonialCard({
             <svg
               key={i}
               className={`w-5 h-5 ${
-                i < rating ? 'text-yellow-400' : 'text-gray-300'
+                i < rating ? designSystem.colors.text.warning : 'text-gray-300'
               }`}
               fill="currentColor"
               viewBox="0 0 20 20"

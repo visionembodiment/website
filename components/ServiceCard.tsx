@@ -24,14 +24,14 @@ export default function ServiceCard({
         
         <p className={cn(designSystem.text.bodySmall, "mb-4 min-h-[60px]")}>{description}</p>
         
-        <div className="border-t pt-4 mb-4">
+        <div className={cn(designSystem.colors.border.divider, "pt-4 mb-4")}>
           <div className="flex justify-between items-center mb-2">
-            <span className="text-gray-500">Price:</span>
+            <span className={designSystem.colors.text.mutedAlt}>Price:</span>
             <span className={cn(designSystem.text.heading3, "!text-2xl")}>{price}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-500">Duration:</span>
-            <span className="text-gray-700">{duration}</span>
+            <span className={designSystem.colors.text.mutedAlt}>Duration:</span>
+            <span className={designSystem.colors.text.secondary}>{duration}</span>
           </div>
         </div>
         
