@@ -150,51 +150,27 @@ export default function Home() {
       {/* About Preview Section */}
       <section className={cn("bg-purple-50", designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
-                Meet Your Guide
-              </h2>
-              <p className={cn(designSystem.text.body, designSystem.spacing.margin.md)}>
-                I'm Alina Rain, an embodiment coach and spiritual guide dedicated to helping 
-                you bridge the gap between your vision and reality. With over a decade of 
-                experience in transformational coaching, I combine ancient wisdom traditions 
-                with modern psychological insights.
-              </p>
-              <p className={cn(designSystem.text.body, designSystem.spacing.margin.lg)}>
-                My approach is rooted in the belief that true transformation happens when 
-                we align our mind, body, and spirit. Through our work together, you'll 
-                discover your authentic self and learn to embody your highest potential.
-              </p>
-              <Link
-                href="/about"
-                className={designSystem.buttons.primarySmall}
-              >
-                Read My Full Story
-              </Link>
-            </div>
-            <div className={cn("grid grid-cols-2", designSystem.spacing.gap.sm)}>
-              <div className="bg-white rounded-lg p-6 text-center shadow-md">
-                <div className="text-3xl mb-2">🎓</div>
-                <h4 className="font-semibold text-purple-900">Certified Coach</h4>
-                <p className="text-sm text-gray-600">ICF Accredited</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-md">
-                <div className="text-3xl mb-2">🌟</div>
-                <h4 className="font-semibold text-purple-900">10+ Years</h4>
-                <p className="text-sm text-gray-600">Experience</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-md">
-                <div className="text-3xl mb-2">💜</div>
-                <h4 className="font-semibold text-purple-900">500+ Clients</h4>
-                <p className="text-sm text-gray-600">Transformed</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-md">
-                <div className="text-3xl mb-2">🔮</div>
-                <h4 className="font-semibold text-purple-900">Holistic Approach</h4>
-                <p className="text-sm text-gray-600">Mind-Body-Spirit</p>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
+              Meet Your Guide
+            </h2>
+            <p className={cn(designSystem.text.body, designSystem.spacing.margin.md)}>
+              I'm Alina Rain, an embodiment coach and spiritual guide dedicated to helping 
+              you bridge the gap between your vision and reality. With over a decade of 
+              experience in transformational coaching, I combine ancient wisdom traditions 
+              with modern psychological insights.
+            </p>
+            <p className={cn(designSystem.text.body, designSystem.spacing.margin.lg)}>
+              My approach is rooted in the belief that true transformation happens when 
+              we align our mind, body, and spirit. Through our work together, you'll 
+              discover your authentic self and learn to embody your highest potential.
+            </p>
+            <Link
+              href="/about"
+              className={designSystem.buttons.primarySmall}
+            >
+              Read My Full Story
+            </Link>
           </div>
         </div>
       </section>

@@ -16,8 +16,9 @@ export default function TestimonialCard({
   image,
 }: TestimonialCardProps) {
   return (
-    <div className={cn(designSystem.cards.base, "!shadow-md hover:!shadow-lg", designSystem.cards.padding)}>
-      <div className="flex items-start mb-4">
+    <div className={cn(designSystem.cards.base, designSystem.cards.hover)}>
+      <div className={designSystem.cards.padding}>
+        <div className="flex items-start mb-4">
         {image ? (
           <img
             src={image}
@@ -51,9 +52,10 @@ export default function TestimonialCard({
             </svg>
           ))}
         </div>
+        </div>
+        
+        <p className={cn(designSystem.text.bodySmall, "italic")}>&ldquo;{content}&rdquo;</p>
       </div>
-      
-      <p className={cn(designSystem.text.bodySmall, "italic")}>&ldquo;{content}&rdquo;</p>
     </div>
   );
 }
