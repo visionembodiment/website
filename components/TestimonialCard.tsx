@@ -1,3 +1,5 @@
+import { designSystem, cn } from '@/lib/design-system';
+
 interface TestimonialCardProps {
   name: string;
   service: string;
@@ -14,7 +16,7 @@ export default function TestimonialCard({
   image,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+    <div className={cn(designSystem.cards.base, "!shadow-md hover:!shadow-lg", designSystem.cards.padding)}>
       <div className="flex items-start mb-4">
         {image ? (
           <img
@@ -51,7 +53,7 @@ export default function TestimonialCard({
         </div>
       </div>
       
-      <p className="text-gray-600 italic">&ldquo;{content}&rdquo;</p>
+      <p className={cn(designSystem.text.bodySmall, "italic")}>&ldquo;{content}&rdquo;</p>
     </div>
   );
 }

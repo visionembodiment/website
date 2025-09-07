@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import { designSystem, cn } from '@/lib/design-system';
 
 export default function Home() {
   const services = [
@@ -68,27 +69,27 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-purple-50 to-white py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={cn("relative bg-gradient-to-b from-purple-50 to-white", designSystem.sections.mobilePadding, designSystem.sections.desktopPadding)}>
+        <div className={designSystem.sections.container}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-purple-900 mb-6">
+              <h1 className={cn(designSystem.text.heading1, "mb-6")}>
                 Transform Your Vision Into Embodied Reality
               </h1>
-              <p className="text-xl text-gray-700 mb-8">
+              <p className={cn(designSystem.text.body, "!text-xl mb-8")}>
                 Professional coaching and spiritual guidance to unlock your full potential 
                 and create lasting transformation in your life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/booking"
-                  className="bg-purple-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors text-center font-medium text-lg"
+                  className={cn(designSystem.buttons.primary, "text-lg")}
                 >
                   Book Discovery Session
                 </Link>
                 <Link
                   href="/about"
-                  className="border-2 border-purple-900 text-purple-900 px-8 py-4 rounded-lg hover:bg-purple-50 transition-colors text-center font-medium text-lg"
+                  className={cn(designSystem.buttons.secondary, "text-lg")}
                 >
                   Learn More
                 </Link>
@@ -110,11 +111,11 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="bg-purple-200 rounded-full w-96 h-96 mx-auto opacity-20 absolute -top-10 -right-10"></div>
-              <div className="relative bg-white rounded-2xl shadow-xl p-8 text-center">
+              <div className={cn(designSystem.cards.base, "p-8 text-center")}>
                 <div className="w-32 h-32 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-6xl">✨</span>
                 </div>
-                <h3 className="text-2xl font-bold text-purple-900 mb-2">Alina Rain</h3>
+                <h3 className={cn(designSystem.text.heading3, "mb-2")}>Alina Rain</h3>
                 <p className="text-purple-600 mb-4">Embodiment Coach & Spiritual Guide</p>
                 <p className="text-gray-600">
                   Helping visionaries and seekers transform their dreams into embodied reality 
@@ -127,10 +128,10 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={cn("bg-white", designSystem.sections.mobilePadding, designSystem.sections.desktopPadding)}>
+        <div className={designSystem.sections.container}>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-purple-900 mb-4">
+            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
               Transform Through Sacred Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -202,7 +203,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-purple-900 mb-4">
+            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
               Client Transformations
             </h2>
             <p className="text-xl text-gray-600">
@@ -264,7 +265,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-purple-50 rounded-2xl p-12 text-center">
-            <h2 className="text-4xl font-bold text-purple-900 mb-4">
+            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
               Ready to Begin Your Transformation?
             </h2>
             <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
