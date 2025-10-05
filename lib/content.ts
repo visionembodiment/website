@@ -14,8 +14,8 @@ export const homePageContent = {
   },
 
   hero: {
-    title: 'Transform Your Vision Into Embodied Reality',
-    subtitle: 'Professional coaching and spiritual guidance to unlock your full potential and create lasting transformation in your life.',
+    title: 'The World Needs Your Vision Made Real!',
+    subtitle: 'Professional coaching, energetic healing and spiritual guidance to unlock your full potential and create lasting transformation in your life.',
     primaryButton: {
       text: 'Book Discovery Session',
       href: '/booking',
@@ -26,7 +26,7 @@ export const homePageContent = {
     },
     profile: {
       name: 'Alina Rain',
-      title: 'Embodiment Coach & Spiritual Guide',
+      title: 'Trauma Conscious Intuitive Healer',
       description: 'Helping visionaries and seekers transform their dreams into embodied reality through ancient wisdom and modern coaching techniques.',
       image: '/images/alina-profile.png',
       emoji: '✨',
