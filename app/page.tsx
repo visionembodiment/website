@@ -41,20 +41,9 @@ export default function Home() {
 
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4 max-w-4xl mx-auto">
-            <h2 className={cn(
-              "text-5xl md:text-7xl font-bold mb-4",
-              designSystem.colors.text.inverse,
-              "drop-shadow-lg"
-            )}>
+            <h2 className={designSystem.text.heroTitle}>
               {videoHero.title}
             </h2>
-            <p className={cn(
-              "text-xl md:text-2xl",
-              designSystem.colors.text.inverse,
-              "drop-shadow-md"
-            )}>
-              {videoHero.subtitle}
-            </p>
           </div>
         </div>
       </section>

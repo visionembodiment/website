@@ -10,8 +10,7 @@ export const homePageContent = {
   videoHero: {
     videoUrl: '/videos/hero-background.mp4',
     posterImage: '/images/video-poster.jpg',
-    title: 'Embody Your Vision',
-    subtitle: 'Transform your dreams into reality',
+    title: 'Transform Your Dreams Into Embodied Reality',
   },
 
   hero: {

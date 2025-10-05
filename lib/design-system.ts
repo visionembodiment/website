@@ -60,6 +60,7 @@ export const designSystem = {
     '4xl': 'text-4xl',
     '5xl': 'text-5xl',
     '6xl': 'text-6xl',
+    '7xl': 'text-7xl',
   },
   
   fontWeight: {
@@ -118,6 +119,7 @@ export const designSystem = {
     heading2: "text-4xl font-bold text-purple-900",
     heading3: "text-2xl font-bold text-purple-900",
     heading4: "text-xl font-bold text-purple-900",
+    heroTitle: "text-3xl md:text-7xl font-bold text-white drop-shadow-lg",
     body: "text-lg text-gray-700",
     bodySmall: "text-gray-600",
     caption: "text-sm text-gray-600",
