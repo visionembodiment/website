@@ -78,7 +78,7 @@ export const designSystem = {
   },
   
   buttons: {
-    primary: "rose-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium",
+    primary: "bg-purple-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium",
     primarySmall: "bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition-colors font-medium",
     secondary: "border-2 border-purple-900 text-purple-900 px-8 py-4 rounded-lg hover:bg-purple-50 transition-colors font-medium",
     secondarySmall: "border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium",
