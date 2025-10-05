@@ -5,7 +5,7 @@ import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
 export default function Home() {
-  const { promotion, hero, services, about, testimonials, newsletter, cta } = homePageContent;
+  const { promotion, videoHero, hero, services, about, testimonials, newsletter, cta } = homePageContent;
 
 
   return (
@@ -23,6 +23,41 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      {/* Video Hero Section */}
+      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={videoHero.posterImage}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={videoHero.videoUrl} type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center px-4 max-w-4xl mx-auto">
+            <h2 className={cn(
+              "text-5xl md:text-7xl font-bold mb-4",
+              designSystem.colors.text.inverse,
+              "drop-shadow-lg"
+            )}>
+              {videoHero.title}
+            </h2>
+            <p className={cn(
+              "text-xl md:text-2xl",
+              designSystem.colors.text.inverse,
+              "drop-shadow-md"
+            )}>
+              {videoHero.subtitle}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className={cn("relative", designSystem.colors.gradient.hero, designSystem.spacing.section.full)}>

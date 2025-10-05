@@ -7,6 +7,13 @@ export const homePageContent = {
     href: '/services/mind-games-reading',
   },
 
+  videoHero: {
+    videoUrl: '/videos/hero-background.mp4',
+    posterImage: '/images/video-poster.jpg',
+    title: 'Embody Your Vision',
+    subtitle: 'Transform your dreams into reality',
+  },
+
   hero: {
     title: 'Transform Your Vision Into Embodied Reality',
     subtitle: 'Professional coaching and spiritual guidance to unlock your full potential and create lasting transformation in your life.',
