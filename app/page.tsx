@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import { designSystem, cn } from '@/lib/design-system';
@@ -52,7 +53,8 @@ export default function Home() {
       <section className={cn("relative", designSystem.colors.gradient.hero, designSystem.spacing.section.full)}>
         <div className={designSystem.sections.container}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            {/* Left column - Hidden on mobile, visible on desktop */}
+            <div className="hidden md:block">
               <h1 className={cn(designSystem.text.heading1, "mb-6")}>
                 {hero.title}
               </h1>
@@ -73,32 +75,43 @@ export default function Home() {
                   {hero.secondaryButton.text}
                 </Link>
               </div>
-              {/* <div className="flex items-center gap-6 mt-8 text-sm text-gray-600">
-                <span className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  1+ Clients Transformed
-                </span>
-                <span className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  5+ Years Experience
-                </span>
-              </div> */}
             </div>
+
+            {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
               <div className="bg-purple-200 rounded-full w-96 h-96 mx-auto opacity-20 absolute -top-10 -right-10"></div>
               <div className={cn(designSystem.cards.base, "p-8 text-center")}>
-                <div className={cn("w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center", designSystem.colors.background.tertiary)}>
-                  <span className="text-6xl">{hero.profile.emoji}</span>
+                <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden bg-purple-100">
+                  <Image
+                    src={hero.profile.image}
+                    alt={hero.profile.name}
+                    fill
+                    className="object-cover"
+                    sizes="128px"
+                    priority
+                  />
                 </div>
                 <h3 className={cn(designSystem.text.heading3, "mb-2")}>{hero.profile.name}</h3>
                 <p className={cn(designSystem.colors.text.brandLight, "mb-4")}>{hero.profile.title}</p>
-                <p className={designSystem.colors.text.muted}>
+                <p className={cn(designSystem.colors.text.muted, "mb-6")}>
                   {hero.profile.description}
                 </p>
+
+                {/* Buttons - Only visible on mobile */}
+                <div className="flex flex-col gap-4 md:hidden">
+                  <Link
+                    href={hero.primaryButton.href}
+                    className={cn(designSystem.buttons.primary, "text-lg")}
+                  >
+                    {hero.primaryButton.text}
+                  </Link>
+                  <Link
+                    href={hero.secondaryButton.href}
+                    className={cn(designSystem.buttons.secondary, "text-lg")}
+                  >
+                    {hero.secondaryButton.text}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

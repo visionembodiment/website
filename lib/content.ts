@@ -28,6 +28,7 @@ export const homePageContent = {
       name: 'Alina Rain',
       title: 'Embodiment Coach & Spiritual Guide',
       description: 'Helping visionaries and seekers transform their dreams into embodied reality through ancient wisdom and modern coaching techniques.',
+      image: '/images/alina-profile.jpeg',
       emoji: '✨',
     },
   },
