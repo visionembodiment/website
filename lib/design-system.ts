@@ -1,17 +1,17 @@
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-white',
-      secondary: 'bg-purple-50',
-      tertiary: 'bg-purple-100',
-      accent: 'bg-yellow-50',
+      primary: 'rose-900',
+      secondary: 'rose-900',
+      tertiary: 'rose-900',
+      accent: 'rose-900',
       muted: 'bg-gray-50',
       dark: 'bg-purple-900',
       darkAlt: 'bg-purple-800',
     },
     text: {
-      primary: 'text-gray-900',
-      secondary: 'text-gray-700',
+      primary: 'rose-900',
+      secondary: 'rose-900',
       muted: 'text-gray-600',
       mutedAlt: 'text-gray-500',
       inverse: 'text-white',
@@ -24,7 +24,7 @@ export const designSystem = {
       warning: 'text-yellow-400',
     },
     border: {
-      primary: 'border-gray-200',
+      primary: 'rose-900',
       secondary: 'border-purple-900',
       accent: 'border-purple-800',
       divider: 'border-t',
@@ -78,7 +78,7 @@ export const designSystem = {
   },
   
   buttons: {
-    primary: "bg-purple-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium",
+    primary: "rose-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium",
     primarySmall: "bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition-colors font-medium",
     secondary: "border-2 border-purple-900 text-purple-900 px-8 py-4 rounded-lg hover:bg-purple-50 transition-colors font-medium",
     secondarySmall: "border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium",
