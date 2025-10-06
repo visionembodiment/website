@@ -12,13 +12,13 @@ export default function Home() {
   return (
     <>
       {/* Promotion Banner */}
-      <div className={cn(designSystem.colors.gradient.promotion, designSystem.colors.text.inverse, "py-3 px-4 text-center")}>
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-          <span className={cn(designSystem.fontSize.lg, designSystem.fontWeight.semibold)}>{promotion.emoji} {promotion.title}</span>
-          <span className={cn(designSystem.fontSize.base, "sm:text-lg")}>{promotion.description}</span>
+      <div className={cn(designSystem.colors.gradient.promotion, designSystem.colors.text.inverse, designSystem.spacing.padding.vertical.sm, designSystem.spacing.padding.horizontal.sm, designSystem.layout.textAlign.center)}>
+        <div className={cn(designSystem.layout.container, "flex flex-col sm:flex-row items-center justify-center", designSystem.spacing.gap.xs, "sm:gap-4")}>
+          <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.colors.text.inverse)}>{promotion.emoji} {promotion.title}</span>
+          <span className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse)}>{promotion.description}</span>
           <Link
             href={promotion.href}
-            className={cn("inline-block px-4 py-1 rounded-full transition-colors", designSystem.colors.background.primary, designSystem.colors.text.accent, designSystem.colors.hover.accentBg, designSystem.fontWeight.semibold, designSystem.fontSize.sm, "sm:text-base")}
+            className={cn("inline-block transition-colors", designSystem.spacing.padding.horizontal.sm, designSystem.spacing.padding.vertical.xs, designSystem.rounded.full, designSystem.colors.background.primary, designSystem.colors.text.accent, designSystem.colors.hover.accentBg, designSystem.fontWeight.semibold, designSystem.text.body.sm)}
           >
             {promotion.buttonText}
           </Link>
@@ -41,8 +41,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
 
         <div className="relative h-full flex items-center justify-center">
-          <div className="text-center px-4 max-w-4xl mx-auto">
-            <h2 className={designSystem.text.heroTitle}>
+          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.padding.horizontal.sm, designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.heroTitle, designSystem.colors.text.inverse)}>
               {videoHero.title}
             </h2>
           </div>
@@ -51,26 +51,26 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className={cn("relative", designSystem.colors.gradient.hero, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className={designSystem.layout.container}>
+          <div className={cn("grid md:grid-cols-2 items-center", designSystem.spacing.gap.xl)}>
             {/* Left column - Hidden on mobile, visible on desktop */}
             <div className="hidden md:block">
-              <h1 className={cn(designSystem.text.heading1, "mb-6")}>
+              <h1 className={cn(designSystem.text.h1, designSystem.colors.text.brand, designSystem.spacing.margin.bottom.md)}>
                 {hero.title}
               </h1>
-              <p className={cn(designSystem.text.body, "!text-xl mb-8")}>
+              <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
                 {hero.subtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className={cn("flex flex-col sm:flex-row", designSystem.spacing.gap.sm)}>
                 <Link
                   href={hero.primaryButton.href}
-                  className={cn(designSystem.buttons.primary, "text-lg")}
+                  className={designSystem.buttons.primary}
                 >
                   {hero.primaryButton.text}
                 </Link>
                 <Link
                   href={hero.secondaryButton.href}
-                  className={cn(designSystem.buttons.secondary, "text-lg")}
+                  className={designSystem.buttons.secondary}
                 >
                   {hero.secondaryButton.text}
                 </Link>
@@ -79,9 +79,9 @@ export default function Home() {
 
             {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
-              <div className="bg-purple-200 rounded-full w-96 h-96 mx-auto opacity-20 absolute -top-10 -right-10"></div>
-              <div className={cn(designSystem.cards.base, "p-8 text-center")}>
-                <div className="relative w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden bg-purple-100">
+              <div className={cn(designSystem.rounded.full, "w-96 h-96 opacity-20 absolute -top-10 -right-10 bg-purple-200", designSystem.spacing.margin.horizontal.auto)}></div>
+              <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg, designSystem.layout.textAlign.center)}>
+                <div className={cn("relative w-32 h-32 overflow-hidden bg-purple-100", designSystem.rounded.full, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
                   <Image
                     src={hero.profile.image}
                     alt={hero.profile.name}
@@ -91,23 +91,23 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <h3 className={cn(designSystem.text.heading3, "mb-2")}>{hero.profile.name}</h3>
-                <p className={cn(designSystem.colors.text.brandLight, "mb-4")}>{hero.profile.title}</p>
-                <p className={cn(designSystem.colors.text.muted, "mb-6")}>
+                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.brand, designSystem.spacing.margin.bottom.xs)}>{hero.profile.name}</h3>
+                <p className={cn(designSystem.text.body.md, designSystem.colors.text.brandLight, designSystem.spacing.margin.bottom.sm)}>{hero.profile.title}</p>
+                <p className={cn(designSystem.text.body.md, designSystem.colors.text.muted, designSystem.spacing.margin.bottom.md)}>
                   {hero.profile.description}
                 </p>
 
                 {/* Buttons - Only visible on mobile */}
-                <div className="flex flex-col gap-4 md:hidden">
+                <div className={cn("flex flex-col md:hidden", designSystem.spacing.gap.sm)}>
                   <Link
                     href={hero.primaryButton.href}
-                    className={cn(designSystem.buttons.primary, "text-lg")}
+                    className={designSystem.buttons.primary}
                   >
                     {hero.primaryButton.text}
                   </Link>
                   <Link
                     href={hero.secondaryButton.href}
-                    className={cn(designSystem.buttons.secondary, "text-lg")}
+                    className={designSystem.buttons.secondary}
                   >
                     {hero.secondaryButton.text}
                   </Link>
@@ -120,16 +120,16 @@ export default function Home() {
 
       {/* Services Section */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className={cn("text-center", designSystem.spacing.margin.xl)}>
-            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.brand, designSystem.spacing.margin.bottom.sm)}>
               {services.title}
             </h2>
-            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.muted, "max-w-3xl mx-auto")}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.muted, designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
               {services.subtitle}
             </p>
           </div>
-          
+
           <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
             {services.items.map((service) => (
               <ServiceCard key={service.title} {...service} />
@@ -140,15 +140,15 @@ export default function Home() {
 
       {/* About Preview Section */}
       <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.md)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.md)}>
               {about.title}
             </h2>
-            <p className={cn(designSystem.text.body, designSystem.spacing.margin.md)}>
+            <p className={cn(designSystem.text.body.lg, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.md)}>
               {about.intro}
             </p>
-            <p className={cn(designSystem.text.body, designSystem.spacing.margin.lg)}>
+            <p className={cn(designSystem.text.body.lg, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.lg)}>
               {about.philosophy}
             </p>
             <Link
@@ -163,23 +163,23 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className={cn("text-center", designSystem.spacing.margin.xl)}>
-            <h2 className={cn(designSystem.text.heading2, designSystem.spacing.margin.sm)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.brand, designSystem.spacing.margin.bottom.sm)}>
               {testimonials.title}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.muted)}>
               {testimonials.subtitle}
             </p>
           </div>
-          
+
           <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
             {testimonials.items.map((testimonial) => (
               <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
           </div>
-          
-          <div className={cn("text-center mt-12")}>
+
+          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.top.xl)}>
             <Link
               href={testimonials.buttonHref}
               className={designSystem.buttons.secondarySmall}
@@ -191,21 +191,21 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className={cn(designSystem.colors.gradient.newsletter, designSystem.colors.text.inverse, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className={cn(designSystem.fontSize['4xl'], designSystem.fontWeight.bold, designSystem.spacing.margin.sm)}>
+      <section className={cn(designSystem.colors.gradient.newsletter, designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.sm)}>
               {newsletter.title}
             </h2>
-            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.brandLightest, designSystem.spacing.margin.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.brandLightest, designSystem.spacing.margin.bottom.lg)}>
               {newsletter.subtitle}
             </p>
-            
-            <form className={cn("flex flex-col sm:flex-row max-w-md mx-auto", designSystem.spacing.gap.sm)}>
+
+            <form className={cn("flex flex-col sm:flex-row", designSystem.layout.maxWidth.md, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.gap.sm)}>
               <input
                 type="email"
                 placeholder={newsletter.placeholder}
-                className={cn("flex-1 px-6 py-3 rounded-lg placeholder-gray-500 focus:outline-none", designSystem.colors.text.primary, designSystem.colors.focus.ring)}
+                className={cn("flex-1 placeholder-gray-500 focus:outline-none", designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg, designSystem.colors.text.primary, designSystem.colors.focus.ring)}
                 required
               />
               <button
@@ -215,8 +215,8 @@ export default function Home() {
                 {newsletter.buttonText}
               </button>
             </form>
-            
-            <p className={cn("mt-4", designSystem.fontSize.sm, designSystem.colors.text.brandLighter)}>
+
+            <p className={cn(designSystem.text.caption, designSystem.colors.text.brandLightest, designSystem.spacing.margin.top.sm)}>
               {newsletter.disclaimer}
             </p>
           </div>
@@ -225,17 +225,17 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.sections.container}>
-          <div className={cn(designSystem.colors.background.secondary, "rounded-2xl p-12 text-center")}>
-            <h2 className={cn(designSystem.text.heading2, "mb-4")}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.textAlign.center)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.sm)}>
               {cta.title}
             </h2>
-            <p className={cn(designSystem.fontSize.xl, designSystem.colors.text.secondary, "max-w-2xl mx-auto", designSystem.spacing.margin.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse, designSystem.layout.maxWidth["2xl"], designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.lg)}>
               {cta.subtitle}
             </p>
             <Link
               href={cta.buttonHref}
-              className={cn(designSystem.buttons.primary, "text-lg")}
+              className={designSystem.buttons.primary}
             >
               {cta.buttonText}
             </Link>

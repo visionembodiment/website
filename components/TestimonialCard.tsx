@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { designSystem, cn } from '@/lib/design-system';
 
 interface TestimonialCardProps {
@@ -18,26 +19,28 @@ export default function TestimonialCard({
   return (
     <div className={cn(designSystem.cards.base, designSystem.cards.hover)}>
       <div className={designSystem.cards.padding}>
-        <div className="flex items-start mb-4">
+        <div className={cn("flex items-start", designSystem.spacing.margin.bottom.sm)}>
         {image ? (
-          <img
+          <Image
             src={image}
             alt={name}
-            className="w-12 h-12 rounded-full object-cover mr-4"
+            width={48}
+            height={48}
+            className={cn("rounded-full object-cover", designSystem.spacing.margin.right.sm)}
           />
         ) : (
-          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center mr-4", designSystem.colors.background.tertiary)}>
-            <span className={cn(designSystem.colors.text.brandLight, designSystem.fontWeight.bold, designSystem.fontSize.lg)}>
+          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.colors.background.tertiary, designSystem.spacing.margin.right.sm)}>
+            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.colors.text.brandLight)}>
               {name.charAt(0).toUpperCase()}
             </span>
           </div>
         )}
-        
+
         <div className="flex-1">
-          <h4 className={cn(designSystem.fontWeight.semibold, designSystem.colors.text.primary)}>{name}</h4>
-          <p className={cn(designSystem.fontSize.sm, designSystem.colors.text.brandLight)}>{service}</p>
+          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.primary)}>{name}</h4>
+          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.brandLight)}>{service}</p>
         </div>
-        
+
         <div className="flex">
           {[...Array(5)].map((_, i) => (
             <svg
@@ -53,8 +56,8 @@ export default function TestimonialCard({
           ))}
         </div>
         </div>
-        
-        <p className={cn(designSystem.text.bodySmall, "italic")}>&ldquo;{content}&rdquo;</p>
+
+        <p className={cn(designSystem.text.body.sm, designSystem.colors.text.muted, "italic")}>&ldquo;{content}&rdquo;</p>
       </div>
     </div>
   );

@@ -19,25 +19,25 @@ export default function ServiceCard({
   return (
     <div className={cn(designSystem.cards.base, designSystem.cards.hover)}>
       
-      <div className={designSystem.cards.padding}>        
-        <h3 className={cn(designSystem.text.heading4, "mb-2")}>{title}</h3>
-        
-        <p className={cn(designSystem.text.bodySmall, "mb-4 min-h-[60px]")}>{description}</p>
-        
-        <div className={cn(designSystem.colors.border.divider, "pt-4 mb-4")}>
-          <div className="flex justify-between items-center mb-2">
-            <span className={designSystem.colors.text.mutedAlt}>Price:</span>
-            <span className={cn(designSystem.text.heading3, "!text-2xl")}>{price}</span>
+      <div className={designSystem.cards.padding}>
+        <h3 className={cn(designSystem.text.h4, designSystem.colors.text.brand, designSystem.spacing.margin.bottom.xs)}>{title}</h3>
+
+        <p className={cn(designSystem.text.body.sm, designSystem.colors.text.muted, designSystem.spacing.margin.bottom.sm, "min-h-[60px]")}>{description}</p>
+
+        <div className={cn(designSystem.colors.border.divider, designSystem.spacing.margin.top.sm, designSystem.spacing.margin.bottom.sm, "pt-4")}>
+          <div className={cn("flex justify-between items-center", designSystem.spacing.margin.bottom.xs)}>
+            <span className={cn(designSystem.text.body.sm, designSystem.colors.text.mutedAlt)}>Price:</span>
+            <span className={cn(designSystem.text.h3, designSystem.colors.text.brand)}>{price}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className={designSystem.colors.text.mutedAlt}>Duration:</span>
-            <span className={designSystem.colors.text.secondary}>{duration}</span>
+            <span className={cn(designSystem.text.body.sm, designSystem.colors.text.mutedAlt)}>Duration:</span>
+            <span className={cn(designSystem.text.body.md, designSystem.colors.text.secondary)}>{duration}</span>
           </div>
         </div>
-        
+
         <Link
           href={href}
-          className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block, "!py-3")}
+          className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block)}
         >
           Learn More
         </Link>

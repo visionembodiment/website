@@ -4,19 +4,26 @@
 Vision Embodiment website - A Next.js application for coaching and spiritual guidance services.
 
 ## Design System
-**IMPORTANT**: Always read and use `lib/design-system.ts` for consistent styling across the application.
+**CRITICAL**: ALWAYS read `lib/design-system.ts` BEFORE modifying or creating any components.
 
-The design system contains:
-- Card styles (shadows, borders, hover effects)
-- Button variants (primary, secondary, CTA)
-- Typography scales (headings, body text)
-- Section padding (mobile and desktop)
-- Utility functions (cn for className merging)
+### Workflow
+1. **READ FIRST**: Read `lib/design-system.ts` to understand available tokens
+2. **USE TOKENS**: Never hardcode Tailwind classes - use design system tokens
+3. **NO DUPLICATION**: If you need a new token, add it to the design system first
 
-When modifying or creating components:
-1. Check `lib/design-system.ts` for existing styles
-2. Use the design system tokens instead of hardcoding styles
-3. Maintain consistency with the established patterns
+### Available Tokens
+- **Colors**: `designSystem.colors.background.*`, `designSystem.colors.text.*`, `designSystem.colors.border.*`
+- **Typography**: `designSystem.text.h1-h6`, `designSystem.text.body.*`, `designSystem.text.display.*`
+- **Spacing**: `designSystem.spacing.padding.*`, `designSystem.spacing.margin.*`, `designSystem.spacing.gap.*`
+- **Layout**: `designSystem.layout.maxWidth.*`, `designSystem.layout.textAlign.*`, `designSystem.layout.container`
+- **Components**: `designSystem.cards.*`, `designSystem.buttons.*`, `designSystem.rounded.*`
+- **Utilities**: `cn()` function for className merging
+
+### Rules
+- ❌ NO hardcoded classes: `"text-gray-900"`, `"px-4"`, `"mb-6"`
+- ✅ USE design system: `designSystem.colors.text.primary`, `designSystem.spacing.padding.horizontal.sm`
+- ❌ NO `!important` overrides
+- ✅ Add missing tokens to design system instead
 
 ## Development Commands
 ```bash
