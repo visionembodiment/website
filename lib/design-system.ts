@@ -98,6 +98,29 @@ export const designSystem = {
       md: "gap-6",
       lg: "gap-8",
       xl: "gap-12",
+      responsive: {
+        sm: {
+          xs: "sm:gap-2",
+          sm: "sm:gap-4",
+          md: "sm:gap-6",
+          lg: "sm:gap-8",
+          xl: "sm:gap-12",
+        },
+        md: {
+          xs: "md:gap-2",
+          sm: "md:gap-4",
+          md: "md:gap-6",
+          lg: "md:gap-8",
+          xl: "md:gap-12",
+        },
+        lg: {
+          xs: "lg:gap-2",
+          sm: "lg:gap-4",
+          md: "lg:gap-6",
+          lg: "lg:gap-8",
+          xl: "lg:gap-12",
+        },
+      },
     },
     padding: {
       xs: "p-1",

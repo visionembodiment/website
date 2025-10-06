@@ -13,7 +13,7 @@ export default function Home() {
     <>
       {/* Promotion Banner */}
       <div className={cn(designSystem.colors.gradient.promotion, designSystem.colors.text.inverse, designSystem.spacing.padding.vertical.sm, designSystem.spacing.padding.horizontal.sm, designSystem.layout.textAlign.center)}>
-        <div className={cn(designSystem.layout.container, "flex flex-col sm:flex-row items-center justify-center", designSystem.spacing.gap.xs, "sm:gap-4")}>
+        <div className={cn(designSystem.layout.container, "flex flex-col sm:flex-row items-center justify-center", designSystem.spacing.gap.xs, designSystem.spacing.gap.responsive.sm.sm)}>
           <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.colors.text.inverse)}>{promotion.emoji} {promotion.title}</span>
           <span className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse)}>{promotion.description}</span>
           <Link
