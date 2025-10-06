@@ -3,27 +3,20 @@
 ## Project Overview
 Vision Embodiment website - A Next.js application for coaching and spiritual guidance services.
 
-## Design System
-**CRITICAL**: ALWAYS read `lib/design-system.ts` BEFORE modifying or creating any components.
+## Required Reading
+**CRITICAL**: ALWAYS read these files BEFORE working on the codebase:
+1. `docs/DESIGN-SYSTEM.md` - Design system architecture, philosophy, and usage patterns
+2. `docs/ARCHITECTURE.md` - Application architecture and structure
+3. `docs/TESTING.md` - Testing strategy and guidelines
+4. `docs/TESTING-NOTES.md` - Testing implementation notes
+5. `docs/DEVELOPMENT-NOTES.md` - Development workflow and notes
 
-### Workflow
-1. **READ FIRST**: Read `lib/design-system.ts` to understand available tokens
-2. **USE TOKENS**: Never hardcode Tailwind classes - use design system tokens
-3. **NO DUPLICATION**: If you need a new token, add it to the design system first
-
-### Available Tokens
-- **Colors**: `designSystem.colors.background.*`, `designSystem.colors.text.*`, `designSystem.colors.border.*`
-- **Typography**: `designSystem.text.h1-h6`, `designSystem.text.body.*`, `designSystem.text.display.*`
-- **Spacing**: `designSystem.spacing.padding.*`, `designSystem.spacing.margin.*`, `designSystem.spacing.gap.*`
-- **Layout**: `designSystem.layout.maxWidth.*`, `designSystem.layout.textAlign.*`, `designSystem.layout.container`
-- **Components**: `designSystem.cards.*`, `designSystem.buttons.*`, `designSystem.rounded.*`
-- **Utilities**: `cn()` function for className merging
-
-### Rules
-- ❌ NO hardcoded classes: `"text-gray-900"`, `"px-4"`, `"mb-6"`
-- ✅ USE design system: `designSystem.colors.text.primary`, `designSystem.spacing.padding.horizontal.sm`
-- ❌ NO `!important` overrides
-- ✅ Add missing tokens to design system instead
+## Design System Rules
+- ❌ NO hardcoded Tailwind classes: `"text-gray-900"`, `"px-4"`, `"mb-6"`
+- ✅ USE design system tokens: `designSystem.colors.text.primary`, `designSystem.spacing.padding.horizontal.sm`
+- ❌ NO `!important` overrides or inline styles
+- ✅ Add missing tokens to design system instead of hardcoding
+- ✅ Use `cn()` utility for className composition
 
 ## Development Commands
 ```bash
