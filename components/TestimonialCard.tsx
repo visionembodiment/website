@@ -29,16 +29,16 @@ export default function TestimonialCard({
             className={cn("rounded-full object-cover", designSystem.spacing.margin.right.sm)}
           />
         ) : (
-          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.colors.background.tertiary, designSystem.spacing.margin.right.sm)}>
-            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.colors.text.brandLight)}>
+          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.colors.background.accent, designSystem.spacing.margin.right.sm)}>
+            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.colors.text.inverse)}>
               {name.charAt(0).toUpperCase()}
             </span>
           </div>
         )}
 
         <div className="flex-1">
-          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.primary)}>{name}</h4>
-          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.brandLight)}>{service}</p>
+          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.inverse)}>{name}</h4>
+          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.muted)}>{service}</p>
         </div>
 
         <div className="flex">
@@ -46,7 +46,7 @@ export default function TestimonialCard({
             <svg
               key={i}
               className={`w-5 h-5 ${
-                i < rating ? designSystem.colors.text.warning : 'text-gray-300'
+                i < rating ? designSystem.colors.text.warning : designSystem.colors.text.muted
               }`}
               fill="currentColor"
               viewBox="0 0 20 20"

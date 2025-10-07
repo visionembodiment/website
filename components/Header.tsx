@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { designSystem, cn } from '@/lib/design-system';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,11 +24,11 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className={designSystem.layout.container}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-purple-900">
+            <span className={cn(designSystem.text.h3, designSystem.colors.text.inverse)}>
               Vision Embodiment
             </span>
           </Link>
@@ -38,18 +39,19 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={cn(
+                  "text-sm font-medium transition-colors",
                   isActive(item.href)
-                    ? 'text-purple-900'
-                    : 'text-gray-700 hover:text-purple-900'
-                }`}
+                    ? designSystem.colors.text.inverse
+                    : cn(designSystem.colors.text.muted, "hover:text-slate-900")
+                )}
               >
                 {item.name}
               </Link>
             ))}
             <Link
               href="/booking"
-              className="bg-purple-900 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors"
+              className={cn(designSystem.buttons.primarySmall, "px-4 py-2")}
             >
               Book Now
             </Link>
@@ -58,7 +60,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-900 hover:bg-gray-100"
+            className={cn("md:hidden inline-flex items-center justify-center p-2 rounded-md", designSystem.colors.text.muted, "hover:text-slate-900 hover:bg-stone-400/10")}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -82,11 +84,12 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  className={cn(
+                    "block px-3 py-2 rounded-md text-base font-medium",
                     isActive(item.href)
-                      ? 'text-purple-900 bg-purple-50'
-                      : 'text-gray-700 hover:text-purple-900 hover:bg-gray-50'
-                  }`}
+                      ? cn(designSystem.colors.text.inverse, "bg-stone-400/10")
+                      : cn(designSystem.colors.text.muted, "hover:text-slate-900 hover:bg-stone-400/10")
+                  )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -94,7 +97,7 @@ export default function Header() {
               ))}
               <Link
                 href="/booking"
-                className="block w-full text-center bg-purple-900 text-white px-3 py-2 rounded-md text-base font-medium hover:bg-purple-800"
+                className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block, "px-3 py-2")}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book Now

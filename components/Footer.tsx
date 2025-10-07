@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { designSystem, cn } from '@/lib/design-system';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,13 +30,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-purple-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className={cn(designSystem.colors.background.secondary, designSystem.colors.text.primary)}>
+      <div className={cn(designSystem.layout.container, designSystem.spacing.padding.vertical.xl)}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Vision Embodiment</h3>
-            <p className="text-purple-200 mb-4">
+            <h3 className={cn(designSystem.text.h3, designSystem.spacing.margin.bottom.sm)}>Vision Embodiment</h3>
+            <p className={cn(designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.sm)}>
               Transform your vision into embodied reality through coaching and spiritual guidance.
             </p>
             <div className="flex space-x-4">
@@ -43,7 +44,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-purple-200 hover:text-white transition-colors"
+                  className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
                   aria-label={social.name}
                 >
                   <span className="sr-only">{social.name}</span>
@@ -57,13 +58,13 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Services</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-purple-200 hover:text-white transition-colors"
+                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
                   >
                     {link.name}
                   </Link>
@@ -74,13 +75,13 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Company</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-purple-200 hover:text-white transition-colors"
+                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
                   >
                     {link.name}
                   </Link>
@@ -91,13 +92,13 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Legal</h4>
+            <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Legal</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-purple-200 hover:text-white transition-colors"
+                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
                   >
                     {link.name}
                   </Link>
@@ -108,12 +109,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-purple-800">
+        <div className={cn(designSystem.spacing.margin.top.lg, designSystem.spacing.padding.vertical.lg, designSystem.colors.border.divider)}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-purple-200 text-sm mb-4 md:mb-0">
+            <p className={cn(designSystem.colors.text.secondary, "text-sm mb-4 md:mb-0")}>
               © {currentYear} Vision Embodiment. All rights reserved.
             </p>
-            <div className="flex items-center space-x-4 text-purple-200 text-sm">
+            <div className={cn("flex items-center space-x-4", designSystem.colors.text.secondary, "text-sm")}>
               <span>✓ SSL Secured</span>
               <span>✓ GDPR Compliant</span>
               <span>✓ Trusted by 500+ Clients</span>

@@ -1,49 +1,31 @@
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-slate-900',
-      secondary: 'bg-neutral-950',
-      tertiary: 'bg-blue',
-      accent: 'bg-rose-900',
+      primary: 'bg-slate-900',        // Main background - eggplant black (#1A0E18)
+      secondary: 'bg-pink-950',       // Alternative background - deep aubergine (#3D1F35)
+      accent: 'bg-stone-400',         // Light accent for avatars, badges - champagne gold (#BFA181)
     },
     text: {
-      primary: 'text-white-900',
-      secondary: 'text-white-900',
-      muted: 'text-gray-600',
-      mutedAlt: 'text-gray-500',
-      inverse: 'text-white',
-      brand: 'text-purple-900',
-      brandLight: 'text--600',
-      brandLighter: 'text-purple-200',
-      brandLightest: 'text-purple-100',
-      accent: 'text-yellow-600',
-      success: 'text-green-500',
-      warning: 'text-yellow-400',
+      primary: 'text-stone-100',      // Main body text - lightest for readability (#F4F0ED)
+      secondary: 'text-stone-400',    // Supporting text - champagne gold (#BFA181)
+      muted: 'text-zinc-500',         // De-emphasized text - mauve metallic (#8D6B8F)
+      inverse: 'text-slate-900',      // Dark text on light backgrounds (#1A0E18)
+      accent: 'text-stone-400',       // Brand-colored emphasis - champagne gold (#BFA181)
+      success: 'text-emerald-500',    // Success state text
+      warning: 'text-amber-400',      // Warning state text
+      placeholder: 'placeholder-zinc-500', // Input placeholder - mauve metallic
     },
     border: {
-      primary: 'border-rose-900',
-      secondary: 'border-purple-900',
-      accent: 'border-purple-800',
-      divider: 'border-t',
+      primary: 'border-stone-400',    // Main border - champagne gold
+      secondary: 'border-zinc-500',   // Alternative border - mauve metallic
+      accent: 'border-stone-400',     // Accent border for emphasis
+      divider: 'border-t border-zinc-500', // Horizontal divider line
     },
     gradient: {
-      hero: 'bg-gradient-to-b from-pink-950 to-slate-900',
-      promotion: 'bg-gradient-to-r from-yellow-500 to-yellow-600',
-      newsletter: 'bg-gradient-to-b from-purple-900 to-purple-800',
+      primary: 'bg-gradient-to-b from-pink-950 to-slate-900', // Hero/feature sections gradient
     },
-    hover: {
-      primaryBg: 'hover:bg-neutral-950',
-      secondaryBg: 'hover:bg-purple-50',
-      accentBg: 'hover:bg-yellow-50',
-      mutedBg: 'hover:bg-gray-50',
-      lightBg: 'hover:bg-gray-100',
-      primaryText: 'hover:text-purple-900',
-      inverseText: 'hover:text-white',
-      accentButton: 'hover:bg-yellow-700',
-    },
-    focus: {
-      ring: 'focus:ring-2 focus:ring-yellow-500',
-    },
+    hover: 'hover:bg-zinc-500',      // Hover state - mauve metallic (#8D6B8F)
+    focus: 'focus:ring-2 focus:ring-zinc-500', // Focus rings for accessibility
   },
   
   fontSize: {
@@ -68,19 +50,23 @@ export const designSystem = {
   },
   
   cards: {
-    base: "relative bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden",
-    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300",
+    base: "relative bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-stone-400/20 overflow-hidden",  // Subtle champagne gold border
+    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:border-stone-400 hover:-translate-y-1 transition-all duration-300",  // Gold border on hover
     padding: "p-6",
-    bordered: "border border-gray-200",
+    bordered: "border border-stone-400",  // Stronger champagne gold border when needed
   },
   
   buttons: {
-    primary: "bg-purple-900 text-white px-8 py-4 rounded-lg hover:bg-purple-800 transition-colors font-medium",
-    primarySmall: "bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition-colors font-medium",
-    secondary: "border-2 border-purple-900 text-purple-900 px-8 py-4 rounded-lg hover:bg-purple-50 transition-colors font-medium",
-    secondarySmall: "border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium",
-    cta: "bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors font-medium",
+    primary: "bg-stone-400 text-slate-900 px-8 py-4 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",      // Champagne gold CTA with dark text
+    primarySmall: "bg-stone-400 text-slate-900 px-6 py-3 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",
+    secondary: "border-2 border-stone-400 text-stone-100 px-8 py-4 rounded-lg hover:bg-stone-400 hover:text-slate-900 transition-colors font-medium",  // Outlined style
+    secondarySmall: "border-2 border-stone-400 text-stone-100 px-6 py-3 rounded-lg hover:bg-stone-400 hover:text-slate-900 transition-colors font-medium",
+    cta: "bg-stone-400 text-slate-900 px-8 py-3 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",             // Same as primary for consistency
     block: "block w-full text-center",
+  },
+
+  inputs: {
+    base: "bg-white text-slate-900 border border-stone-400/30 focus:border-stone-400 focus:outline-none",  // White input with champagne gold border
   },
   
   spacing: {
