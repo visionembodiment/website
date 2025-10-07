@@ -1,10 +1,32 @@
 @import "tailwindcss";
 
+@theme {
+  --color-vision-licorice: #1a0e18;
+  --color-vision-dark-purple: #3d1f35;
+  --color-vision-lion: #bfa181;
+  --color-vision-isabelline: #f4f0ed;
+  --color-vision-chinese-violet: #8d6b8f;
+  --color-vision-dun: #DDCDBB;
+
+  --font-family-playfair: var(--font-playfair), Georgia, serif;
+  --font-family-inter: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-family-montserrat: var(--font-montserrat), sans-serif;
+
+  --letter-spacing-tighter-custom: -0.02em;
+  --line-height-body: 1.7;
+  --border-radius-button: 6px;
+}
+
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+  background: linear-gradient(to bottom, #1a0e18, #281525);
+  background-attachment: fixed;
+  color: #f4f0ed;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }

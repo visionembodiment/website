@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className={cn(designSystem.colors.background.secondary, designSystem.colors.text.primary)}>
+    <footer className={cn(designSystem.colors.background.footer, designSystem.colors.text.primary)}>
       <div className={cn(designSystem.layout.container, designSystem.spacing.padding.vertical.xl)}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -44,7 +44,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
+                  className={designSystem.links.base}
                   aria-label={social.name}
                 >
                   <span className="sr-only">{social.name}</span>
@@ -64,7 +64,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
+                    className={designSystem.links.subtle}
                   >
                     {link.name}
                   </Link>
@@ -81,7 +81,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
+                    className={designSystem.links.subtle}
                   >
                     {link.name}
                   </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className={cn(designSystem.colors.text.secondary, "hover:text-stone-100 transition-colors")}
+                    className={designSystem.links.subtle}
                   >
                     {link.name}
                   </Link>
@@ -111,10 +111,10 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className={cn(designSystem.spacing.margin.top.lg, designSystem.spacing.padding.vertical.lg, designSystem.colors.border.divider)}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className={cn(designSystem.colors.text.secondary, "text-sm mb-4 md:mb-0")}>
+            <p className={cn(designSystem.colors.text.secondary, designSystem.text.body.sm, "mb-4 md:mb-0")}>
               © {currentYear} Vision Embodiment. All rights reserved.
             </p>
-            <div className={cn("flex items-center space-x-4", designSystem.colors.text.secondary, "text-sm")}>
+            <div className={cn("flex items-center space-x-4", designSystem.colors.text.secondary, designSystem.text.body.sm)}>
               <span>✓ SSL Secured</span>
               <span>✓ GDPR Compliant</span>
               <span>✓ Trusted by 500+ Clients</span>

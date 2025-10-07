@@ -23,12 +23,12 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={cn("bg-vision-isabelline shadow-sm sticky top-0 z-50", designSystem.colors.border.primary, "border-b")}>
       <nav className={designSystem.layout.container}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className={cn(designSystem.text.h3, designSystem.colors.text.inverse)}>
+            <span className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary)}>
               Vision Embodiment
             </span>
           </Link>
@@ -40,10 +40,12 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  designSystem.text.body.sm,
+                  designSystem.fontWeight.medium,
+                  "transition-colors hover:text-vision-lion",
                   isActive(item.href)
-                    ? designSystem.colors.text.inverse
-                    : cn(designSystem.colors.text.muted, "hover:text-slate-900")
+                    ? designSystem.colors.text.inverse.primary
+                    : designSystem.colors.text.inverse.secondary
                 )}
               >
                 {item.name}
@@ -60,7 +62,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className={cn("md:hidden inline-flex items-center justify-center p-2 rounded-md", designSystem.colors.text.muted, "hover:text-slate-900 hover:bg-stone-400/10")}
+            className={cn("md:hidden inline-flex items-center justify-center p-2 rounded-md", designSystem.colors.text.inverse.primary, designSystem.colors.hover.gold)}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -85,10 +87,13 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "block px-3 py-2 rounded-md text-base font-medium",
+                    "block px-3 py-2 rounded-md",
+                    designSystem.text.body.md,
+                    designSystem.fontWeight.medium,
+                    "transition-colors hover:text-vision-lion",
                     isActive(item.href)
-                      ? cn(designSystem.colors.text.inverse, "bg-stone-400/10")
-                      : cn(designSystem.colors.text.muted, "hover:text-slate-900 hover:bg-stone-400/10")
+                      ? cn(designSystem.colors.text.inverse.primary, "bg-vision-lion/10")
+                      : designSystem.colors.text.inverse.secondary
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >

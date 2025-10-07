@@ -18,7 +18,7 @@ export default function Home() {
           <span className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>{promotion.description}</span>
           <Link
             href={promotion.href}
-            className={cn("inline-block transition-colors", designSystem.spacing.padding.horizontal.sm, designSystem.spacing.padding.vertical.xs, designSystem.rounded.full, designSystem.colors.background.accent, designSystem.colors.text.inverse, designSystem.colors.hover, designSystem.fontWeight.semibold, designSystem.text.body.sm)}
+            className={designSystem.buttons.primarySmall}
           >
             {promotion.buttonText}
           </Link>
@@ -38,6 +38,8 @@ export default function Home() {
           <source src={videoHero.videoUrl} type="video/mp4" />
         </video>
 
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/40 to-vision-licorice/60"></div>
+
         <div className="relative h-full flex items-center justify-center">
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.padding.horizontal.sm, designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.heroTitle, designSystem.colors.text.primary)}>
@@ -48,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Hero Section */}
-      <section className={cn("relative", designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <section className={cn("relative", designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn("grid md:grid-cols-2 items-center", designSystem.spacing.gap.xl)}>
             {/* Left column - Hidden on mobile, visible on desktop */}
@@ -78,7 +80,7 @@ export default function Home() {
             {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
               <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg, designSystem.layout.textAlign.center)}>
-                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.colors.background.accent, designSystem.rounded.full, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
+                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.avatars.background, designSystem.rounded.full, designSystem.shadows.xl, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
                   <Image
                     src={hero.profile.image}
                     alt={hero.profile.name}
@@ -88,9 +90,9 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse, designSystem.spacing.margin.bottom.xs)}>{hero.profile.name}</h3>
-                <p className={cn(designSystem.text.body.md, designSystem.colors.text.muted, designSystem.spacing.margin.bottom.sm)}>{hero.profile.title}</p>
-                <p className={cn(designSystem.text.body.md, designSystem.colors.text.muted, designSystem.spacing.margin.bottom.md)}>
+                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.xs)}>{hero.profile.name}</h3>
+                <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.sm)}>{hero.profile.title}</p>
+                <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.md)}>
                   {hero.profile.description}
                 </p>
 
@@ -202,18 +204,18 @@ export default function Home() {
               <input
                 type="email"
                 placeholder={newsletter.placeholder}
-                className={cn("flex-1", designSystem.inputs.base, designSystem.colors.text.placeholder, designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg)}
+                className={cn("flex-1", designSystem.inputs.base, designSystem.colors.text.placeholder.inverse, designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg)}
                 required
               />
               <button
                 type="submit"
-                className={designSystem.buttons.cta}
+                className={designSystem.buttons.secondarySmall}
               >
                 {newsletter.buttonText}
               </button>
             </form>
 
-            <p className={cn(designSystem.text.caption, designSystem.colors.text.muted, designSystem.spacing.margin.top.sm)}>
+            <p className={cn(designSystem.text.caption, designSystem.colors.text.secondary, designSystem.spacing.margin.top.sm)}>
               {newsletter.disclaimer}
             </p>
           </div>
@@ -232,7 +234,7 @@ export default function Home() {
             </p>
             <Link
               href={cta.buttonHref}
-              className={designSystem.buttons.primary}
+              className={designSystem.buttons.secondary}
             >
               {cta.buttonText}
             </Link>

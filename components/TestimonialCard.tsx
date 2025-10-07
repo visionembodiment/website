@@ -29,16 +29,16 @@ export default function TestimonialCard({
             className={cn("rounded-full object-cover", designSystem.spacing.margin.right.sm)}
           />
         ) : (
-          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.colors.background.accent, designSystem.spacing.margin.right.sm)}>
-            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.colors.text.inverse)}>
+          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.avatars.background, designSystem.spacing.margin.right.sm)}>
+            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.avatars.text)}>
               {name.charAt(0).toUpperCase()}
             </span>
           </div>
         )}
 
         <div className="flex-1">
-          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.inverse)}>{name}</h4>
-          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.muted)}>{service}</p>
+          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.inverse.primary)}>{name}</h4>
+          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.secondary)}>{service}</p>
         </div>
 
         <div className="flex">
@@ -46,7 +46,7 @@ export default function TestimonialCard({
             <svg
               key={i}
               className={`w-5 h-5 ${
-                i < rating ? designSystem.colors.text.warning : designSystem.colors.text.muted
+                i < rating ? designSystem.colors.text.warning : designSystem.colors.text.inverse.secondary
               }`}
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -57,7 +57,7 @@ export default function TestimonialCard({
         </div>
         </div>
 
-        <p className={cn(designSystem.text.body.sm, designSystem.colors.text.muted, "italic")}>&ldquo;{content}&rdquo;</p>
+        <p className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.secondary, "italic")}>&ldquo;{content}&rdquo;</p>
       </div>
     </div>
   );

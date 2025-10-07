@@ -1,31 +1,39 @@
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-slate-900',        // Main background - eggplant black (#1A0E18)
-      secondary: 'bg-pink-950',       // Alternative background - deep aubergine (#3D1F35)
-      accent: 'bg-stone-400',         // Light accent for avatars, badges - champagne gold (#BFA181)
+      primary: 'bg-vision-licorice',        // Main background - eggplant black (#1a0e18)
+      secondary: 'bg-vision-dark-purple',   // Section contrast - deep aubergine (#3d1f35)
+      alternative: 'bg-vision-dark-purple', // Alternative background (#3d1f35)
+      accent: 'bg-vision-dark-purple',      // Dark accent for buttons, overlays (#3d1f35)
+      footer: 'bg-vision-licorice',         // Footer same as primary (#1a0e18)
     },
     text: {
-      primary: 'text-stone-100',      // Main body text - lightest for readability (#F4F0ED)
-      secondary: 'text-stone-400',    // Supporting text - champagne gold (#BFA181)
-      muted: 'text-zinc-500',         // De-emphasized text - mauve metallic (#8D6B8F)
-      inverse: 'text-slate-900',      // Dark text on light backgrounds (#1A0E18)
-      accent: 'text-stone-400',       // Brand-colored emphasis - champagne gold (#BFA181)
-      success: 'text-emerald-500',    // Success state text
-      warning: 'text-amber-400',      // Warning state text
-      placeholder: 'placeholder-zinc-500', // Input placeholder - mauve metallic
+      primary: 'text-vision-isabelline',       // Lightest text for dark backgrounds (#f4f0ed)
+      secondary: 'text-vision-dun',            // Dun for subtitles on dark backgrounds (#DDCDBB)
+      accent: 'text-vision-lion',              // Champagne gold for highlights (#bfa181)
+      inverse: {
+        primary: 'text-vision-licorice',       // Primary dark text on light backgrounds (#1a0e18)
+        secondary: 'text-vision-chinese-violet', // Secondary dark text on light backgrounds (#8d6b8f)
+      },
+      success: 'text-emerald-500',             // Success state text
+      warning: 'text-amber-400',               // Warning state text
+      placeholder: {
+        primary: 'placeholder-vision-dun',     // Placeholder for dark backgrounds (#DDCDBB)
+        inverse: 'placeholder-vision-chinese-violet', // Placeholder for light backgrounds (#8d6b8f)
+      },
     },
     border: {
-      primary: 'border-stone-400',    // Main border - champagne gold
-      secondary: 'border-zinc-500',   // Alternative border - mauve metallic
-      accent: 'border-stone-400',     // Accent border for emphasis
-      divider: 'border-t border-zinc-500', // Horizontal divider line
+      primary: 'border-vision-lion',           // Champagne gold border (#bfa181)
+      divider: 'border-t border-vision-lion',  // Gold divider line
     },
     gradient: {
-      primary: 'bg-gradient-to-b from-pink-950 to-slate-900', // Hero/feature sections gradient
+      primary: 'bg-gradient-to-b from-vision-dark-purple to-vision-licorice', // Hero/feature sections gradient
     },
-    hover: 'hover:bg-zinc-500',      // Hover state - mauve metallic (#8D6B8F)
-    focus: 'focus:ring-2 focus:ring-zinc-500', // Focus rings for accessibility
+    hover: {
+      gold: 'hover:bg-vision-dun',             // Dun hover state (#DDCDBB)
+      accent: 'hover:bg-vision-lion',          // Lion gold hover
+    },
+    focus: 'focus:ring-2 focus:ring-vision-lion', // Focus rings for accessibility
   },
   
   fontSize: {
@@ -50,23 +58,29 @@ export const designSystem = {
   },
   
   cards: {
-    base: "relative bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-stone-400/20 overflow-hidden",  // Subtle champagne gold border
-    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:border-stone-400 hover:-translate-y-1 transition-all duration-300",  // Gold border on hover
+    base: "relative bg-vision-isabelline rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] border border-vision-lion/20 overflow-hidden",
+    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:border-vision-lion hover:-translate-y-1 transition-all duration-300",
     padding: "p-6",
-    bordered: "border border-stone-400",  // Stronger champagne gold border when needed
+    bordered: "border border-vision-lion",
+    dark: "bg-vision-dark-purple border-vision-lion/30",
   },
-  
+
   buttons: {
-    primary: "bg-stone-400 text-slate-900 px-8 py-4 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",      // Champagne gold CTA with dark text
-    primarySmall: "bg-stone-400 text-slate-900 px-6 py-3 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",
-    secondary: "border-2 border-stone-400 text-stone-100 px-8 py-4 rounded-lg hover:bg-stone-400 hover:text-slate-900 transition-colors font-medium",  // Outlined style
-    secondarySmall: "border-2 border-stone-400 text-stone-100 px-6 py-3 rounded-lg hover:bg-stone-400 hover:text-slate-900 transition-colors font-medium",
-    cta: "bg-stone-400 text-slate-900 px-8 py-3 rounded-lg hover:bg-zinc-500 hover:text-stone-100 transition-colors font-medium",             // Same as primary for consistency
+    primary: "bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    primarySmall: "bg-vision-dark-purple text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    secondary: "border-2 border-vision-lion text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    secondarySmall: "border-2 border-vision-lion text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    cta: "bg-vision-dark-purple text-vision-isabelline px-8 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
     block: "block w-full text-center",
   },
 
+  links: {
+    base: "text-vision-lion hover:text-vision-dun hover:underline transition-colors",
+    subtle: "text-vision-dun hover:text-vision-lion transition-colors",
+  },
+
   inputs: {
-    base: "bg-white text-slate-900 border border-stone-400/30 focus:border-stone-400 focus:outline-none",  // White input with champagne gold border
+    base: "bg-vision-isabelline text-vision-licorice border border-vision-lion/30 focus:border-vision-lion focus:outline-none rounded-button",
   },
   
   spacing: {
@@ -204,34 +218,40 @@ export const designSystem = {
   
   text: {
     display: {
-      xl: "text-5xl md:text-7xl lg:text-8xl font-bold",
-      lg: "text-4xl md:text-6xl lg:text-7xl font-bold",
-      md: "text-3xl md:text-5xl lg:text-6xl font-bold",
-      sm: "text-2xl md:text-4xl lg:text-5xl font-bold",
+      xl: "font-playfair text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter-custom",
+      lg: "font-playfair text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter-custom",
+      md: "font-playfair text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter-custom",
+      sm: "font-playfair text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tighter-custom",
     },
 
-    h1: "text-3xl md:text-5xl lg:text-6xl font-bold",
-    h2: "text-2xl md:text-4xl font-bold",
-    h3: "text-xl md:text-2xl font-bold",
-    h4: "text-lg md:text-xl font-bold",
-    h5: "text-base md:text-lg font-bold",
-    h6: "text-sm md:text-base font-bold",
+    h1: "font-playfair text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter-custom",
+    h2: "font-playfair text-2xl md:text-4xl font-semibold tracking-tighter-custom",
+    h3: "font-playfair text-xl md:text-2xl font-semibold tracking-tighter-custom",
+    h4: "font-playfair text-lg md:text-xl font-semibold tracking-tighter-custom",
+    h5: "font-playfair text-base md:text-lg font-semibold tracking-tighter-custom",
+    h6: "font-playfair text-sm md:text-base font-semibold tracking-tighter-custom",
 
     body: {
-      xl: "text-lg md:text-xl",
-      lg: "text-base md:text-lg",
-      md: "text-base",
-      sm: "text-sm md:text-base",
-      xs: "text-xs md:text-sm",
+      xl: "font-inter text-lg md:text-xl leading-body",
+      lg: "font-inter text-base md:text-lg leading-body",
+      md: "font-inter text-base leading-body",
+      sm: "font-inter text-sm md:text-base leading-body",
+      xs: "font-inter text-xs md:text-sm leading-body",
     },
 
-    heroTitle: "text-3xl md:text-7xl font-bold drop-shadow-lg",
-    caption: "text-sm",
+    accent: "font-montserrat uppercase tracking-wider text-sm",
+    heroTitle: "font-playfair text-3xl md:text-7xl font-semibold tracking-tighter-custom drop-shadow-lg",
+    caption: "font-inter text-sm",
   } as const,
   
   badges: {
-    featured: "absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg",
-    promotion: "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-3 px-4",
+    featured: "absolute top-0 right-0 bg-vision-lion text-vision-licorice px-3 py-1 text-sm font-medium rounded-bl-lg",
+    promotion: "bg-vision-lion text-vision-licorice py-3 px-4",
+  },
+
+  avatars: {
+    background: "bg-vision-lion",
+    text: "text-vision-licorice",
   },
   
   shadows: {
