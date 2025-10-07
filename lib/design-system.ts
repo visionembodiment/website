@@ -1,22 +1,19 @@
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-rose-900',
-      secondary: 'bg-rose-900',
-      tertiary: 'bg-rose-900',
+      primary: 'bg-slate-900',
+      secondary: 'bg-neutral-950',
+      tertiary: 'bg-blue',
       accent: 'bg-rose-900',
-      muted: 'bg-gray-50',
-      dark: 'bg-red',
-      darkAlt: 'bg-yellow-800',
     },
     text: {
-      primary: 'text-rose-900',
-      secondary: 'text-rose-900',
+      primary: 'text-white-900',
+      secondary: 'text-white-900',
       muted: 'text-gray-600',
       mutedAlt: 'text-gray-500',
       inverse: 'text-white',
       brand: 'text-purple-900',
-      brandLight: 'text-purple-600',
+      brandLight: 'text--600',
       brandLighter: 'text-purple-200',
       brandLightest: 'text-purple-100',
       accent: 'text-yellow-600',
@@ -30,12 +27,12 @@ export const designSystem = {
       divider: 'border-t',
     },
     gradient: {
-      hero: 'bg-gradient-to-b from-purple-50 to-white',
+      hero: 'bg-gradient-to-b from-pink-950 to-slate-900',
       promotion: 'bg-gradient-to-r from-yellow-500 to-yellow-600',
       newsletter: 'bg-gradient-to-b from-purple-900 to-purple-800',
     },
     hover: {
-      primaryBg: 'hover:bg-purple-800',
+      primaryBg: 'hover:bg-neutral-950',
       secondaryBg: 'hover:bg-purple-50',
       accentBg: 'hover:bg-yellow-50',
       mutedBg: 'hover:bg-gray-50',
