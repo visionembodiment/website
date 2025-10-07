@@ -86,7 +86,7 @@ export default function Home() {
                     alt={hero.profile.name}
                     fill
                     className="object-cover"
-                    sizes="128px"
+                    sizes="240px"
                     priority
                   />
                 </div>
