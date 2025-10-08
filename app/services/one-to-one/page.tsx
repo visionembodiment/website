@@ -92,8 +92,8 @@ export default function OneToOneCoachingPage() {
               One-to-One Coaching
             </h1>
             <p className="text-xl text-gray-700 mb-8">
-              Your personalized journey to profound transformation. Work directly with me 
-              to bridge the gap between where you are and where you're meant to be.
+              Your personalized journey to profound transformation. Work directly with me
+              to bridge the gap between where you are and where you&apos;re meant to be.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -124,18 +124,18 @@ export default function OneToOneCoachingPage() {
                 </h2>
                 <div className="prose prose-lg text-gray-700 space-y-4">
                   <p>
-                    One-to-One Coaching is more than just coaching—it's a sacred container 
-                    for your transformation. Together, we'll dive deep into the patterns, 
+                    One-to-One Coaching is more than just coaching&mdash;it&apos;s a sacred container
+                    for your transformation. Together, we&apos;ll dive deep into the patterns,
                     beliefs, and stories that have been running your life unconsciously.
                   </p>
                   <p>
-                    This is for you if you're ready to stop playing small, break free from 
-                    cycles of self-sabotage, and step into the fullest expression of who 
+                    This is for you if you&apos;re ready to stop playing small, break free from
+                    cycles of self-sabotage, and step into the fullest expression of who
                     you came here to be.
                   </p>
                   <p>
-                    Through our work together, you'll not only achieve your goals but 
-                    fundamentally transform how you relate to yourself, others, and life 
+                    Through our work together, you&apos;ll not only achieve your goals but
+                    fundamentally transform how you relate to yourself, others, and life
                     itself.
                   </p>
                 </div>
@@ -143,7 +143,7 @@ export default function OneToOneCoachingPage() {
               
               <div>
                 <h3 className="text-2xl font-bold text-purple-900 mb-6">
-                  What You'll Experience
+                  What You&apos;ll Experience
                 </h3>
                 <ul className="space-y-3">
                   {benefits.map((benefit, index) => (
@@ -272,10 +272,10 @@ export default function OneToOneCoachingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic mb-4 text-lg">
-                  "Working with Alina changed my life in ways I never imagined possible. 
-                  Through our 12-week journey, I not only achieved my career goals but 
-                  completely transformed my relationship with myself. Her intuitive guidance 
-                  and practical tools helped me break through years of limiting beliefs."
+                  &quot;Working with Alina changed my life in ways I never imagined possible.
+                  Through our 12-week journey, I not only achieved my career goals but
+                  completely transformed my relationship with myself. Her intuitive guidance
+                  and practical tools helped me break through years of limiting beliefs.&quot;
                 </p>
                 <p className="font-semibold text-purple-900">- Sarah Mitchell, Entrepreneur</p>
               </div>
@@ -289,9 +289,9 @@ export default function OneToOneCoachingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic mb-4 text-lg">
-                  "I came to Alina feeling stuck and confused about my life direction. 
-                  Through our coaching sessions, I discovered my true purpose and the 
-                  courage to pursue it. The transformation has been profound and lasting."
+                  &quot;I came to Alina feeling stuck and confused about my life direction.
+                  Through our coaching sessions, I discovered my true purpose and the
+                  courage to pursue it. The transformation has been profound and lasting.&quot;
                 </p>
                 <p className="font-semibold text-purple-900">- Michael Chen, Creative Director</p>
               </div>
@@ -314,21 +314,21 @@ export default function OneToOneCoachingPage() {
                   How do I know if coaching is right for me?
                 </h3>
                 <p className="text-gray-700">
-                  Coaching is ideal if you're ready for change, willing to take responsibility 
-                  for your life, and committed to doing the inner work. If you feel stuck, 
-                  unfulfilled, or know you're meant for more, coaching can help you bridge 
+                  Coaching is ideal if you&apos;re ready for change, willing to take responsibility
+                  for your life, and committed to doing the inner work. If you feel stuck,
+                  unfulfilled, or know you&apos;re meant for more, coaching can help you bridge
                   that gap.
                 </p>
               </div>
               
               <div className="border-b pb-6">
                 <h3 className="font-semibold text-purple-900 mb-2">
-                  What's the difference between the packages?
+                  What&apos;s the difference between the packages?
                 </h3>
                 <p className="text-gray-700">
-                  Single sessions are great for specific challenges or breakthroughs. The 
-                  4-session journey allows for deeper exploration and habit formation. The 
-                  12-week transformation provides comprehensive support for major life changes 
+                  Single sessions are great for specific challenges or breakthroughs. The
+                  4-session journey allows for deeper exploration and habit formation. The
+                  12-week transformation provides comprehensive support for major life changes
                   and complete paradigm shifts.
                 </p>
               </div>
@@ -338,8 +338,8 @@ export default function OneToOneCoachingPage() {
                   What happens between sessions?
                 </h3>
                 <p className="text-gray-700">
-                  You'll receive personalized practices, integration exercises, and email 
-                  support to help you implement insights from our sessions. The real 
+                  You&apos;ll receive personalized practices, integration exercises, and email
+                  support to help you implement insights from our sessions. The real
                   transformation happens in your daily life between our calls.
                 </p>
               </div>
@@ -367,8 +367,8 @@ export default function OneToOneCoachingPage() {
               Your Transformation Starts With a Single Decision
             </h2>
             <p className="text-xl mb-8 text-purple-100">
-              Stop waiting for the perfect moment. The time is now. Your future self 
-              is calling you forward into the life you"re meant to live.
+              Stop waiting for the perfect moment. The time is now. Your future self
+              is calling you forward into the life you&apos;re meant to live.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">

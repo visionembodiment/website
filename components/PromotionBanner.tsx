@@ -3,8 +3,16 @@
 import Link from 'next/link';
 import { designSystem, cn } from '@/lib/design-system';
 
+interface Promotion {
+  emoji: string;
+  title: string;
+  description: string;
+  href: string;
+  buttonText: string;
+}
+
 interface PromotionBannerProps {
-  promotion: any;
+  promotion: Promotion;
   isSticky: boolean;
   translateY: number;
   isSnapping: boolean;

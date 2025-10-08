@@ -21,8 +21,8 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold text-purple-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                Vision Embodiment ("we," "our," or "us") is committed to protecting your privacy. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your 
+                Vision Embodiment (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy.
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your
                 information when you visit our website or use our services.
               </p>
               <p className="text-gray-700">
@@ -135,7 +135,7 @@ export default function Privacy() {
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li><strong>Access:</strong> Request a copy of your personal data</li>
                 <li><strong>Rectification:</strong> Request correction of inaccurate data</li>
-                <li><strong>Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+                <li><strong>Erasure:</strong> Request deletion of your data (&ldquo;right to be forgotten&rdquo;)</li>
                 <li><strong>Restriction:</strong> Request limited processing of your data</li>
                 <li><strong>Portability:</strong> Receive your data in a portable format</li>
                 <li><strong>Objection:</strong> Object to certain processing activities</li>
@@ -193,7 +193,7 @@ export default function Privacy() {
 
             {/* Children's Privacy */}
             <section>
-              <h2 className="text-2xl font-bold text-purple-900 mb-4">11. Children's Privacy</h2>
+              <h2 className="text-2xl font-bold text-purple-900 mb-4">11. Children&apos;s Privacy</h2>
               <p className="text-gray-700">
                 Our services are not intended for individuals under 18 years of age. We do not 
                 knowingly collect personal information from children. If we learn we have collected 
@@ -229,9 +229,9 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold text-purple-900 mb-4">14. Updates to This Privacy Policy</h2>
               <p className="text-gray-700">
-                We may update this Privacy Policy from time to time. We will notify you of any 
-                changes by posting the new Privacy Policy on this page and updating the "Last 
-                updated" date. For significant changes, we may provide additional notice via 
+                We may update this Privacy Policy from time to time. We will notify you of any
+                changes by posting the new Privacy Policy on this page and updating the &ldquo;Last
+                updated&rdquo; date. For significant changes, we may provide additional notice via
                 email or website notification.
               </p>
             </section>

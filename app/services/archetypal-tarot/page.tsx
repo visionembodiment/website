@@ -87,9 +87,9 @@ export default function ArchetypalTarotPage() {
                 </h2>
                 <div className="prose prose-lg text-gray-700 space-y-4">
                   <p>
-                    Archetypal Tarot is a revolutionary approach that weaves together the 
-                    mystical wisdom of tarot with the psychological depth of Carl Jung's 
-                    archetypal theory. This isn't fortune-telling—it's soul-mapping.
+                    Archetypal Tarot is a revolutionary approach that weaves together the
+                    mystical wisdom of tarot with the psychological depth of Carl Jung&apos;s
+                    archetypal theory. This isn&apos;t fortune-telling—it&apos;s soul-mapping.
                   </p>
                   <p>
                     Each card represents universal patterns and energies that live within 
@@ -97,8 +97,8 @@ export default function ArchetypalTarotPage() {
                     patterns, and potentials that shape your life experience.
                   </p>
                   <p>
-                    In our 90-minute journey together, we'll use the cards as a mirror 
-                    to reflect your inner landscape, revealing insights about your past, 
+                    In our 90-minute journey together, we&apos;ll use the cards as a mirror
+                    to reflect your inner landscape, revealing insights about your past,
                     present, and potential futures.
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function ArchetypalTarotPage() {
               
               <div className="bg-purple-50 rounded-xl p-8">
                 <h3 className="text-2xl font-bold text-purple-900 mb-6">
-                  What You'll Discover
+                  What You&apos;ll Discover
                 </h3>
                 <ul className="space-y-3">
                   {benefits.map((benefit, index) => (
@@ -132,7 +132,7 @@ export default function ArchetypalTarotPage() {
               The Living Archetypes
             </h2>
             <p className="text-xl text-gray-600 text-center mb-12">
-              Meet some of the archetypal energies we'll explore in your reading
+              Meet some of the archetypal energies we&apos;ll explore in your reading
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -183,7 +183,7 @@ export default function ArchetypalTarotPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-purple-900 mb-1">Card Selection</h4>
-                      <p className="text-gray-600 text-sm">You'll intuitively choose cards that reflect your energy</p>
+                      <p className="text-gray-600 text-sm">You&apos;ll intuitively choose cards that reflect your energy</p>
                     </div>
                   </div>
                   
@@ -211,7 +211,7 @@ export default function ArchetypalTarotPage() {
               
               <div>
                 <h3 className="text-2xl font-bold text-purple-900 mb-6">
-                  What's Included
+                  What&apos;s Included
                 </h3>
                 <ul className="space-y-3">
                   {sessionIncludes.map((item, index) => (
@@ -247,10 +247,10 @@ export default function ArchetypalTarotPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic mb-4">
-                  "The archetypal reading with Alina was unlike any tarot experience I've had. 
-                  She wove together the symbolism with such depth and psychological insight that 
-                  I left with a completely new understanding of my life patterns. The recording 
-                  has become a treasured resource I return to often."
+                  &ldquo;The archetypal reading with Alina was unlike any tarot experience I&apos;ve had.
+                  She wove together the symbolism with such depth and psychological insight that
+                  I left with a completely new understanding of my life patterns. The recording
+                  has become a treasured resource I return to often.&rdquo;
                 </p>
                 <p className="font-semibold text-purple-900">- Jessica Palmer, Therapist</p>
               </div>
@@ -264,9 +264,9 @@ export default function ArchetypalTarotPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic mb-4">
-                  "I was at a major crossroads in my life and the archetypal tarot reading 
-                  provided exactly the clarity I needed. Alina's ability to connect the cards 
-                  to my personal journey was remarkable. I made my decision with confidence."
+                  &ldquo;I was at a major crossroads in my life and the archetypal tarot reading
+                  provided exactly the clarity I needed. Alina&apos;s ability to connect the cards
+                  to my personal journey was remarkable. I made my decision with confidence.&rdquo;
                 </p>
                 <p className="font-semibold text-purple-900">- Robert Kim, Executive</p>
               </div>
@@ -281,7 +281,7 @@ export default function ArchetypalTarotPage() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-purple-900 text-white rounded-2xl p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Investment in Your Soul's Journey
+                Investment in Your Soul&apos;s Journey
               </h2>
               
               <div className="text-5xl font-bold mb-2">$175</div>
@@ -340,7 +340,7 @@ export default function ArchetypalTarotPage() {
                   Do I need experience with tarot?
                 </h3>
                 <p className="text-gray-700">
-                  No experience necessary! I"ll guide you through everything. The archetypes 
+                  No experience necessary! I&apos;ll guide you through everything. The archetypes
                   speak to everyone, regardless of your familiarity with tarot.
                 </p>
               </div>

@@ -93,8 +93,8 @@ export default function MindGamesReadingPage() {
                 </h2>
                 <div className="prose prose-lg text-gray-700 space-y-4">
                   <p>
-                    Your mind is playing games with you—but not in the way you might think. 
-                    These "games" are the unconscious patterns, beliefs, and stories that 
+                    Your mind is playing games with you—but not in the way you might think.
+                    These &ldquo;games&rdquo; are the unconscious patterns, beliefs, and stories that
                     shape your reality without your awareness.
                   </p>
                   <p>
@@ -103,8 +103,8 @@ export default function MindGamesReadingPage() {
                     see through the illusions your mind creates.
                   </p>
                   <p>
-                    In this 60-minute transformative session, we'll dive deep into your 
-                    mental landscape, identify the games being played, and give you the 
+                    In this 60-minute transformative session, we&apos;ll dive deep into your
+                    mental landscape, identify the games being played, and give you the
                     tools to rewrite the rules in your favor.
                   </p>
                 </div>
@@ -177,7 +177,7 @@ export default function MindGamesReadingPage() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-gray-700 italic mb-4">"{testimonial.content}"</p>
+                  <p className="text-gray-700 italic mb-4">&ldquo;{testimonial.content}&rdquo;</p>
                   <p className="font-semibold text-purple-900">- {testimonial.name}</p>
                 </div>
               ))}
@@ -255,8 +255,8 @@ export default function MindGamesReadingPage() {
                   Is this the same as therapy?
                 </h3>
                 <p className="text-gray-700">
-                  No, Mind Games Reading is a coaching and guidance session focused on 
-                  pattern recognition and transformation. It's not a replacement for therapy 
+                  No, Mind Games Reading is a coaching and guidance session focused on
+                  pattern recognition and transformation. It&apos;s not a replacement for therapy
                   but can complement therapeutic work beautifully.
                 </p>
               </div>
@@ -276,7 +276,7 @@ export default function MindGamesReadingPage() {
                   What happens after the session?
                 </h3>
                 <p className="text-gray-700">
-                  You'll receive a follow-up email with key insights from our session 
+                  You&apos;ll receive a follow-up email with key insights from our session
                   and integration practices to help you continue the transformation.
                 </p>
               </div>
@@ -293,8 +293,8 @@ export default function MindGamesReadingPage() {
               Ready to See Through the Games?
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Your mind has been running the show long enough. 
-              It"s time to take back control and create the reality you desire.
+              Your mind has been running the show long enough.
+              It&apos;s time to take back control and create the reality you desire.
             </p>
             <Link
               href="/booking"

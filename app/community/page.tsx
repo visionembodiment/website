@@ -259,19 +259,19 @@ export default function Community() {
                 <div className="space-y-4">
                   <div className="bg-white rounded-lg p-4">
                     <p className="text-gray-600 italic mb-2">
-                      "The weekly emails are like a gentle reminder to stay connected to my highest self."
+                      &ldquo;The weekly emails are like a gentle reminder to stay connected to my highest self.&rdquo;
                     </p>
                     <p className="text-sm font-semibold text-purple-900">- Jessica M.</p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <p className="text-gray-600 italic mb-2">
-                      "The community events have been transformational. I've made deep connections!"
+                      &ldquo;The community events have been transformational. I&apos;ve made deep connections!&rdquo;
                     </p>
                     <p className="text-sm font-semibold text-purple-900">- David L.</p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <p className="text-gray-600 italic mb-2">
-                      "The free resources alone are worth joining. So much valuable content!"
+                      &ldquo;The free resources alone are worth joining. So much valuable content!&rdquo;
                     </p>
                     <p className="text-sm font-semibold text-purple-900">- Maria K.</p>
                   </div>
@@ -312,7 +312,7 @@ export default function Community() {
               </form>
             ) : (
               <div className="bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md mx-auto">
-                <p className="text-lg font-semibold">You're all set!</p>
+                <p className="text-lg font-semibold">You&apos;re all set!</p>
                 <p className="text-purple-100 mt-2">
                   Welcome to the Vision Embodiment community.
                 </p>

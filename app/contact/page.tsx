@@ -64,10 +64,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-purple-900 mb-6">
-              Let's Connect
+              Let&apos;s Connect
             </h1>
             <p className="text-xl text-gray-700">
-              Ready to begin your transformation journey? I'd love to hear from you.
+              Ready to begin your transformation journey? I&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
 
                   {status === 'success' && (
                     <div className="p-4 bg-green-50 text-green-800 rounded-lg">
-                      Thank you for your message! I'll get back to you within 24 hours.
+                      Thank you for your message! I&apos;ll get back to you within 24 hours.
                     </div>
                   )}
 
@@ -283,7 +283,7 @@ export default function ContactPage() {
               Ready for Your Free Discovery Call?
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Let"s explore how we can work together to transform your life. 
+              Let&apos;s explore how we can work together to transform your life.
               Book a complimentary 30-minute call to discuss your journey.
             </p>
             <a

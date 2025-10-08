@@ -21,7 +21,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-purple-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                Welcome to Vision Embodiment. These Terms of Service ("Terms") govern your use of our website 
+                Welcome to Vision Embodiment. These Terms of Service (&quot;Terms&quot;) govern your use of our website
                 and services. By accessing or using our services, you agree to be bound by these Terms.
               </p>
               <p className="text-gray-700">
@@ -175,7 +175,7 @@ export default function Terms() {
                 legal action.
               </p>
               <p className="text-gray-700 mb-4">
-                <strong>10.3 EU Dispute Resolution:</strong> EU consumers may use the European Commission's 
+                <strong>10.3 EU Dispute Resolution:</strong> EU consumers may use the European Commission&apos;s
                 Online Dispute Resolution platform at{' '}
                 <a href="https://ec.europa.eu/consumers/odr" className="text-purple-600 hover:underline" target="_blank" rel="noopener noreferrer">
                   https://ec.europa.eu/consumers/odr

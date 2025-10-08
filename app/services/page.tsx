@@ -171,9 +171,9 @@ export default function ServicesPage() {
                   How do I know which service is right for me?
                 </h3>
                 <p className="text-gray-600">
-                  If you're new to this work, I recommend starting with the Mind Games Reading 
-                  (currently on special offer). For deeper, ongoing transformation, One-to-One 
-                  Coaching is ideal. Archetypal Tarot is perfect for gaining spiritual insights 
+                  If you&apos;re new to this work, I recommend starting with the Mind Games Reading
+                  (currently on special offer). For deeper, ongoing transformation, One-to-One
+                  Coaching is ideal. Archetypal Tarot is perfect for gaining spiritual insights
                   and understanding your life patterns.
                 </p>
               </div>
@@ -205,8 +205,8 @@ export default function ServicesPage() {
                   How do I prepare for my session?
                 </h3>
                 <p className="text-gray-600">
-                  After booking, you"ll receive detailed preparation guidelines specific to your 
-                  chosen service. Generally, I recommend finding a quiet space, having a journal 
+                  After booking, you&apos;ll receive detailed preparation guidelines specific to your
+                  chosen service. Generally, I recommend finding a quiet space, having a journal
                   ready, and coming with an open heart and mind.
                 </p>
               </div>

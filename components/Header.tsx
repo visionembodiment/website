@@ -11,9 +11,6 @@ export default function Header() {
   const { isSticky, translateY, isSnapping } = useScrollDirection(headerRef);
   const { promotion } = homePageContent;
 
-  const NAVIGATION_HEIGHT = 64;
-  const bannerTranslateY = translateY + NAVIGATION_HEIGHT;
-
   return (
     <>
       <Navigation

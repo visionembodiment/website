@@ -127,7 +127,7 @@ export default function TestimonialsPage() {
               Transformations & Testimonials
             </h1>
             <p className="text-xl text-gray-700">
-              Real stories from real people who've transformed their lives through our work together
+              Real stories from real people who&apos;ve transformed their lives through our work together
             </p>
           </div>
         </div>
@@ -236,19 +236,19 @@ export default function TestimonialsPage() {
                   From Burnout to Breakthrough
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  <span className="font-semibold">Sarah's Story:</span> After 15 years in corporate finance, 
-                  I was completely burned out. I knew I needed a change but felt paralyzed by fear and uncertainty. 
-                  Through 12 weeks of coaching with Alina, I not only found the courage to leave my job but also 
+                  <span className="font-semibold">Sarah&apos;s Story:</span> After 15 years in corporate finance,
+                  I was completely burned out. I knew I needed a change but felt paralyzed by fear and uncertainty.
+                  Through 12 weeks of coaching with Alina, I not only found the courage to leave my job but also
                   discovered my true calling as a wellness entrepreneur.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Alina helped me see that my "failures" were actually redirections toward my purpose. 
-                  Her unique blend of practical coaching and spiritual insight gave me both the strategy 
+                  Alina helped me see that my &quot;failures&quot; were actually redirections toward my purpose.
+                  Her unique blend of practical coaching and spiritual insight gave me both the strategy
                   and the confidence to make this massive life change.
                 </p>
                 <p className="text-gray-700">
-                  Today, I run a successful wellness business that aligns with my values and allows me 
-                  to help others. The transformation wasn't just career-related—it touched every aspect 
+                  Today, I run a successful wellness business that aligns with my values and allows me
+                  to help others. The transformation wasn&apos;t just career-related—it touched every aspect
                   of my life, from my relationships to my health to my sense of self-worth.
                 </p>
               </div>
@@ -258,18 +258,18 @@ export default function TestimonialsPage() {
                   Finding Purpose Through the Archetypes
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  <span className="font-semibold">Robert's Journey:</span> I came to Alina during what felt 
-                  like a midlife crisis. At 45, I had achieved everything I thought I wanted—successful career, 
+                  <span className="font-semibold">Robert&apos;s Journey:</span> I came to Alina during what felt
+                  like a midlife crisis. At 45, I had achieved everything I thought I wanted—successful career,
                   beautiful home, loving family—yet I felt empty and lost.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  The Archetypal Tarot reading revealed patterns I had been unconsciously living out my entire life. 
-                  Alina helped me see how I had been living my father's dreams rather than my own. The cards 
-                  didn't predict my future; they revealed my authentic self.
+                  The Archetypal Tarot reading revealed patterns I had been unconsciously living out my entire life.
+                  Alina helped me see how I had been living my father&apos;s dreams rather than my own. The cards
+                  didn&apos;t predict my future; they revealed my authentic self.
                 </p>
                 <p className="text-gray-700">
-                  Six months later, I've made changes I never thought possible. I've reconnected with my 
-                  creative passions, strengthened my relationships, and found a sense of purpose that had 
+                  Six months later, I&apos;ve made changes I never thought possible. I&apos;ve reconnected with my
+                  creative passions, strengthened my relationships, and found a sense of purpose that had
                   been missing for decades. The recording of our session remains a treasured guide I return to often.
                 </p>
               </div>
@@ -286,7 +286,7 @@ export default function TestimonialsPage() {
               Ready to Write Your Success Story?
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Join hundreds of others who"ve transformed their lives. 
+              Join hundreds of others who&apos;ve transformed their lives.
               Your breakthrough is waiting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

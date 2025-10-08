@@ -276,7 +276,7 @@ export default function Booking() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Preparation</h3>
                 <p className="text-gray-600">
-                  Before your session, you'll receive preparation guidelines and a Zoom link. 
+                  Before your session, you&apos;ll receive preparation guidelines and a Zoom link.
                   Please ensure you have a quiet, private space for your session.
                 </p>
               </div>
@@ -295,7 +295,7 @@ export default function Booking() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Technical Requirements</h3>
                 <p className="text-gray-600">
-                  You'll need a stable internet connection, webcam, and microphone for online sessions. 
+                  You&apos;ll need a stable internet connection, webcam, and microphone for online sessions.
                   Please test your equipment before the session to ensure a smooth experience.
                 </p>
               </div>

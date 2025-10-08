@@ -43,8 +43,8 @@ export default function AboutPage() {
               
               <div className="prose prose-lg text-gray-700 space-y-4">
                 <p>
-                  Welcome, beautiful soul. I'm Alina Rain, and I'm honored that you're here. 
-                  My path to becoming an embodiment coach wasn't linear—it was a spiral journey 
+                  Welcome, beautiful soul. I&apos;m Alina Rain, and I&apos;m honored that you&apos;re here.
+                  My path to becoming an embodiment coach wasn&apos;t linear—it was a spiral journey
                   of awakening, healing, and profound transformation.
                 </p>
                 
@@ -70,9 +70,9 @@ export default function AboutPage() {
                 </p>
                 
                 <p>
-                  I believe that true transformation happens when we bridge the gap between 
-                  vision and embodiment—when we don't just dream of change but become it. 
-                  This is the sacred work I'm here to facilitate with you.
+                  I believe that true transformation happens when we bridge the gap between
+                  vision and embodiment—when we don&apos;t just dream of change but become it.
+                  This is the sacred work I&apos;m here to facilitate with you.
                 </p>
               </div>
 
@@ -80,9 +80,9 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-purple-900 mb-4">My Philosophy</h3>
                 <div className="bg-purple-50 rounded-lg p-6 border-l-4 border-purple-600">
                   <p className="text-gray-700 italic">
-                    "Transformation isn't about becoming someone new—it's about remembering 
-                    who you've always been beneath the layers of conditioning. It's about 
-                    coming home to yourself, fully and unapologetically."
+                    &ldquo;Transformation isn&apos;t about becoming someone new—it&apos;s about remembering
+                    who you&apos;ve always been beneath the layers of conditioning. It&apos;s about
+                    coming home to yourself, fully and unapologetically.&rdquo;
                   </p>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function AboutPage() {
               Ready to Begin Your Journey?
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Let"s explore how we can work together to transform your vision into embodied reality.
+              Let&apos;s explore how we can work together to transform your vision into embodied reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
