@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import VideoHero from '@/components/VideoHero';
+import LazySection from '@/components/LazySection';
 import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
@@ -88,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -105,10 +106,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </LazySection>
 
       {/* About Preview Section */}
-      <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+      <LazySection animation="fade" delay={100} className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -128,10 +129,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </LazySection>
 
       {/* Testimonials Section */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -157,10 +158,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </LazySection>
 
       {/* Newsletter Section */}
-      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <LazySection animation="fade" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -190,10 +191,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </LazySection>
 
       {/* CTA Section */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection animation="slide-up" delay={250} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -210,7 +211,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </LazySection>
     </>
   );
 }
