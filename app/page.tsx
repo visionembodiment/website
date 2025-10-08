@@ -71,13 +71,13 @@ export default function Home() {
                 <div className={cn("flex flex-col md:hidden", designSystem.spacing.gap.sm)}>
                   <Link
                     href={hero.primaryButton.href}
-                    className={designSystem.buttons.primary}
+                    className={designSystem.buttons.primaryInverse}
                   >
                     {hero.primaryButton.text}
                   </Link>
                   <Link
                     href={hero.secondaryButton.href}
-                    className={designSystem.buttons.secondary}
+                    className={designSystem.buttons.secondaryInverse}
                   >
                     {hero.secondaryButton.text}
                   </Link>

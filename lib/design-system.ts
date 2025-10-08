@@ -66,11 +66,13 @@ export const designSystem = {
   },
 
   buttons: {
-    primary: "bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    primarySmall: "bg-vision-dark-purple text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    secondary: "border-2 border-vision-lion text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    secondarySmall: "border-2 border-vision-lion text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    cta: "bg-vision-dark-purple text-vision-isabelline px-8 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    primary: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    primarySmall: "inline-block bg-vision-dark-purple text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    secondary: "inline-block border-2 border-vision-lion text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    secondarySmall: "inline-block border-2 border-vision-lion text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
+    primaryInverse: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-licorice transition-colors font-medium",
+    secondaryInverse: "inline-block border-2 border-vision-dark-purple text-vision-dark-purple px-8 py-4 rounded-button hover:bg-vision-dark-purple hover:text-vision-isabelline transition-colors font-medium",
+    cta: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
     block: "block w-full text-center",
   },
 
