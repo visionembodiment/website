@@ -9,7 +9,9 @@ export const homePageContent = {
 
   videoHero: {
     videoUrl: '/videos/hero-background.mp4',
-    posterImage: '/images/video-poster.jpg',
+    mobileVideoUrl: '/videos/hero-background-mobile.mp4',
+    posterImage: '/images/hero-background-poster.jpg',
+    mobilePosterImage: '/images/hero-background-poster-mobile.jpg',
     title: 'Transform Your Dreams Into Embodied Reality',
   },
 

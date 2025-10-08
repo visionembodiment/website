@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import VideoHero from '@/components/VideoHero';
 import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
@@ -10,30 +11,13 @@ export default function Home() {
 
   return (
     <>
-
-      {/* Video Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={videoHero.posterImage}
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={videoHero.videoUrl} type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/40 to-vision-licorice/60"></div>
-
-        <div className="relative h-full flex items-center justify-center">
-          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.padding.horizontal.sm, designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
-            <h2 className={cn(designSystem.text.heroTitle, designSystem.colors.text.primary)}>
-              {videoHero.title}
-            </h2>
-          </div>
-        </div>
-      </section>
+      <VideoHero
+        title={videoHero.title}
+        videoUrl={videoHero.videoUrl}
+        mobileVideoUrl={videoHero.mobileVideoUrl}
+        posterImage={videoHero.posterImage}
+        mobilePosterImage={videoHero.mobilePosterImage}
+      />
 
       {/* Hero Section */}
       <section className={cn("relative", designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
