@@ -5,9 +5,11 @@ const DEBOUNCE_MS = 150;
 export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
   isSticky: boolean;
   translateY: number;
+  isSnapping: boolean;
 } {
   const [isSticky, setIsSticky] = useState(false);
   const [translateY, setTranslateY] = useState(0);
+  const [isSnapping, setIsSnapping] = useState(false);
   const lastScrollY = useRef(0);
   const lastScrollDirection = useRef<'up' | 'down'>('down');
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -54,6 +56,7 @@ export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
 
       const newTranslateY = Math.max(-headerHeight, Math.min(0, currentTranslateY.current - scrollDelta));
       setTranslateY(newTranslateY);
+      setIsSnapping(false);
 
       lastScrollDirection.current = isScrollingUp ? 'up' : 'down';
 
@@ -62,6 +65,7 @@ export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
       }
 
       scrollTimeout.current = setTimeout(() => {
+        setIsSnapping(true);
         if (lastScrollDirection.current === 'up') {
           setTranslateY(0);
         } else {
@@ -82,5 +86,5 @@ export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
     };
   }, [headerRef]);
 
-  return { isSticky, translateY };
+  return { isSticky, translateY, isSnapping };
 }

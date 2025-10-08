@@ -10,7 +10,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
-  const { isSticky, translateY } = useScrollDirection(headerRef);
+  const { isSticky, translateY, isSnapping } = useScrollDirection(headerRef);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -29,10 +29,11 @@ export default function Header() {
     <header
       ref={headerRef}
       className={cn(
-        "bg-vision-isabelline shadow-sm z-50 transition-transform duration-300",
+        "bg-vision-isabelline shadow-sm z-50",
         designSystem.colors.border.primary,
         "border-b",
-        isSticky && "sticky top-0"
+        isSticky && "sticky top-0",
+        isSnapping && "transition-transform duration-300"
       )}
       style={{
         transform: `translateY(${translateY}px)`

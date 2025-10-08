@@ -347,6 +347,87 @@ describe('useScrollDirection', () => {
     });
   });
 
+  describe('snap animation state', () => {
+    it('should not be snapping while actively scrolling', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 200;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act - Scroll down
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 130;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert - Not snapping during scroll
+      expect(result.current.isSnapping).toBe(false);
+    });
+
+    it('should be snapping after scroll stops', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 200;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 130;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act - Wait for debounce timeout
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      // Assert - Snapping after timeout
+      expect(result.current.isSnapping).toBe(true);
+    });
+
+    it('should stop snapping when scrolling resumes', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 200;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 130;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      // Act - Resume scrolling
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 140;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert - Not snapping when scrolling resumes
+      expect(result.current.isSnapping).toBe(false);
+    });
+  });
+
   it('should handle null ref gracefully', () => {
     // Arrange
     const nullRef = createRef<HTMLElement>();
