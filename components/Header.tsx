@@ -1,13 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { designSystem, cn } from '@/lib/design-system';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+  const { isSticky, translateY } = useScrollDirection(headerRef);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -23,7 +26,18 @@ export default function Header() {
   };
 
   return (
-    <header className={cn("bg-vision-isabelline shadow-sm sticky top-0 z-50", designSystem.colors.border.primary, "border-b")}>
+    <header
+      ref={headerRef}
+      className={cn(
+        "bg-vision-isabelline shadow-sm z-50 transition-transform duration-300",
+        designSystem.colors.border.primary,
+        "border-b",
+        isSticky && "sticky top-0"
+      )}
+      style={{
+        transform: `translateY(${translateY}px)`
+      }}
+    >
       <nav className={designSystem.layout.container}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

@@ -597,32 +597,45 @@ describe('Performance Metrics', () => {
 
 **MANDATORY**: All test files must follow this naming:
 
+**Test Type Suffixes:**
+- `.unit.test.ts[x]` - Unit tests (single function/component in isolation)
+- `.integration.test.ts[x]` - Integration tests (multiple units working together)
+- `.contract.test.ts[x]` - Contract tests (API contracts, external services)
+- `.spec.ts` - Acceptance tests (E2E, user scenarios with Playwright)
+
 ```
 components/
 ├── ServiceCard.tsx
-├── ServiceCard.test.tsx       # Component tests
+├── ServiceCard.unit.test.tsx          # Component unit tests
 └── ServiceCard.types.ts
+
+hooks/
+├── useScrollDirection.ts
+└── useScrollDirection.unit.test.ts    # Hook unit tests
 
 app/
 ├── about/
 │   ├── page.tsx
-│   └── page.test.tsx          # Page component tests
+│   └── page.unit.test.tsx             # Page component tests
 
 lib/
 ├── design-system.ts
-├── design-system.test.ts      # Utility tests
+├── design-system.unit.test.ts         # Utility unit tests
 ├── content.ts
-└── content.test.ts
+└── content.unit.test.ts
 
 test/
-├── setup.ts                   # Test configuration
+├── setup.ts                           # Test configuration
 ├── utils/
-│   └── accessibility.ts       # Test helpers
-└── integration/
-    └── booking-flow.test.tsx  # Integration tests
+│   └── accessibility.ts               # Test helpers
+├── integration/
+│   ├── Header.integration.test.tsx    # Component integration tests
+│   └── booking-flow.integration.test.tsx
+└── contract/
+    └── api.contract.test.ts           # API contract tests
 
 e2e/
-└── homepage.spec.ts           # Playwright E2E tests
+└── homepage.spec.ts                   # Playwright acceptance tests
 ```
 
 ### Test Structure
