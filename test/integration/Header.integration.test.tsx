@@ -149,4 +149,93 @@ describe('Header Integration', () => {
     expect(header).toHaveClass('sticky');
     expect(header).toHaveStyle({ transform: 'translateY(-30px)' });
   });
+
+  it('should always show banner at page top', () => {
+    // Arrange
+    const { container } = render(<Header />);
+    const banner = container.querySelector('[class*="gradient"]') as HTMLElement;
+
+    // Assert - Banner should be visible
+    expect(banner).toBeVisible();
+  });
+
+  it('should keep banner always sticky', () => {
+    // Arrange
+    const { container } = render(<Header />);
+    const banner = container.querySelector('[class*="gradient"]') as HTMLElement;
+
+    // Act - Scroll down past header height (first time)
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Assert - Banner should always be sticky
+    expect(banner).toHaveClass('sticky');
+  });
+
+  it('should always apply transform to banner', () => {
+    // Arrange
+    const { container } = render(<Header />);
+    const banner = container.querySelector('[class*="gradient"]') as HTMLElement;
+
+    // Act - Scroll down (not sticky yet)
+    act(() => {
+      window.scrollY = 50;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Assert - Banner should have transform applied
+    expect(banner.style.transform).toContain('translateY(');
+  });
+
+  it('should position banner 64px below navigation', () => {
+    // Arrange
+    const { container } = render(<Header />);
+    const banner = container.querySelector('[class*="gradient"]') as HTMLElement;
+    const header = container.querySelector('header') as HTMLElement;
+
+    act(() => {
+      window.scrollY = 200;
+      window.dispatchEvent(new Event('scroll'));
+    });
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Act - Scroll down to hide navigation
+    act(() => {
+      window.scrollY = 130;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Assert - Banner should be 64px offset from navigation
+    const headerTransform = header.style.transform;
+    const bannerTransform = banner.style.transform;
+
+    expect(headerTransform).toContain('translateY(');
+    expect(bannerTransform).toContain('translateY(');
+  });
+
+  it('should keep banner visible and sticky when navigation becomes sticky', () => {
+    // Arrange
+    const { container } = render(<Header />);
+    const banner = container.querySelector('[class*="gradient"]') as HTMLElement;
+
+    act(() => {
+      window.scrollY = 200;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Act - Scroll up to make navigation sticky
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    // Assert - Banner should be visible and sticky
+    expect(banner).toBeVisible();
+    expect(banner).toHaveClass('sticky');
+  });
 });

@@ -6,24 +6,10 @@ import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
 export default function Home() {
-  const { promotion, videoHero, hero, services, about, testimonials, newsletter, cta } = homePageContent;
-
+  const { videoHero, hero, services, about, testimonials, newsletter, cta } = homePageContent;
 
   return (
     <>
-      {/* Promotion Banner */}
-      <div className={cn(designSystem.colors.gradient.primary, designSystem.spacing.padding.vertical.sm, designSystem.spacing.padding.horizontal.sm, designSystem.layout.textAlign.center)}>
-        <div className={cn(designSystem.layout.container, "flex flex-col sm:flex-row items-center justify-center", designSystem.spacing.gap.xs, designSystem.spacing.gap.responsive.sm.sm)}>
-          <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.colors.text.primary)}>{promotion.emoji} {promotion.title}</span>
-          <span className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>{promotion.description}</span>
-          <Link
-            href={promotion.href}
-            className={designSystem.buttons.primarySmall}
-          >
-            {promotion.buttonText}
-          </Link>
-        </div>
-      </div>
 
       {/* Video Hero Section */}
       <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
