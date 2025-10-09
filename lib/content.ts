@@ -1,5 +1,6 @@
 export const homePageContent = {
   promotion: {
+    active: true,
     emoji: '🎉',
     title: 'Limited Time Offer!',
     description: 'Mind Games Reading - Only $15 (Regular $150)',

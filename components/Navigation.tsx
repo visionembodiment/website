@@ -1,18 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, RefObject } from 'react';
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { designSystem, cn } from '@/lib/design-system';
 
-interface NavigationProps {
-  headerRef: RefObject<HTMLElement | null>;
-  isSticky: boolean;
-  translateY: number;
-  isSnapping: boolean;
-}
-
-export default function Navigation({ headerRef, isSticky, translateY, isSnapping }: NavigationProps) {
+export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -30,20 +23,15 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
   };
 
   return (
-    <header
-      ref={headerRef}
+    <nav
       className={cn(
-        "bg-vision-isabelline shadow-sm z-50",
+        "bg-vision-isabelline",
+        designSystem.shadows.sm,
         designSystem.colors.border.primary,
-        "border-b",
-        isSticky && "sticky top-0",
-        isSnapping && "transition-transform duration-300"
+        "border-b"
       )}
-      style={{
-        transform: `translateY(${translateY}px)`
-      }}
     >
-      <nav className={designSystem.layout.container}>
+      <div className={designSystem.layout.container}>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -53,14 +41,15 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={cn("hidden md:flex items-center", designSystem.spacing.gap.lg)}>
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
                   designSystem.text.body.sm,
-                  "transition-colors hover:text-vision-lion",
+                  "transition-colors",
+                  designSystem.colors.hover.text.accent,
                   isActive(item.href)
                     ? cn(designSystem.colors.text.inverse.primary, designSystem.fontWeight.semibold)
                     : cn(designSystem.colors.text.inverse.secondary, designSystem.fontWeight.medium)
@@ -71,7 +60,7 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
             ))}
             <Link
               href="/booking"
-              className={cn(designSystem.buttons.primarySmall, "px-4 py-2")}
+              className={designSystem.buttons.primarySmall}
             >
               Book Now
             </Link>
@@ -80,7 +69,7 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
           {/* Mobile menu button */}
           <button
             type="button"
-            className={cn("md:hidden inline-flex items-center justify-center p-2 rounded-md", designSystem.colors.text.inverse.primary, designSystem.colors.hover.gold)}
+            className={cn("md:hidden inline-flex items-center justify-center", designSystem.spacing.padding.sm, designSystem.rounded.md, designSystem.colors.text.inverse.primary, designSystem.colors.hover.background.gold)}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -99,15 +88,18 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className={cn(designSystem.spacing.padding.horizontal.sm, designSystem.spacing.padding.vertical.sm, designSystem.spacing.gap.xs, "flex flex-col")}>
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "block px-3 py-2 rounded-md",
+                    "block transition-colors",
+                    designSystem.spacing.padding.horizontal.sm,
+                    designSystem.spacing.padding.vertical.sm,
+                    designSystem.rounded.md,
                     designSystem.text.body.md,
-                    "transition-colors hover:text-vision-lion",
+                    designSystem.colors.hover.text.accent,
                     isActive(item.href)
                       ? cn(designSystem.colors.text.inverse.primary, designSystem.fontWeight.semibold, "bg-vision-lion/10")
                       : cn(designSystem.colors.text.inverse.secondary, designSystem.fontWeight.medium)
@@ -119,7 +111,7 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
               ))}
               <Link
                 href="/booking"
-                className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block, "px-3 py-2")}
+                className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block)}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book Now
@@ -127,7 +119,7 @@ export default function Navigation({ headerRef, isSticky, translateY, isSnapping
             </div>
           </div>
         )}
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
 }

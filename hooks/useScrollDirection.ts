@@ -1,60 +1,35 @@
 import { useState, useEffect, useRef, RefObject } from 'react';
 
 const DEBOUNCE_MS = 150;
+const NAVIGATION_HEIGHT = 64;
 
-export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
-  isSticky: boolean;
+export function useScrollDirection(headerRef: RefObject<HTMLDivElement | null>): {
   translateY: number;
   isSnapping: boolean;
 } {
-  const [isSticky, setIsSticky] = useState(false);
   const [translateY, setTranslateY] = useState(0);
   const [isSnapping, setIsSnapping] = useState(false);
   const lastScrollY = useRef(0);
   const lastScrollDirection = useRef<'up' | 'down'>('down');
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
   const currentTranslateY = useRef(translateY);
-  const currentIsSticky = useRef(isSticky);
 
   currentTranslateY.current = translateY;
-  currentIsSticky.current = isSticky;
 
   useEffect(() => {
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const headerHeight = headerRef.current?.offsetHeight || 0;
       const scrollDelta = currentScrollY - lastScrollY.current;
       const isScrollingUp = scrollDelta < 0;
 
-      if (currentScrollY === 0) {
-        setIsSticky(false);
-        setTranslateY(0);
-        lastScrollY.current = currentScrollY;
-        return;
-      }
-
       if (currentScrollY < headerHeight) {
-        if (currentIsSticky.current) {
-          setTranslateY(0);
-          lastScrollY.current = currentScrollY;
-          return;
-        }
-
         setTranslateY(0);
         lastScrollY.current = currentScrollY;
         return;
       }
 
-      if (!currentIsSticky.current && isScrollingUp) {
-        setIsSticky(true);
-        setTranslateY(0);
-      } else if (!currentIsSticky.current) {
-        lastScrollY.current = currentScrollY;
-        return;
-      }
-
-      const newTranslateY = Math.max(-headerHeight, Math.min(0, currentTranslateY.current - scrollDelta));
+      const newTranslateY = Math.max(-NAVIGATION_HEIGHT, Math.min(0, currentTranslateY.current - scrollDelta));
       setTranslateY(newTranslateY);
       setIsSnapping(false);
 
@@ -69,7 +44,7 @@ export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
         if (lastScrollDirection.current === 'up') {
           setTranslateY(0);
         } else {
-          setTranslateY(-headerHeight);
+          setTranslateY(-NAVIGATION_HEIGHT);
         }
       }, DEBOUNCE_MS);
 
@@ -86,5 +61,5 @@ export function useScrollDirection(headerRef: RefObject<HTMLElement | null>): {
     };
   }, [headerRef]);
 
-  return { isSticky, translateY, isSnapping };
+  return { translateY, isSnapping };
 }

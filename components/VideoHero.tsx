@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { cn, designSystem } from '@/lib/design-system';
+import { useVideoAutoplay } from '@/hooks/useVideoAutoplay';
 
 interface VideoHeroProps {
   title: string;
@@ -15,25 +16,7 @@ export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage
   const videoRef = useRef<HTMLVideoElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-
-      const handleCanPlay = () => {
-        video.play().then(() => {
-          video.classList.remove('opacity-0');
-          if (imgRef.current) {
-            imgRef.current.classList.add('opacity-0');
-          }
-        }).catch(() => {
-          // Autoplay blocked, keep poster visible
-        });
-      };
-
-      video.addEventListener('canplay', handleCanPlay);
-      return () => video.removeEventListener('canplay', handleCanPlay);
-    }
-  }, []);
+  useVideoAutoplay(videoRef, imgRef);
 
   return (
     <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
@@ -53,7 +36,7 @@ export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+        className="absolute inset-0 w-full h-full object-cover opacity-0"
       >
         {mobileVideoUrl && (
           <source src={mobileVideoUrl} type="video/mp4" media="(max-width: 768px)" />

@@ -30,8 +30,14 @@ export const designSystem = {
       primary: 'bg-gradient-to-b from-vision-dark-purple to-vision-licorice', // Hero/feature sections gradient
     },
     hover: {
-      gold: 'hover:bg-vision-dun',             // Dun hover state (#DDCDBB)
-      accent: 'hover:bg-vision-lion',          // Lion gold hover
+      background: {
+        gold: 'hover:bg-vision-dun',           // Dun hover state (#DDCDBB)
+        accent: 'hover:bg-vision-lion',        // Lion gold hover
+      },
+      text: {
+        accent: 'hover:text-vision-lion',      // Lion gold text hover
+        dun: 'hover:text-vision-dun',          // Dun text hover
+      },
     },
     focus: 'focus:ring-2 focus:ring-vision-lion', // Focus rings for accessibility
   },

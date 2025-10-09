@@ -4,15 +4,16 @@ import { useScrollDirection } from './useScrollDirection';
 import { createRef } from 'react';
 
 describe('useScrollDirection', () => {
-  let headerRef: React.RefObject<HTMLElement | null>;
-  const MOCK_HEADER_HEIGHT = 64;
+  let headerRef: React.RefObject<HTMLDivElement | null>;
+  const MOCK_HEADER_HEIGHT = 120;
+  const NAVIGATION_HEIGHT = 64;
 
   beforeEach(() => {
     window.scrollY = 0;
     vi.clearAllMocks();
     vi.useFakeTimers();
 
-    headerRef = createRef<HTMLElement>();
+    headerRef = createRef<HTMLDivElement>();
     Object.defineProperty(headerRef, 'current', {
       writable: true,
       value: {
@@ -27,374 +28,201 @@ describe('useScrollDirection', () => {
   });
 
   describe('when within header height', () => {
-    it('should always be visible and non-sticky', () => {
+    it('should not translate (translateY = 0)', () => {
       // Arrange
       const { result } = renderHook(() => useScrollDirection(headerRef));
 
-      // Act - Scroll within header height
+      // Act
       act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT - 10;
         window.dispatchEvent(new Event('scroll'));
       });
 
       // Assert
-      expect(result.current.isSticky).toBe(false);
       expect(result.current.translateY).toBe(0);
     });
 
-    it('should not become sticky when scrolling up within header height', () => {
+    it('should reset translateY when scrolling back into header zone', () => {
       // Arrange
       const { result } = renderHook(() => useScrollDirection(headerRef));
 
-      act(() => {
-        window.scrollY = 50;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Act
-      act(() => {
-        window.scrollY = 30;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Assert
-      expect(result.current.isSticky).toBe(false);
-    });
-  });
-
-  describe('when scrolling down past header', () => {
-    it('should scroll naturally', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      // Act
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 100;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Assert
-      expect(result.current.isSticky).toBe(false);
-    });
-  });
-
-  describe('when scrolled down past header', () => {
-    describe('when scrolling up', () => {
-      it('should make header sticky', () => {
-        // Arrange
-        const { result } = renderHook(() => useScrollDirection(headerRef));
-
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 200;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Act
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 100;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Assert
-        expect(result.current.isSticky).toBe(true);
-      });
-
-      it('should show header', () => {
-        // Arrange
-        const { result } = renderHook(() => useScrollDirection(headerRef));
-
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 200;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Act
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 100;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Assert
-        expect(result.current.translateY).toBe(0);
-      });
-    });
-  });
-
-  describe('when sticky', () => {
-    describe('when scrolling down', () => {
-      it('should follow scroll delta', () => {
-        // Arrange
-        const { result } = renderHook(() => useScrollDirection(headerRef));
-
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 200;
-          window.dispatchEvent(new Event('scroll'));
-        });
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 100;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Act
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 130;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Assert
-        expect(result.current.translateY).toBe(-30);
-      });
-    });
-
-    describe('when scrolling up', () => {
-      it('should follow scroll delta', () => {
-        // Arrange
-        const { result } = renderHook(() => useScrollDirection(headerRef));
-
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 200;
-          window.dispatchEvent(new Event('scroll'));
-        });
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 100;
-          window.dispatchEvent(new Event('scroll'));
-        });
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 150;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Act
-        act(() => {
-          window.scrollY = MOCK_HEADER_HEIGHT + 120;
-          window.dispatchEvent(new Event('scroll'));
-        });
-
-        // Assert
-        expect(result.current.translateY).toBeLessThan(0);
-        expect(result.current.translateY).toBeGreaterThan(-MOCK_HEADER_HEIGHT);
-      });
-    });
-
-    describe('when scroll stops', () => {
-      describe('when partially hidden', () => {
-        it('should animate to fully hidden', () => {
-          // Arrange
-          const { result } = renderHook(() => useScrollDirection(headerRef));
-
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 200;
-            window.dispatchEvent(new Event('scroll'));
-          });
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 100;
-            window.dispatchEvent(new Event('scroll'));
-          });
-
-          // Act
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 130;
-            window.dispatchEvent(new Event('scroll'));
-          });
-
-          act(() => {
-            vi.advanceTimersByTime(150);
-          });
-
-          // Assert
-          expect(result.current.translateY).toBe(-MOCK_HEADER_HEIGHT);
-        });
-      });
-
-      describe('when partially shown', () => {
-        it('should animate to fully shown', () => {
-          // Arrange
-          const { result } = renderHook(() => useScrollDirection(headerRef));
-
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 200;
-            window.dispatchEvent(new Event('scroll'));
-          });
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 100;
-            window.dispatchEvent(new Event('scroll'));
-          });
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 150;
-            window.dispatchEvent(new Event('scroll'));
-          });
-          act(() => {
-            vi.advanceTimersByTime(150);
-          });
-
-          // Act
-          act(() => {
-            window.scrollY = MOCK_HEADER_HEIGHT + 120;
-            window.dispatchEvent(new Event('scroll'));
-          });
-
-          act(() => {
-            vi.advanceTimersByTime(150);
-          });
-
-          // Assert
-          expect(result.current.translateY).toBe(0);
-        });
-      });
-    });
-  });
-
-  describe('when scrolled back to top', () => {
-    it('should not be sticky when at top', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
       act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT + 100;
         window.dispatchEvent(new Event('scroll'));
       });
 
       // Act
-      act(() => {
-        window.scrollY = 0;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Assert
-      expect(result.current.isSticky).toBe(false);
-    });
-
-    it('should stay sticky when scrolling back into header zone', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 100;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Act - Scroll up into header zone
       act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT - 10;
         window.dispatchEvent(new Event('scroll'));
       });
 
-      // Assert - Should stay sticky to avoid jump
-      expect(result.current.isSticky).toBe(true);
-      expect(result.current.translateY).toBe(0);
-    });
-
-    it('should not hide header when sticky and scrolling down within header zone', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 100;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = 30;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Act - Scroll down within header zone
-      act(() => {
-        window.scrollY = 40;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Assert - Should remain visible (translateY = 0)
-      expect(result.current.translateY).toBe(0);
-    });
-
-    it('should not hide header when sticky and scrolling up within header zone', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 100;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = 50;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Act - Scroll up within header zone
-      act(() => {
-        window.scrollY = 30;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Assert - Should remain visible (translateY = 0)
+      // Assert
       expect(result.current.translateY).toBe(0);
     });
   });
 
-  describe('snap animation state', () => {
+  describe('when scrolled past header', () => {
+    it('should translate down on scroll down', () => {
+      // Arrange - Start with scrollY=0, translateY=0, lastScrollY=0
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      // First scroll: huge jump from 0 to 220 gets clamped to -64
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act - Scroll down 30 more pixels
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 130;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert - Already at max hidden (-64), stays there
+      expect(result.current.translateY).toBe(-NAVIGATION_HEIGHT);
+    });
+
+    it('should translate up on scroll up', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 150;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 120;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert
+      expect(result.current.translateY).toBeLessThan(0);
+      expect(result.current.translateY).toBeGreaterThan(-NAVIGATION_HEIGHT);
+    });
+
+    it('should clamp translateY to max navigation height', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act - Scroll down more than navigation height
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 200;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert
+      expect(result.current.translateY).toBe(-NAVIGATION_HEIGHT);
+    });
+
+    it('should clamp translateY to min 0', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 150;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act - Scroll up more than we scrolled down
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 50;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Assert
+      expect(result.current.translateY).toBe(0);
+    });
+  });
+
+  describe('snap animation', () => {
+    it('should snap to fully hidden after scroll stops while scrolling down', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      // Act
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 130;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      // Assert
+      expect(result.current.translateY).toBe(-NAVIGATION_HEIGHT);
+      expect(result.current.isSnapping).toBe(true);
+    });
+
+    it('should snap to fully visible after scroll stops while scrolling up', () => {
+      // Arrange
+      const { result } = renderHook(() => useScrollDirection(headerRef));
+
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 100;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 150;
+        window.dispatchEvent(new Event('scroll'));
+      });
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      // Act
+      act(() => {
+        window.scrollY = MOCK_HEADER_HEIGHT + 120;
+        window.dispatchEvent(new Event('scroll'));
+      });
+
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      // Assert
+      expect(result.current.translateY).toBe(0);
+      expect(result.current.isSnapping).toBe(true);
+    });
+
     it('should not be snapping while actively scrolling', () => {
       // Arrange
       const { result } = renderHook(() => useScrollDirection(headerRef));
 
       act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT + 100;
         window.dispatchEvent(new Event('scroll'));
       });
 
-      // Act - Scroll down
+      // Act
       act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT + 130;
         window.dispatchEvent(new Event('scroll'));
       });
 
-      // Assert - Not snapping during scroll
+      // Assert
       expect(result.current.isSnapping).toBe(false);
-    });
-
-    it('should be snapping after scroll stops', () => {
-      // Arrange
-      const { result } = renderHook(() => useScrollDirection(headerRef));
-
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 100;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 130;
-        window.dispatchEvent(new Event('scroll'));
-      });
-
-      // Act - Wait for debounce timeout
-      act(() => {
-        vi.advanceTimersByTime(150);
-      });
-
-      // Assert - Snapping after timeout
-      expect(result.current.isSnapping).toBe(true);
     });
 
     it('should stop snapping when scrolling resumes', () => {
@@ -402,10 +230,6 @@ describe('useScrollDirection', () => {
       const { result } = renderHook(() => useScrollDirection(headerRef));
 
       act(() => {
-        window.scrollY = MOCK_HEADER_HEIGHT + 200;
-        window.dispatchEvent(new Event('scroll'));
-      });
-      act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT + 100;
         window.dispatchEvent(new Event('scroll'));
       });
@@ -417,36 +241,37 @@ describe('useScrollDirection', () => {
         vi.advanceTimersByTime(150);
       });
 
-      // Act - Resume scrolling
+      // Act
       act(() => {
         window.scrollY = MOCK_HEADER_HEIGHT + 140;
         window.dispatchEvent(new Event('scroll'));
       });
 
-      // Assert - Not snapping when scrolling resumes
+      // Assert
       expect(result.current.isSnapping).toBe(false);
     });
   });
 
-  it('should handle null ref gracefully', () => {
-    // Arrange
-    const nullRef = createRef<HTMLElement>();
+  describe('edge cases', () => {
+    it('should handle null ref gracefully', () => {
+      // Arrange
+      const nullRef = createRef<HTMLDivElement>();
 
-    // Act & Assert
-    const { result } = renderHook(() => useScrollDirection(nullRef));
-    expect(result.current.isSticky).toBe(false);
-    expect(result.current.translateY).toBe(0);
-  });
+      // Act & Assert
+      const { result } = renderHook(() => useScrollDirection(nullRef));
+      expect(result.current.translateY).toBe(0);
+    });
 
-  it('should cleanup scroll listener on unmount', () => {
-    // Arrange
-    const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
-    const { unmount } = renderHook(() => useScrollDirection(headerRef));
+    it('should cleanup scroll listener on unmount', () => {
+      // Arrange
+      const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+      const { unmount } = renderHook(() => useScrollDirection(headerRef));
 
-    // Act
-    unmount();
+      // Act
+      unmount();
 
-    // Assert
-    expect(removeEventListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function));
+      // Assert
+      expect(removeEventListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function));
+    });
   });
 });

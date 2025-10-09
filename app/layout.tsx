@@ -47,6 +47,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Disable scroll restoration to prevent conflicts with animated sticky header.
+            The header's translateY state would not match restored scroll position,
+            causing visual inconsistencies. Users will start at top on refresh. */}
+        <script dangerouslySetInnerHTML={{
+          __html: `if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }`
+        }} />
         <link
           rel="preload"
           as="image"
