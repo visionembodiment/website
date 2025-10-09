@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { cn, designSystem } from '@/lib/design-system';
 import { useVideoAutoplay } from '@/hooks/useVideoAutoplay';
 
@@ -9,34 +9,57 @@ interface VideoHeroProps {
   videoUrl: string;
   mobileVideoUrl?: string;
   posterImage: string;
+  posterPlaceholder?: string;
   mobilePosterImage?: string;
+  mobilePosterPlaceholder?: string;
 }
 
-export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage, mobilePosterImage }: VideoHeroProps) {
+export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage, posterPlaceholder, mobilePosterImage, mobilePosterPlaceholder }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [currentPoster, setCurrentPoster] = useState(mobilePosterImage || posterImage);
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(mobilePosterPlaceholder || posterPlaceholder);
+  const [showPlaceholder, setShowPlaceholder] = useState(!!(mobilePosterPlaceholder || posterPlaceholder));
 
-  useVideoAutoplay(videoRef, imgRef);
+  useEffect(() => {
+    const updatePoster = () => {
+      const isMobile = window.innerWidth < 768;
+      setCurrentPoster(isMobile && mobilePosterImage ? mobilePosterImage : posterImage);
+      setCurrentPlaceholder(isMobile && mobilePosterPlaceholder ? mobilePosterPlaceholder : posterPlaceholder);
+    };
+
+    updatePoster();
+    window.addEventListener('resize', updatePoster);
+    return () => window.removeEventListener('resize', updatePoster);
+  }, [posterImage, mobilePosterImage, posterPlaceholder, mobilePosterPlaceholder]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setShowPlaceholder(false);
+    };
+    img.src = currentPoster;
+  }, [currentPoster]);
+
+  useVideoAutoplay(videoRef);
 
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-      <picture className="absolute inset-0 w-full h-full transition-opacity duration-500">
-        <source srcSet={posterImage} media="(min-width: 768px)" />
+    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-vision-licorice">
+      {showPlaceholder && currentPlaceholder && (
         <img
-          ref={imgRef}
-          src={mobilePosterImage || posterImage}
+          src={currentPlaceholder}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
         />
-      </picture>
+      )}
       <video
         ref={videoRef}
         loop
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover opacity-0"
+        poster={currentPoster}
+        className="absolute inset-0 w-full h-full object-cover"
       >
         {mobileVideoUrl && (
           <source src={mobileVideoUrl} type="video/mp4" media="(max-width: 768px)" />

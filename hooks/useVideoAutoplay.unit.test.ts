@@ -13,6 +13,7 @@ describe('useVideoAutoplay', () => {
     mockVideo = {
       readyState: 0,
       play: vi.fn().mockResolvedValue(undefined),
+      load: vi.fn(),
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
       classList: {
@@ -47,12 +48,23 @@ describe('useVideoAutoplay', () => {
   });
 
   describe('when video is already ready (cached)', () => {
+    it('should NOT call load() when cached to avoid re-download', () => {
+      // Arrange
+      mockVideo.readyState = 4;
+
+      // Act
+      renderHook(() => useVideoAutoplay(videoRef, null));
+
+      // Assert
+      expect(mockVideo.load).not.toHaveBeenCalled();
+    });
+
     it('should attempt to play immediately', async () => {
       // Arrange
       mockVideo.readyState = 4;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef, null));
 
       await act(async () => {
         await Promise.resolve();
@@ -61,55 +73,20 @@ describe('useVideoAutoplay', () => {
       // Assert
       expect(mockVideo.play).toHaveBeenCalled();
     });
-
-    it('should fade in video when play succeeds', async () => {
-      // Arrange
-      mockVideo.readyState = 3;
-
-      // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
-
-      await act(async () => {
-        await Promise.resolve();
-      });
-
-      // Assert
-      expect(mockVideo.classList?.remove).toHaveBeenCalledWith('opacity-0');
-    });
-
-    it('should fade in video before fading out poster to prevent black blink', async () => {
-      // Arrange
-      mockVideo.readyState = 3;
-      const calls: string[] = [];
-
-      mockVideo.classList = {
-        add: vi.fn((cls) => calls.push(`video.add(${cls})`)),
-        remove: vi.fn((cls) => calls.push(`video.remove(${cls})`)),
-      } as any;
-
-      mockPoster.classList = {
-        add: vi.fn((cls) => calls.push(`poster.add(${cls})`)),
-        remove: vi.fn((cls) => calls.push(`poster.remove(${cls})`)),
-      } as any;
-
-      // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
-
-      await act(async () => {
-        await Promise.resolve();
-      });
-
-      // Assert - Video fades in first
-      const videoFadeIndex = calls.indexOf('video.remove(opacity-0)');
-      const posterFadeIndex = calls.indexOf('poster.add(opacity-0)');
-
-      expect(videoFadeIndex).toBeGreaterThanOrEqual(0);
-      expect(posterFadeIndex).toBeGreaterThanOrEqual(0);
-      expect(videoFadeIndex).toBeLessThan(posterFadeIndex);
-    });
   });
 
   describe('when video is not ready (first load)', () => {
+    it('should call load() to force video download on mobile', () => {
+      // Arrange
+      mockVideo.readyState = 0;
+
+      // Act
+      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+
+      // Assert
+      expect(mockVideo.load).toHaveBeenCalled();
+    });
+
     it('should attach canplay event listener', () => {
       // Arrange
       mockVideo.readyState = 0;

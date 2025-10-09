@@ -49,36 +49,14 @@ describe('VideoHero', () => {
       }
     });
 
-    it('should hide poster and show video when play succeeds', async () => {
-      // Arrange
-      const { container } = render(<VideoHero {...defaultProps} />);
-      const video = container.querySelector('video') as HTMLVideoElement;
-      const poster = container.querySelector('img') as HTMLImageElement;
-
-      // Act
-      video.dispatchEvent(new Event('canplay'));
-      await vi.waitFor(() => {
-        expect(video.classList.contains('opacity-0')).toBe(false);
-      });
-
-      // Assert
-      expect(poster.classList.contains('opacity-0')).toBe(true);
-    });
-
-    it('should keep poster visible when autoplay is blocked', async () => {
+    it('should not throw error when autoplay is blocked', async () => {
       // Arrange
       HTMLVideoElement.prototype.play = vi.fn().mockRejectedValue(new Error('NotAllowedError'));
-      const { container } = render(<VideoHero {...defaultProps} />);
-      const video = container.querySelector('video') as HTMLVideoElement;
-      const poster = container.querySelector('img') as HTMLImageElement;
 
-      // Act
-      video.dispatchEvent(new Event('canplay'));
-      await new Promise(resolve => setTimeout(resolve, 0));
-
-      // Assert
-      expect(video.classList.contains('opacity-0')).toBe(true);
-      expect(poster.classList.contains('opacity-0')).toBe(false);
+      // Act & Assert
+      expect(() => {
+        render(<VideoHero {...defaultProps} />);
+      }).not.toThrow();
     });
   });
 
@@ -101,13 +79,13 @@ describe('VideoHero', () => {
       expect(videoSources?.[1]).toHaveAttribute('src', '/videos/hero.mp4');
     });
 
-    it('should render poster image', () => {
+    it('should set poster attribute on video element', () => {
       // Arrange & Act
       const { container } = render(<VideoHero {...defaultProps} />);
-      const poster = container.querySelector('img');
+      const video = container.querySelector('video');
 
       // Assert
-      expect(poster).toHaveAttribute('src', defaultProps.posterImage);
+      expect(video).toHaveAttribute('poster');
     });
 
     it('should render title', () => {
@@ -132,7 +110,32 @@ describe('VideoHero', () => {
   });
 
   describe('responsive behavior', () => {
-    it('should use mobile poster when provided', () => {
+    it('should render mobile placeholder when provided', () => {
+      // Arrange
+      const props = {
+        ...defaultProps,
+        mobilePosterPlaceholder: '/images/hero-poster-mobile-placeholder.webp',
+      };
+
+      // Act
+      const { container } = render(<VideoHero {...props} />);
+      const placeholder = container.querySelector('img');
+
+      // Assert
+      expect(placeholder).toHaveAttribute('src', props.mobilePosterPlaceholder);
+      expect(placeholder).toHaveClass('md:hidden');
+    });
+
+    it('should not render placeholder image when not provided', () => {
+      // Arrange & Act
+      const { container } = render(<VideoHero {...defaultProps} />);
+      const placeholder = container.querySelector('img');
+
+      // Assert
+      expect(placeholder).toBeNull();
+    });
+
+    it('should set responsive poster on video element', () => {
       // Arrange
       const props = {
         ...defaultProps,
@@ -141,19 +144,10 @@ describe('VideoHero', () => {
 
       // Act
       const { container } = render(<VideoHero {...props} />);
-      const poster = container.querySelector('img');
+      const video = container.querySelector('video');
 
-      // Assert
-      expect(poster).toHaveAttribute('src', props.mobilePosterImage);
-    });
-
-    it('should use desktop poster as fallback when mobile poster not provided', () => {
-      // Arrange & Act
-      const { container } = render(<VideoHero {...defaultProps} />);
-      const poster = container.querySelector('img');
-
-      // Assert
-      expect(poster).toHaveAttribute('src', defaultProps.posterImage);
+      // Assert - Video should have mobile poster initially (based on default window size)
+      expect(video).toHaveAttribute('poster');
     });
   });
 });

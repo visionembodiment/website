@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "rm -rf .next && next dev --turbopack",
+    "dev:mobile": "rm -rf .next && IP=$(ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}' | head -1) && echo '\n📱 Mobile URL: http://'$IP':3000\n' && next dev --turbopack --hostname 0.0.0.0",
     "build": "next build --turbopack",
     "start": "next start",
+    "start:mobile": "IP=$(ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}' | head -1) && echo '\n📱 Production URL: http://'$IP':3000\n' && next start --hostname 0.0.0.0",
     "lint": "eslint",
     "test": "vitest",
     "test:watch": "vitest --watch"

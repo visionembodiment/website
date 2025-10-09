@@ -56,14 +56,14 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero-background-poster-mobile.webp"
+          href="/images/hero-background-poster-mobile-placeholder.webp"
           media="(max-width: 767px)"
           fetchPriority="high"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/hero-background-poster.webp"
+          href="/images/hero-background-poster-placeholder.webp"
           media="(min-width: 768px)"
           fetchPriority="high"
         />

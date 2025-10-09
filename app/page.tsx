@@ -17,7 +17,9 @@ export default function Home() {
         videoUrl={videoHero.videoUrl}
         mobileVideoUrl={videoHero.mobileVideoUrl}
         posterImage={videoHero.posterImage}
+        posterPlaceholder={videoHero.posterPlaceholder}
         mobilePosterImage={videoHero.mobilePosterImage}
+        mobilePosterPlaceholder={videoHero.mobilePosterPlaceholder}
       />
 
       {/* Hero Section */}
