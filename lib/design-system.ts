@@ -1,33 +1,27 @@
+// Look into global.css for colors, fonts etc...
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-vision-licorice',        // Main background - eggplant black (#1a0e18)
-      secondary: 'bg-vision-dark-purple',   // Section contrast - deep aubergine (#3d1f35)
-      alternative: 'bg-vision-dark-purple', // Alternative background (#3d1f35)
-      accent: 'bg-vision-dark-purple',      // Dark accent for buttons, overlays (#3d1f35)
-      footer: 'bg-vision-licorice',         // Footer same as primary (#1a0e18)
+      primary: 'bg-vision-dark-purple-2',        // Main background 
+      secondary: 'bg-vision-dark-purple',        // Section contrast
+      inverse: 'bg-vision-isabelline',           // Light background
     },
     text: {
       primary: 'text-vision-isabelline',       // Lightest text for dark backgrounds (#f4f0ed)
       secondary: 'text-vision-dun',            // Dun for subtitles on dark backgrounds (#DDCDBB)
       accent: 'text-vision-lion',              // Champagne gold for highlights (#bfa181)
       inverse: {
-        primary: 'text-vision-licorice',       // Primary dark text on light backgrounds (#1a0e18)
+        primary: 'text-vision-dark-purple-2',       // Primary dark text on light backgrounds (#1a0e18)
         secondary: 'text-vision-chinese-violet', // Secondary dark text on light backgrounds (#8d6b8f)
       },
-      success: 'text-emerald-500',             // Success state text
-      warning: 'text-amber-400',               // Warning state text
-      placeholder: {
-        primary: 'placeholder-vision-dun',     // Placeholder for dark backgrounds (#DDCDBB)
-        inverse: 'placeholder-vision-chinese-violet', // Placeholder for light backgrounds (#8d6b8f)
-      },
+      placeholder: 'placeholder-vision-chinese-violet', // Placeholder text (#674F69)
     },
     border: {
-      primary: 'border-vision-lion',           // Champagne gold border (#bfa181)
-      divider: 'border-t border-vision-lion',  // Gold divider line
+      primary: 'border-vision-lion',           // Champagne gold border for dark backgrounds (#bfa181)
+      inverse: 'border-vision-dark-purple',    // Dark purple border for light backgrounds (#3d1f35)
     },
     gradient: {
-      primary: 'bg-gradient-to-b from-vision-dark-purple to-vision-licorice', // Hero/feature sections gradient
+      primary: 'bg-gradient-primary', // Uses --background-image-gradient-primary from globals.css
     },
     hover: {
       background: {
@@ -36,10 +30,17 @@ export const designSystem = {
       },
       text: {
         accent: 'hover:text-vision-lion',      // Lion gold text hover
-        dun: 'hover:text-vision-dun',          // Dun text hover
+        dun: 'hover:text-vision-lion',          // Dun text hover
       },
     },
     focus: 'focus:ring-2 focus:ring-vision-lion', // Focus rings for accessibility
+  },
+
+  dividers: {
+    get horizontal() { return `border-t ${designSystem.colors.border.primary}` },
+    get horizontalInverse() { return `border-t ${designSystem.colors.border.primary}` },
+    get vertical() { return `border-l ${designSystem.colors.border.primary}` },
+    get verticalInverse() { return `border-l ${designSystem.colors.border.primary}` },
   },
   
   fontSize: {
@@ -64,22 +65,33 @@ export const designSystem = {
   },
   
   cards: {
-    base: "relative bg-vision-isabelline rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] border border-vision-lion/20 overflow-hidden",
-    hover: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:border-vision-lion hover:-translate-y-1 transition-all duration-300",
-    padding: "p-6",
-    bordered: "border border-vision-lion",
-    dark: "bg-vision-dark-purple border-vision-lion/30",
+    get base() { return `relative ${designSystem.colors.background.inverse} ${designSystem.rounded['2xl']} ${designSystem.shadows.card} border ${designSystem.colors.border.primary}/20 overflow-hidden` },
+    get hover() { return `${designSystem.shadows.cardHover} ${designSystem.colors.border.primary} hover:-translate-y-1 transition-all duration-300` },
+    get padding() { return designSystem.spacing.padding.md },
+    get bordered() { return `border ${designSystem.colors.border.primary}` },
+    get dark() { return `${designSystem.colors.background.secondary} ${designSystem.colors.border.primary}/30` },
   },
 
+  // primary, secondary, primary inverse , secondary inverse ,
   buttons: {
-    primary: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    primarySmall: "inline-block bg-vision-dark-purple text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    secondary: "inline-block border-2 border-vision-lion text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    secondarySmall: "inline-block border-2 border-vision-lion text-vision-isabelline px-6 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    primaryInverse: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-4 rounded-button hover:bg-vision-licorice transition-colors font-medium",
-    secondaryInverse: "inline-block border-2 border-vision-dark-purple text-vision-dark-purple px-8 py-4 rounded-button hover:bg-vision-dark-purple hover:text-vision-isabelline transition-colors font-medium",
-    cta: "inline-block bg-vision-dark-purple text-vision-isabelline px-8 py-3 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors font-medium",
-    block: "block w-full text-center",
+    get primary() {
+      return `inline-block ${designSystem.colors.background.secondary} ${designSystem.colors.text.primary} px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors ${designSystem.fontWeight.medium}`
+    },
+    get secondary() {
+      return `inline-block border-2 ${designSystem.colors.border.primary} ${designSystem.colors.text.primary} px-8 py-4 rounded-button hover:bg-vision-lion hover:text-vision-licorice transition-colors ${designSystem.fontWeight.medium}`
+    },
+    get primaryInverse() {
+      return `inline-block ${designSystem.colors.background.secondary} ${designSystem.colors.text.primary} px-8 py-4 rounded-button hover:bg-vision-licorice transition-colors ${designSystem.fontWeight.medium}`
+    },
+    get secondaryInverse() {
+      return `inline-block border-2 ${designSystem.colors.border.inverse} ${designSystem.colors.text.inverse.secondary} px-8 py-4 rounded-button hover:bg-vision-dark-purple hover:text-vision-isabelline transition-colors ${designSystem.fontWeight.medium}`
+    },
+    sizes: {
+      small: "!px-6 !py-3",
+    },
+    layout: {
+      block: "!block w-full text-center",
+    },
   },
 
   links: {
@@ -261,15 +273,14 @@ export const designSystem = {
     background: "bg-vision-lion",
     text: "text-vision-licorice",
   },
-  
+
   shadows: {
-    sm: "shadow-sm",
-    md: "shadow-md",
-    lg: "shadow-lg",
-    xl: "shadow-xl",
-    "2xl": "shadow-2xl",
+    subtle: "shadow-subtle",
+    card: "shadow-card",
+    cardHover: "shadow-card-hover",
+    elevated: "shadow-elevated",
   },
-  
+
   rounded: {
     md: "rounded-md",
     lg: "rounded-lg",

@@ -53,7 +53,7 @@ export default function Home() {
             {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
               <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg, designSystem.layout.textAlign.center)}>
-                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.avatars.background, designSystem.rounded.full, designSystem.shadows.xl, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
+                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.avatars.background, designSystem.rounded.full, designSystem.shadows.elevated, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
                   <Image
                     src={hero.profile.image}
                     alt={hero.profile.name}
@@ -125,7 +125,7 @@ export default function Home() {
             </p>
             <Link
               href={about.buttonHref}
-              className={designSystem.buttons.primarySmall}
+              className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
             >
               {about.buttonText}
             </Link>
@@ -154,7 +154,7 @@ export default function Home() {
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.top.xl)}>
             <Link
               href={testimonials.buttonHref}
-              className={designSystem.buttons.secondarySmall}
+              className={cn(designSystem.buttons.secondary, designSystem.buttons.sizes.small)}
             >
               {testimonials.buttonText}
             </Link>
@@ -177,12 +177,12 @@ export default function Home() {
               <input
                 type="email"
                 placeholder={newsletter.placeholder}
-                className={cn("flex-1", designSystem.inputs.base, designSystem.colors.text.placeholder.inverse, designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg)}
+                className={cn("flex-1", designSystem.inputs.base, designSystem.colors.text.placeholder, designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg)}
                 required
               />
               <button
                 type="submit"
-                className={designSystem.buttons.secondarySmall}
+                className={cn(designSystem.buttons.secondary, designSystem.buttons.sizes.small)}
               >
                 {newsletter.buttonText}
               </button>

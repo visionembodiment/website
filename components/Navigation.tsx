@@ -26,7 +26,7 @@ export default function Navigation() {
     <nav
       className={cn(
         "bg-vision-isabelline",
-        designSystem.shadows.sm,
+        designSystem.shadows.subtle,
         designSystem.colors.border.primary,
         "border-b"
       )}
@@ -60,7 +60,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/booking"
-              className={designSystem.buttons.primarySmall}
+              className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
             >
               Book Now
             </Link>
@@ -111,7 +111,7 @@ export default function Navigation() {
               ))}
               <Link
                 href="/booking"
-                className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block)}
+                className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book Now

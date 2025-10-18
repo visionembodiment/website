@@ -46,7 +46,7 @@ export default function TestimonialCard({
             <svg
               key={i}
               className={`w-5 h-5 ${
-                i < rating ? designSystem.colors.text.warning : designSystem.colors.text.inverse.secondary
+                i < rating ? designSystem.colors.text.inverse.secondary : designSystem.colors.text.inverse.secondary
               }`}
               fill="currentColor"
               viewBox="0 0 20 20"

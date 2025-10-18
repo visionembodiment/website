@@ -109,7 +109,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className={cn(designSystem.spacing.margin.top.lg, designSystem.spacing.padding.vertical.lg, designSystem.colors.border.divider)}>
+        <div className={cn(designSystem.spacing.margin.top.lg, designSystem.spacing.padding.vertical.lg, designSystem.dividers.horizontal)}>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className={cn(designSystem.colors.text.secondary, designSystem.text.body.sm, "mb-4 md:mb-0")}>
               © {currentYear} Vision Embodiment. All rights reserved.

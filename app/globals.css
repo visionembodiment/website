@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-vision-licorice: #1a0e18;
+  --color-vision-dark-purple-2: #281525;
   --color-vision-dark-purple: #3d1f35;
   --color-vision-lion: #bfa181;
   --color-vision-isabelline: #f4f0ed;
-  --color-vision-chinese-violet: #8d6b8f;
-  --color-vision-dun: #DDCDBB;
+  --color-vision-dun: #ddcdbb;
+  --color-vision-chinese-violet: #674f69;
 
   --font-family-playfair: var(--font-playfair), Georgia, serif;
   --font-family-inter: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -15,6 +15,13 @@
   --letter-spacing-tighter-custom: -0.02em;
   --line-height-body: 1.7;
   --border-radius-button: 6px;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(26, 14, 24, 0.15);
+  --shadow-card: 0 4px 12px 0 rgba(26, 14, 24, 0.25);
+  --shadow-card-hover: 0 8px 24px 0 rgba(26, 14, 24, 0.35);
+  --shadow-elevated: 0 8px 20px 0 rgba(26, 14, 24, 0.15);
+
+  --background-image-gradient-primary: linear-gradient(to bottom, #3d1f35, #1a0e18);
 }
 
 body {

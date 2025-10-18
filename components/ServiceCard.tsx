@@ -24,7 +24,7 @@ export default function ServiceCard({
 
         <p className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.sm, "min-h-[60px]")}>{description}</p>
 
-        <div className={cn(designSystem.colors.border.divider, designSystem.spacing.margin.top.sm, designSystem.spacing.margin.bottom.sm, "pt-4")}>
+        <div className={cn(designSystem.dividers.horizontalInverse, designSystem.spacing.margin.top.sm, designSystem.spacing.margin.bottom.sm, "pt-4")}>
           <div className={cn("flex justify-between items-center", designSystem.spacing.margin.bottom.xs)}>
             <span className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.secondary)}>Price:</span>
             <span className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary)}>{price}</span>
@@ -37,7 +37,7 @@ export default function ServiceCard({
 
         <Link
           href={href}
-          className={cn(designSystem.buttons.primarySmall, designSystem.buttons.block)}
+          className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
         >
           Learn More
         </Link>

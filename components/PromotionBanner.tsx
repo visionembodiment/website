@@ -30,7 +30,7 @@ export default function PromotionBanner({ promotion }: PromotionBannerProps) {
         <span className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>{promotion.description}</span>
         <Link
           href={promotion.href}
-          className={designSystem.buttons.primarySmall}
+          className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
         >
           {promotion.buttonText}
         </Link>
