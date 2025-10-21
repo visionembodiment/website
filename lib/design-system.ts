@@ -269,11 +269,6 @@ export const designSystem = {
     caption: "font-inter text-sm",
   } as const,
 
-  avatars: {
-    background: "bg-vision-lion",
-    text: "text-vision-licorice",
-  },
-
   shadows: {
     subtle: "shadow-subtle",
     card: "shadow-card",

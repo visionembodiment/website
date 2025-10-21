@@ -29,8 +29,8 @@ export default function TestimonialCard({
             className={cn("rounded-full object-cover", designSystem.spacing.margin.right.sm)}
           />
         ) : (
-          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.avatars.background, designSystem.spacing.margin.right.sm)}>
-            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.avatars.text)}>
+          <div className={cn("w-12 h-12 rounded-full flex items-center justify-center", designSystem.colors.text.accent, designSystem.spacing.margin.right.sm)}>
+            <span className={cn(designSystem.text.body.lg, designSystem.fontWeight.bold, designSystem.colors.text.inverse.primary)}>
               {name.charAt(0).toUpperCase()}
             </span>
           </div>

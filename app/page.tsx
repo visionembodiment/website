@@ -53,7 +53,7 @@ export default function Home() {
             {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
               <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg, designSystem.layout.textAlign.center)}>
-                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.avatars.background, designSystem.rounded.full, designSystem.shadows.elevated, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
+                <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.colors.text.accent, designSystem.rounded.full, designSystem.shadows.elevated, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
                   <Image
                     src={hero.profile.image}
                     alt={hero.profile.name}
