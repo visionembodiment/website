@@ -37,8 +37,8 @@ export default function TestimonialCard({
         )}
 
         <div className="flex-1">
-          <h4 className={cn(designSystem.text.body.md, designSystem.fontWeight.semibold, designSystem.colors.text.inverse.primary)}>{name}</h4>
-          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.secondary)}>{service}</p>
+          <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.colors.text.inverse.primary)}>{name}</h4>
+          <p className={cn(designSystem.text.body.sm, designSystem.colors.text.inverse.primary)}>{service}</p>
         </div>
 
         <div className="flex">

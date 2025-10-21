@@ -30,7 +30,7 @@ export const designSystem = {
       },
       text: {
         accent: 'hover:text-vision-lion',      // Lion gold text hover
-        dun: 'hover:text-vision-lion',          // Dun text hover
+        dun: 'hover:text-vision-dun',          // Dun text hover
       },
     },
     focus: 'focus:ring-2 focus:ring-vision-lion', // Focus rings for accessibility
@@ -68,8 +68,6 @@ export const designSystem = {
     get base() { return `relative ${designSystem.colors.background.inverse} ${designSystem.rounded['2xl']} ${designSystem.shadows.card} border ${designSystem.colors.border.primary}/20 overflow-hidden` },
     get hover() { return `${designSystem.shadows.cardHover} ${designSystem.colors.border.primary} hover:-translate-y-1 transition-all duration-300` },
     get padding() { return designSystem.spacing.padding.md },
-    get bordered() { return `border ${designSystem.colors.border.primary}` },
-    get dark() { return `${designSystem.colors.background.secondary} ${designSystem.colors.border.primary}/30` },
   },
 
   // primary, secondary, primary inverse , secondary inverse ,
@@ -95,12 +93,18 @@ export const designSystem = {
   },
 
   links: {
-    base: "text-vision-lion hover:text-vision-dun hover:underline transition-colors",
-    subtle: "text-vision-dun hover:text-vision-lion transition-colors",
+    get base() {
+      return `${designSystem.colors.text.accent} ${designSystem.colors.hover.text.dun} hover:underline transition-colors`
+    },
+    get subtle() {
+      return `${designSystem.colors.text.secondary} ${designSystem.colors.hover.text.accent} transition-colors`
+    },
   },
 
   inputs: {
-    base: "bg-vision-isabelline text-vision-licorice border border-vision-lion/30 focus:border-vision-lion focus:outline-none rounded-button",
+    get base() {
+      return `${designSystem.colors.background.inverse} ${designSystem.colors.text.inverse.primary} border ${designSystem.colors.border.inverse} focus:border-vision-lion focus:outline-none rounded-button`
+    },
   },
   
   spacing: {
@@ -261,13 +265,9 @@ export const designSystem = {
 
     accent: "font-montserrat uppercase tracking-wider text-sm",
     heroTitle: "font-playfair text-3xl md:text-7xl font-semibold tracking-tighter-custom drop-shadow-lg",
+    subtitle: "font-playfair text-base md:text-lg",
     caption: "font-inter text-sm",
   } as const,
-  
-  badges: {
-    featured: "absolute top-0 right-0 bg-vision-lion text-vision-licorice px-3 py-1 text-sm font-medium rounded-bl-lg",
-    promotion: "bg-vision-lion text-vision-licorice py-3 px-4",
-  },
 
   avatars: {
     background: "bg-vision-lion",

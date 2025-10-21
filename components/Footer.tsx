@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className={cn(designSystem.colors.background.footer, designSystem.colors.text.primary)}>
+    <footer className={cn(designSystem.colors.background.primary, designSystem.colors.text.primary)}>
       <div className={cn(designSystem.layout.container, designSystem.spacing.padding.vertical.xl)}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}

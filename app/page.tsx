@@ -63,8 +63,8 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.xs)}>{hero.profile.name}</h3>
-                <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.sm)}>{hero.profile.title}</p>
+                <h2 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.xs)}>{hero.profile.name}</h2>
+                <p className={cn(designSystem.text.subtitle, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.sm)}>{hero.profile.title}</p>
                 <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.md)}>
                   {hero.profile.description}
                 </p>
