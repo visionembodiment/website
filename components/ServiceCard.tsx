@@ -7,6 +7,7 @@ interface ServiceCardProps {
   price: string;
   duration: string;
   href: string;
+  bookingHref: string;
 }
 
 export default function ServiceCard({
@@ -15,6 +16,7 @@ export default function ServiceCard({
   price,
   duration,
   href,
+  bookingHref,
 }: ServiceCardProps) {
   return (
     <div className={cn(designSystem.cards.base, designSystem.cards.hover)}>
@@ -35,12 +37,20 @@ export default function ServiceCard({
           </div>
         </div>
 
-        <Link
-          href={href}
-          className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
-        >
-          Learn More
-        </Link>
+        <div className="flex flex-col gap-2">
+          <Link
+            href={bookingHref}
+            className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
+          >
+            Book Now
+          </Link>
+          <Link
+            href={href}
+            className={cn(designSystem.buttons.secondaryInverse, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
+          >
+            Learn More
+          </Link>
+        </div>
       </div>
     </div>
   );

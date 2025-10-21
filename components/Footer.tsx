@@ -127,11 +127,6 @@ export default function Footer() {
             <p className={cn(designSystem.colors.text.secondary, designSystem.text.body.sm, "mb-4 md:mb-0")}>
               © {currentYear} Vision Embodiment. All rights reserved.
             </p>
-            <div className={cn("flex items-center space-x-4", designSystem.colors.text.secondary, designSystem.text.body.sm)}>
-              <span>✓ SSL Secured</span>
-              <span>✓ GDPR Compliant</span>
-              <span>✓ Trusted by 500+ Clients</span>
-            </div>
           </div>
         </div>
       </div>

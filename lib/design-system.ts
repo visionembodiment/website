@@ -82,7 +82,7 @@ export const designSystem = {
       return `inline-block ${designSystem.colors.background.secondary} ${designSystem.colors.text.primary} px-8 py-4 rounded-button hover:bg-vision-licorice transition-colors ${designSystem.fontWeight.medium}`
     },
     get secondaryInverse() {
-      return `inline-block border-2 ${designSystem.colors.border.inverse} ${designSystem.colors.text.inverse.secondary} px-8 py-4 rounded-button hover:bg-vision-dark-purple hover:text-vision-isabelline transition-colors ${designSystem.fontWeight.medium}`
+      return `inline-block border-2 ${designSystem.colors.border.inverse} ${designSystem.colors.text.inverse.primary} px-8 py-4 rounded-button hover:bg-vision-dark-purple hover:text-vision-isabelline transition-colors ${designSystem.fontWeight.medium}`
     },
     sizes: {
       small: "!px-6 !py-3",

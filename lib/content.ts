@@ -23,7 +23,7 @@ export const homePageContent = {
     subtitle: 'Professional coaching, energetic healing and spiritual guidance to unlock your full potential and create lasting transformation in your life.',
     primaryButton: {
       text: 'Book Discovery Session',
-      href: '/booking',
+      href: 'https://calendly.com/vision-embodiment/free-discovery-session',
     },
     secondaryButton: {
       text: 'Learn More',
@@ -48,6 +48,7 @@ export const homePageContent = {
         price: '$15',
         duration: '60 minutes',
         href: '/services/mind-games-reading',
+        bookingHref: '/booking?service=mind-games',
       },
       {
         title: 'One-to-One Coaching',
@@ -55,6 +56,7 @@ export const homePageContent = {
         price: '$200',
         duration: '60 minutes',
         href: '/services/one-to-one',
+        bookingHref: '/booking?service=one-to-one',
       },
       {
         title: 'Archetypal Tarot',
@@ -62,6 +64,7 @@ export const homePageContent = {
         price: '$175',
         duration: '90 minutes',
         href: '/services/archetypal-tarot',
+        bookingHref: '/booking?service=archetypal-tarot',
       },
     ],
   },
@@ -130,10 +133,10 @@ export const contactPageContent = {
 };
 
 export const socialLinks = [
-  { name: 'Email', href: 'mailto:hello@visionembodiment.com', icon: 'email', hidden: false },
-  { name: 'TikTok', href: 'https://tiktok.com/@visionembodiment', icon: 'tiktok', hidden: false },
-  { name: 'Instagram', href: 'https://instagram.com/visionembodiment', icon: 'instagram', hidden: false },
-  { name: 'YouTube', href: 'https://youtube.com/@visionembodiment', icon: 'youtube', hidden: false },
+  { name: 'Email', href: 'mailto:vision.embodiment@gmail.com', icon: 'email', hidden: false },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@vision.embodiment', icon: 'tiktok', hidden: false },
+  { name: 'Instagram', href: 'https://www.instagram.com/vision.embodiment/', icon: 'instagram', hidden: false },
+  { name: 'YouTube', href: 'https://www.youtube.com/@vision.embodiment/featured', icon: 'youtube', hidden: false },
   { name: 'Facebook', href: 'https://facebook.com/visionembodiment', icon: 'facebook', hidden: true },
   { name: 'Twitch', href: 'https://twitch.tv/visionembodiment', icon: 'twitch', hidden: true },
   { name: 'Kick', href: 'https://kick.com/visionembodiment', icon: 'kick', hidden: true },
