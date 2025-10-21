@@ -1,5 +1,24 @@
 import Link from 'next/link';
+import { FaInstagram, FaFacebook, FaLinkedin, FaTiktok, FaYoutube, FaTwitch, FaEnvelope } from 'react-icons/fa';
+import { SiKick } from 'react-icons/si';
 import { designSystem, cn } from '@/lib/design-system';
+import { socialLinks } from '@/lib/content';
+
+const SocialIcon = ({ icon }: { icon: string }) => {
+  const icons = {
+    email: FaEnvelope,
+    tiktok: FaTiktok,
+    instagram: FaInstagram,
+    youtube: FaYoutube,
+    facebook: FaFacebook,
+    twitch: FaTwitch,
+    kick: SiKick,
+    linkedin: FaLinkedin,
+  };
+
+  const Icon = icons[icon as keyof typeof icons];
+  return Icon ? <Icon className="w-5 h-5" /> : null;
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,12 +42,6 @@ export default function Footer() {
     ],
   };
 
-  const socialLinks = [
-    { name: 'Instagram', href: '#', icon: 'instagram' },
-    { name: 'Facebook', href: '#', icon: 'facebook' },
-    { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-  ];
-
   return (
     <footer className={cn(designSystem.colors.background.primary, designSystem.colors.text.primary)}>
       <div className={cn(designSystem.layout.container, designSystem.spacing.padding.vertical.xl)}>
@@ -40,17 +53,17 @@ export default function Footer() {
               Transform your vision into embodied reality through coaching and spiritual guidance.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
+              {socialLinks.filter(link => !link.hidden).map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   className={designSystem.links.base}
                   aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span className="sr-only">{social.name}</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-                  </svg>
+                  <SocialIcon icon={social.icon} />
                 </a>
               ))}
             </div>

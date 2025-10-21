@@ -128,3 +128,14 @@ export const servicesPageContent = {
 export const contactPageContent = {
   // Contact page specific content would go here
 };
+
+export const socialLinks = [
+  { name: 'Email', href: 'mailto:hello@visionembodiment.com', icon: 'email', hidden: false },
+  { name: 'TikTok', href: 'https://tiktok.com/@visionembodiment', icon: 'tiktok', hidden: false },
+  { name: 'Instagram', href: 'https://instagram.com/visionembodiment', icon: 'instagram', hidden: false },
+  { name: 'YouTube', href: 'https://youtube.com/@visionembodiment', icon: 'youtube', hidden: false },
+  { name: 'Facebook', href: 'https://facebook.com/visionembodiment', icon: 'facebook', hidden: true },
+  { name: 'Twitch', href: 'https://twitch.tv/visionembodiment', icon: 'twitch', hidden: true },
+  { name: 'Kick', href: 'https://kick.com/visionembodiment', icon: 'kick', hidden: true },
+  { name: 'LinkedIn', href: 'https://linkedin.com/company/visionembodiment', icon: 'linkedin', hidden: true },
+];
