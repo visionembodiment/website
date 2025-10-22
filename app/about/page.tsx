@@ -100,8 +100,10 @@ export default function AboutPage() {
       </section>
 
       {/* Personally Speaking */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
+        <div className={cn(designSystem.layout.container, 'relative z-10')}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.personallySpeaking.title}
@@ -167,8 +169,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission - Manifesto Style */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+        {/* Subtle gradient overlay for differentiation */}
+        <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
+        <div className={cn(designSystem.layout.container, 'relative z-10')}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.mission.title}
