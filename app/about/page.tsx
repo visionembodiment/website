@@ -100,17 +100,17 @@ export default function AboutPage() {
       </section>
 
       {/* Personally Speaking */}
-      <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.lg)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.personallySpeaking.title}
             </h2>
 
             {aboutPageContent.personallySpeaking.sections.map((section, index) => (
               <div key={index} className={designSystem.spacing.margin.bottom.lg}>
                 {section.paragraphs && (
-                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.inverse.secondary)}>
+                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
                     {section.paragraphs.map((paragraph, pIndex) => (
                       <p key={pIndex}>{paragraph}</p>
                     ))}
@@ -167,10 +167,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission - Manifesto Style */}
-      <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.lg)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.mission.title}
             </h2>
             <div className={cn('space-y-6')}>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                   key={index}
                   className={cn(
                     designSystem.text.body.xl,
-                    index < 5 ? designSystem.colors.text.inverse.primary : designSystem.colors.text.inverse.secondary,
+                    index < 5 ? designSystem.colors.text.primary : designSystem.colors.text.secondary,
                     index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal
                   )}
                 >
