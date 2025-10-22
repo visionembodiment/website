@@ -9,6 +9,7 @@ export default function ServicesPage() {
       price: '$15',
       duration: '60 minutes',
       href: '/services/mind-games-reading',
+      bookingHref: '/booking?service=mind-games',
       icon: '🧠',
     },
     {
@@ -17,6 +18,7 @@ export default function ServicesPage() {
       price: '$200',
       duration: '60 minutes',
       href: '/services/one-to-one',
+      bookingHref: '/booking?service=one-to-one',
       icon: '💜',
     },
     {
@@ -25,6 +27,7 @@ export default function ServicesPage() {
       price: '$175',
       duration: '90 minutes',
       href: '/services/archetypal-tarot',
+      bookingHref: '/booking?service=archetypal-tarot',
       icon: '🔮',
     },
   ];

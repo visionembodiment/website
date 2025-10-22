@@ -121,7 +121,91 @@ export const homePageContent = {
 };
 
 export const aboutPageContent = {
-  // About page specific content would go here
+  hero: {
+    title: 'Meet Alina Rain',
+    subtitle: 'Embodiment Coach, Spiritual Guide, and Transformation Catalyst',
+  },
+
+  journey: {
+    title: 'My Journey',
+    paragraphs: [
+      "Welcome, beautiful soul. I'm Alina Rain, and I'm honored that you're here. My path to becoming an embodiment coach wasn't linear—it was a spiral journey of awakening, healing, and profound transformation.",
+      "Like many of you, I spent years feeling disconnected from my true self, caught in patterns that no longer served me, and yearning for something more meaningful. My awakening began in 2010 when a personal crisis became my greatest catalyst for change.",
+      "Through years of deep inner work, studying with master teachers, and integrating ancient wisdom with modern psychology, I discovered the power of embodiment—the practice of fully inhabiting our bodies, emotions, and authentic selves.",
+      "Today, I combine my extensive training in coaching, somatic practices, energy healing, and archetypal psychology to guide others on their transformation journey. My approach is intuitive yet grounded, spiritual yet practical, always honoring both the mystical and the mundane.",
+      "I believe that true transformation happens when we bridge the gap between vision and embodiment—when we don't just dream of change but become it. This is the sacred work I'm here to facilitate with you.",
+    ],
+  },
+
+  philosophy: {
+    title: 'My Philosophy',
+    quote: "Transformation isn't about becoming someone new—it's about remembering who you've always been beneath the layers of conditioning. It's about coming home to yourself, fully and unapologetically.",
+  },
+
+  credentials: {
+    title: 'Credentials & Training',
+    items: [
+      { icon: '🎓', title: 'ICF Certified Coach', description: 'International Coach Federation Accredited' },
+      { icon: '🧘', title: 'Embodiment Practitioner', description: 'Certified in Somatic Experiencing' },
+      { icon: '🔮', title: 'Tarot Master', description: '15+ years of archetypal study' },
+      { icon: '💜', title: 'Energy Healer', description: 'Reiki Master Teacher' },
+    ],
+  },
+
+  timeline: {
+    title: 'My Timeline',
+    events: [
+      { year: '2010', event: 'Started my spiritual awakening journey' },
+      { year: '2013', event: 'Completed first coaching certification' },
+      { year: '2015', event: 'Launched Vision Embodiment practice' },
+      { year: '2018', event: 'Published "Embodied Transformation" methodology' },
+      { year: '2020', event: 'Expanded to international online coaching' },
+      { year: '2024', event: 'Reached 500+ transformed clients milestone' },
+    ],
+  },
+
+  values: {
+    title: 'What I Stand For',
+    items: [
+      {
+        icon: '🌟',
+        title: 'Authenticity',
+        description: 'Living in alignment with your true self, free from masks and pretense.',
+      },
+      {
+        icon: '💖',
+        title: 'Compassion',
+        description: 'Holding space with love and non-judgment for all aspects of your journey.',
+      },
+      {
+        icon: '🔥',
+        title: 'Transformation',
+        description: 'Embracing change as the pathway to your highest potential.',
+      },
+    ],
+  },
+
+  stats: {
+    items: [
+      { number: '500+', label: 'Clients Transformed' },
+      { number: '10+', label: 'Years Experience' },
+      { number: '5000+', label: 'Coaching Hours' },
+      { number: '98%', label: 'Client Satisfaction' },
+    ],
+  },
+
+  cta: {
+    title: 'Ready to Begin Your Journey?',
+    subtitle: "Let's explore how we can work together to transform your vision into embodied reality.",
+    primaryButton: {
+      text: 'Book Discovery Session',
+      href: '/booking',
+    },
+    secondaryButton: {
+      text: 'Explore Services',
+      href: '/services',
+    },
+  },
 };
 
 export const servicesPageContent = {
