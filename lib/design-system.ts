@@ -15,6 +15,8 @@ export const designSystem = {
         secondary: 'text-vision-chinese-violet', // Secondary dark text on light backgrounds (#8d6b8f)
       },
       placeholder: 'placeholder-vision-chinese-violet', // Placeholder text (#674F69)
+      success: 'text-lime-600',                // Success messages
+      error: 'text-red-400',                   // Error messages
     },
     border: {
       primary: 'border-vision-lion',           // Champagne gold border for dark backgrounds (#bfa181)
@@ -89,6 +91,9 @@ export const designSystem = {
     },
     layout: {
       block: "!block w-full text-center",
+    },
+    width: {
+      fixed: "w-[150px] shrink-0",
     },
   },
 

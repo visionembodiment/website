@@ -110,6 +110,9 @@ export const homePageContent = {
     placeholder: 'Enter your email',
     buttonText: 'Subscribe',
     disclaimer: 'Join 1,000+ seekers. No spam, unsubscribe anytime.',
+    successMessage: 'Thank you for subscribing! Check your email (including spam folder) for confirmation.',
+    loadingText: 'Subscribing...',
+    successButtonText: 'Subscribed!',
   },
 
   cta: {

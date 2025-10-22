@@ -4,6 +4,7 @@ import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import VideoHero from '@/components/VideoHero';
 import LazySection from '@/components/LazySection';
+import NewsletterForm from '@/components/NewsletterForm';
 import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
@@ -173,24 +174,14 @@ export default function Home() {
               {newsletter.subtitle}
             </p>
 
-            <form className={cn("flex flex-col sm:flex-row", designSystem.layout.maxWidth.md, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.gap.sm)}>
-              <input
-                type="email"
-                placeholder={newsletter.placeholder}
-                className={cn("flex-1", designSystem.inputs.base, designSystem.colors.text.placeholder, designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg)}
-                required
-              />
-              <button
-                type="submit"
-                className={cn(designSystem.buttons.secondary, designSystem.buttons.sizes.small)}
-              >
-                {newsletter.buttonText}
-              </button>
-            </form>
-
-            <p className={cn(designSystem.text.caption, designSystem.colors.text.secondary, designSystem.spacing.margin.top.sm)}>
-              {newsletter.disclaimer}
-            </p>
+            <NewsletterForm
+              placeholder={newsletter.placeholder}
+              buttonText={newsletter.buttonText}
+              disclaimer={newsletter.disclaimer}
+              successMessage={newsletter.successMessage}
+              loadingText={newsletter.loadingText}
+              successButtonText={newsletter.successButtonText}
+            />
           </div>
         </div>
       </LazySection>
