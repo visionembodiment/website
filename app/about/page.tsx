@@ -1,74 +1,129 @@
 import Link from 'next/link';
 import { aboutPageContent } from '@/lib/content';
 import { designSystem, cn } from '@/lib/design-system';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 export default function AboutPage() {
   return (
     <div className={cn('min-h-screen', designSystem.colors.background.inverse)}>
-      <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
+      {/* Hero - Full Width Video */}
+      <section className={cn(designSystem.colors.background.primary, 'relative overflow-hidden')}>
+        {/* Decorative elements */}
+        <div className="absolute top-10 right-10 w-32 h-32 opacity-10">
+          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
+        </div>
+        <div className="absolute bottom-10 left-10 w-48 h-48 opacity-10">
+          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
+        </div>
+
+        <div className={cn(designSystem.layout.container, designSystem.spacing.section.full)}>
+          <div className={cn(designSystem.layout.maxWidth['5xl'], designSystem.spacing.margin.horizontal.auto)}>
+            {/* Mystical star decoration */}
+            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.md)}>
+              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
+            </div>
+
+            <h1 className={cn(designSystem.text.display.lg, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
               {aboutPageContent.hero.title}
             </h1>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary)}>
-              {aboutPageContent.hero.subtitle}
+
+            {/* Video */}
+            <div className={cn(designSystem.spacing.margin.bottom.xl)}>
+              <YouTubeEmbed videoId={aboutPageContent.hero.videoId} title="Meet Alina Rain" />
+            </div>
+
+            {/* Credentials as elegant badges */}
+            <div className={cn('flex flex-wrap justify-center', designSystem.spacing.gap.sm)}>
+              {aboutPageContent.credentials.items.map((cred, index) => (
+                <div
+                  key={index}
+                  className={cn(
+                    'inline-flex items-center gap-3',
+                    designSystem.spacing.padding.sm,
+                    designSystem.colors.background.secondary,
+                    designSystem.rounded.full,
+                    'border',
+                    designSystem.colors.border.primary,
+                    'hover:scale-105 transition-transform duration-300'
+                  )}
+                >
+                  <span className={designSystem.fontSize['2xl']}>{cred.icon}</span>
+                  <span className={cn(designSystem.text.body.sm, designSystem.colors.text.primary, designSystem.fontWeight.medium)}>{cred.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Break 1 - Ethereal Image */}
+      <section className="relative h-64 md:h-96 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple-2/50 to-vision-dark-purple/80"></div>
+        <div className={cn('absolute inset-0 flex items-center justify-center')}>
+          <div className={cn(designSystem.layout.container, designSystem.layout.textAlign.center)}>
+            <p className={cn(designSystem.text.display.md, designSystem.colors.text.primary, 'italic')}>
+              ✦
+            </p>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.top.sm)}>
+              The journey to wholeness
             </p>
           </div>
         </div>
       </section>
 
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      {/* Professionally Speaking with Timeline */}
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
         <div className={designSystem.layout.container}>
           <div className={cn('grid lg:grid-cols-2', designSystem.spacing.gap.xl, 'items-start', designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
             <div>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
-                {aboutPageContent.journey.title}
-              </h2>
-
-              <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
-                {aboutPageContent.journey.paragraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+              <div className="flex items-center gap-3 mb-6">
+                <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
+                <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
+                  {aboutPageContent.professionallySpeaking.title}
+                </h2>
               </div>
 
-              <div className={designSystem.spacing.margin.top.lg}>
-                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
-                  {aboutPageContent.philosophy.title}
-                </h3>
-                <div className={cn(designSystem.colors.background.secondary, designSystem.rounded.lg, designSystem.spacing.padding.md, 'border-l-4', designSystem.colors.border.primary)}>
-                  <p className={cn(designSystem.text.body.lg, designSystem.colors.text.primary, 'italic')}>
-                    &ldquo;{aboutPageContent.philosophy.quote}&rdquo;
-                  </p>
+              {aboutPageContent.professionallySpeaking.sections.map((section, index) => (
+                <div key={index} className={designSystem.spacing.margin.bottom.lg}>
+                  {section.heading && (
+                    <h3 className={cn(designSystem.text.h4, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.sm)}>
+                      {section.heading}
+                    </h3>
+                  )}
+                  {section.paragraphs && (
+                    <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
+                      {section.paragraphs.map((paragraph, pIndex) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                    </div>
+                  )}
+                  {section.pullQuote && (
+                    <div className={cn(
+                      designSystem.spacing.padding.lg,
+                      designSystem.colors.background.secondary,
+                      designSystem.rounded.lg,
+                      'border-l-4',
+                      designSystem.colors.border.primary,
+                      designSystem.spacing.margin.vertical.lg,
+                      'relative'
+                    )}>
+                      <div className="absolute -top-4 -left-4 text-6xl opacity-20">❝</div>
+                      <p className={cn(designSystem.text.body.xl, designSystem.colors.text.accent, 'italic', designSystem.fontWeight.semibold)}>
+                        {section.pullQuote}
+                      </p>
+                    </div>
+                  )}
                 </div>
-              </div>
+              ))}
             </div>
 
-            <div>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
-                {aboutPageContent.credentials.title}
-              </h2>
-
-              <div className={cn('grid grid-cols-1 sm:grid-cols-2', designSystem.spacing.gap.sm, designSystem.spacing.margin.bottom.xl)}>
-                {aboutPageContent.credentials.items.map((cred, index) => (
-                  <div
-                    key={index}
-                    className={cn(
-                      designSystem.cards.base,
-                      designSystem.spacing.padding.sm,
-                      'hover:shadow-lg transition-shadow'
-                    )}
-                  >
-                    <div className={cn(designSystem.fontSize['3xl'], designSystem.spacing.margin.bottom.xs)}>{cred.icon}</div>
-                    <h4 className={cn(designSystem.fontWeight.semibold, designSystem.colors.text.inverse.primary)}>{cred.title}</h4>
-                    <p className={cn(designSystem.fontSize.sm, designSystem.colors.text.inverse.secondary)}>{cred.description}</p>
-                  </div>
-                ))}
+            <div className="lg:sticky lg:top-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
+                <h3 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
+                  {aboutPageContent.timeline.title}
+                </h3>
               </div>
-
-              <h3 className={cn(designSystem.text.h3, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
-                {aboutPageContent.timeline.title}
-              </h3>
 
               <div className="relative">
                 <div className={cn('absolute left-8 top-0 bottom-0 w-0.5 opacity-30', designSystem.colors.background.accent)}></div>
@@ -77,7 +132,7 @@ export default function AboutPage() {
                     <div className={cn('absolute left-8 w-4 h-4', designSystem.colors.background.accent, designSystem.rounded.full, '-translate-x-1/2')}></div>
                     <div className="ml-16">
                       <span className={cn(designSystem.colors.text.accent, designSystem.fontWeight.semibold)}>{item.year}</span>
-                      <p className={designSystem.colors.text.primary}>{item.event}</p>
+                      <p className={cn(designSystem.text.body.md, designSystem.colors.text.primary)}>{item.event}</p>
                     </div>
                   </div>
                 ))}
@@ -87,23 +142,114 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      {/* Visual Break 2 */}
+      <section className="relative h-64 md:h-80 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-isabelline/30 to-vision-dark-purple-2/90"></div>
+        <div className={cn('absolute inset-0 flex items-center justify-center')}>
+          <div className={cn(designSystem.layout.container, designSystem.layout.textAlign.center)}>
+            <p className={cn(designSystem.text.display.md, designSystem.colors.text.accent)}>
+              ✦ ✦ ✦
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Personally Speaking */}
+      <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary)}>
+                {aboutPageContent.personallySpeaking.title}
+              </h2>
+              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
+            </div>
+
+            {aboutPageContent.personallySpeaking.sections.map((section, index) => (
+              <div key={index} className={designSystem.spacing.margin.bottom.lg}>
+                {section.paragraphs && (
+                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.inverse.secondary)}>
+                    {section.paragraphs.map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
+                {section.pullQuote && (
+                  <div className={cn(
+                    designSystem.spacing.padding.lg,
+                    designSystem.colors.background.primary,
+                    designSystem.rounded.lg,
+                    'border-l-4',
+                    'border-vision-lion',
+                    designSystem.spacing.margin.vertical.lg,
+                    'relative'
+                  )}>
+                    <div className="absolute -top-6 -left-6 text-8xl opacity-10">❝</div>
+                    <p className={cn(designSystem.text.body.xl, designSystem.colors.text.accent, 'italic', designSystem.fontWeight.semibold)}>
+                      {section.pullQuote}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* My Values - Redesigned */}
+      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full, 'relative')}>
+        {/* Decorative background elements */}
+        <div className="absolute top-20 right-20 w-64 h-64 opacity-5">
+          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
+        </div>
+
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.md)}>
+              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
+            </div>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
               {aboutPageContent.values.title}
             </h2>
 
-            <div className={cn('grid md:grid-cols-3', designSystem.spacing.gap.lg)}>
+            <div className={cn('grid md:grid-cols-2 lg:grid-cols-3', designSystem.spacing.gap.md)}>
               {aboutPageContent.values.items.map((value, index) => (
-                <div key={index} className={designSystem.layout.textAlign.center}>
-                  <div className={cn('w-20 h-20', designSystem.colors.background.primary, designSystem.rounded.full, 'flex items-center justify-center', designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
-                    <span className={designSystem.fontSize['3xl']}>{value.icon}</span>
+                <div
+                  key={index}
+                  className={cn(
+                    designSystem.spacing.padding.lg,
+                    designSystem.colors.background.primary,
+                    designSystem.rounded.xl,
+                    'border-2',
+                    'border-transparent',
+                    'hover:border-vision-lion',
+                    'transition-all duration-300',
+                    'group',
+                    'relative overflow-hidden'
+                  )}
+                >
+                  {/* Subtle glow effect on hover */}
+                  <div className="absolute inset-0 bg-vision-lion/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  <div className="relative z-10">
+                    <div className={cn(
+                      'w-12 h-12',
+                      designSystem.colors.background.accent,
+                      designSystem.rounded.full,
+                      'flex items-center justify-center',
+                      designSystem.spacing.margin.bottom.sm,
+                      'group-hover:scale-110 transition-transform duration-300'
+                    )}>
+                      <span className={cn(designSystem.fontSize['2xl'])}>✦</span>
+                    </div>
+                    <h3 className={cn(designSystem.text.h5, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
+                      {value.title}
+                    </h3>
+                    <p className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>
+                      {value.description}
+                    </p>
                   </div>
-                  <h3 className={cn(designSystem.fontWeight.semibold, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.xs)}>{value.title}</h3>
-                  <p className={cn(designSystem.text.body.md, designSystem.colors.text.secondary)}>
-                    {value.description}
-                  </p>
                 </div>
               ))}
             </div>
@@ -111,24 +257,97 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Visual Break 3 */}
+      <section className="relative h-48 md:h-64 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/80 to-vision-isabelline/30"></div>
+        <div className={cn('absolute inset-0 flex items-center justify-center')}>
+          <p className={cn(designSystem.text.display.md, designSystem.colors.text.inverse.primary)}>
+            ⟡
+          </p>
+        </div>
+      </section>
+
+      {/* Mission - Manifesto Style */}
       <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <div className={cn('grid grid-cols-2 md:grid-cols-4', designSystem.spacing.gap.lg, designSystem.layout.textAlign.center)}>
-              {aboutPageContent.stats.items.map((stat, index) => (
-                <div key={index}>
-                  <div className={cn(designSystem.fontSize['4xl'], designSystem.fontWeight.bold, designSystem.colors.text.inverse.primary)}>{stat.number}</div>
-                  <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary)}>{stat.label}</p>
-                </div>
+          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
+            <div className={cn(designSystem.spacing.margin.bottom.md)}>
+              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
+            </div>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.xl)}>
+              {aboutPageContent.mission.title}
+            </h2>
+            <div className={cn('space-y-6')}>
+              {aboutPageContent.mission.manifesto.map((line, index) => (
+                <p
+                  key={index}
+                  className={cn(
+                    designSystem.text.body.xl,
+                    index < 5 ? designSystem.colors.text.inverse.primary : designSystem.colors.text.inverse.secondary,
+                    index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal,
+                    'leading-relaxed'
+                  )}
+                >
+                  {line}
+                </p>
               ))}
             </div>
           </div>
         </div>
       </section>
 
+      {/* A Personal Note */}
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
+                {aboutPageContent.personalNote.title}
+              </h2>
+              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
+            </div>
+
+            {aboutPageContent.personalNote.sections.map((section, index) => (
+              <div key={index} className={designSystem.spacing.margin.bottom.lg}>
+                {section.paragraphs && (
+                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
+                    {section.paragraphs.map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
+                {section.pullQuote && (
+                  <div className={cn(
+                    designSystem.spacing.padding.xl,
+                    designSystem.colors.background.secondary,
+                    designSystem.rounded.xl,
+                    'border-2',
+                    designSystem.colors.border.primary,
+                    designSystem.spacing.margin.vertical.xl,
+                    designSystem.layout.textAlign.center,
+                    'relative'
+                  )}>
+                    <div className="absolute top-4 left-4 text-8xl opacity-10">❝</div>
+                    <div className="absolute bottom-4 right-4 text-8xl opacity-10 rotate-180">❝</div>
+                    <p className={cn(designSystem.text.display.sm, designSystem.colors.text.accent, 'italic', 'relative z-10')}>
+                      {section.pullQuote}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
+            <div className={cn(designSystem.spacing.margin.bottom.md)}>
+              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
+            </div>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
               {aboutPageContent.cta.title}
             </h2>

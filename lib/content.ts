@@ -126,23 +126,62 @@ export const homePageContent = {
 export const aboutPageContent = {
   hero: {
     title: 'Meet Alina Rain',
-    subtitle: 'Embodiment Coach, Spiritual Guide, and Transformation Catalyst',
+    videoId: 'EqetHVj51cM',
   },
 
-  journey: {
-    title: 'My Journey',
-    paragraphs: [
-      "Welcome, beautiful soul. I'm Alina Rain, and I'm honored that you're here. My path to becoming an embodiment coach wasn't linear—it was a spiral journey of awakening, healing, and profound transformation.",
-      "Like many of you, I spent years feeling disconnected from my true self, caught in patterns that no longer served me, and yearning for something more meaningful. My awakening began in 2010 when a personal crisis became my greatest catalyst for change.",
-      "Through years of deep inner work, studying with master teachers, and integrating ancient wisdom with modern psychology, I discovered the power of embodiment—the practice of fully inhabiting our bodies, emotions, and authentic selves.",
-      "Today, I combine my extensive training in coaching, somatic practices, energy healing, and archetypal psychology to guide others on their transformation journey. My approach is intuitive yet grounded, spiritual yet practical, always honoring both the mystical and the mundane.",
-      "I believe that true transformation happens when we bridge the gap between vision and embodiment—when we don't just dream of change but become it. This is the sacred work I'm here to facilitate with you.",
+  visualBreak1: {
+    image: '/images/about/mystical-nature-1.jpg',
+    alt: 'Ethereal forest light filtering through trees',
+  },
+
+  visualBreak2: {
+    image: '/images/about/mystical-nature-2.jpg',
+    alt: 'Sacred geometric patterns in nature',
+  },
+
+  visualBreak3: {
+    image: '/images/about/mystical-nature-3.jpg',
+    alt: 'Mystical energy and transformation',
+  },
+
+  professionallySpeaking: {
+    title: 'Professionally Speaking',
+    sections: [
+      {
+        heading: 'The Beginning',
+        paragraphs: [
+          "Growing up, I always knew there were unhealthy patterns in my family that were passed down. At 15 when my mother went abroad for work, I knew I had to stand on my own two feet and begin my deep dive into psychology and personal development. I wanted to deconstruct, deprogram, and heal what was keeping me stuck.",
+        ],
+      },
+      {
+        heading: 'Walking the Path',
+        paragraphs: [
+          "My journey led me to shadow work, somatics, and energy healing, not just as concepts but as embodied experiences. I have walked the path of depression, suicidal ideation, attachment wounds, and burnout, and my search for healing took me through many layers of spirituality, psychology, and self-discovery.",
+        ],
+      },
+      {
+        pullQuote: "Healing is not just about understanding — it's about integration.",
+      },
+      {
+        heading: 'A Turning Point',
+        paragraphs: [
+          "After being laid off from my software engineering job and losing my mental health benefits while in the middle of deep EMDR work, I made a choice to train myself so I would never be in a position where healing was taken from me again. This led me to Embody Lab, where I studied under some of the most respected experts in the field of somatics and trauma healing.",
+        ],
+      },
+      {
+        heading: 'Lessons from Academia',
+        paragraphs: [
+          "Before entering the tech industry, I also worked as a research assistant in nanotechnology and began a PhD program. However, I ultimately dropped out due to burnout and the toxic environment created by working under a narcissistic supervisor. This was a pivotal realization for me - unhealthy relationship dynamics don't just exist in personal life, they show up in work environments too.",
+        ],
+      },
+      {
+        heading: 'My Approach',
+        paragraphs: [
+          "While I am not a licensed therapist, I bring a deeply trauma-informed, client-centered, and intuitive approach to my work. Every client's journey is unique, and I meet them where they are - whether that means focusing on coaching, shadow work, somatic healing, energy work, or psychedelic integration.",
+          "My work is not about quick fixes, it's about real transformation that honors the nervous system, the subconscious, and the soul.",
+        ],
+      },
     ],
-  },
-
-  philosophy: {
-    title: 'My Philosophy',
-    quote: "Transformation isn't about becoming someone new—it's about remembering who you've always been beneath the layers of conditioning. It's about coming home to yourself, fully and unapologetically.",
   },
 
   credentials: {
@@ -152,6 +191,27 @@ export const aboutPageContent = {
       { icon: '🧘', title: 'Embodiment Practitioner', description: 'Certified in Somatic Experiencing' },
       { icon: '🔮', title: 'Tarot Master', description: '15+ years of archetypal study' },
       { icon: '💜', title: 'Energy Healer', description: 'Reiki Master Teacher' },
+    ],
+  },
+
+  personallySpeaking: {
+    title: 'Personally Speaking',
+    sections: [
+      {
+        paragraphs: [
+          "I am a seeker, a deep thinker, and a lifelong learner. My mind is hungry for knowledge - always curious, always exploring. Outside of my work, you can find me in nature, immersed in witchy rituals, music, and art.",
+          "I am passionate about slow living, honoring my neurodivergence (self-diagnosed AuDHD, CPTSD), and embodying my true essence instead of masking or conforming to a society that was not built for my nervous system.",
+        ],
+      },
+      {
+        pullQuote: "My journey isn't about 'fixing' myself — it's about expanding my capacity for joy, embodiment, and self-expression.",
+      },
+      {
+        paragraphs: [
+          "After experiencing autistic burnout at 28, I began re-learning how to live in alignment with my energy, my needs, and my truth.",
+          "I am devoted to walking my own healing path with the same depth and integrity that I offer to my clients.",
+        ],
+      },
     ],
   },
 
@@ -168,32 +228,66 @@ export const aboutPageContent = {
   },
 
   values: {
-    title: 'What I Stand For',
+    title: 'My Values',
     items: [
       {
-        icon: '🌟',
-        title: 'Authenticity',
-        description: 'Living in alignment with your true self, free from masks and pretense.',
+        title: 'Healing with integrity',
+        description: 'No spiritual bypassing, no quick fixes, no fake guru culture - just deep, ethical, and embodied transformation.',
       },
       {
-        icon: '💖',
-        title: 'Compassion',
-        description: 'Holding space with love and non-judgment for all aspects of your journey.',
+        title: 'Trauma-informed and client-centered',
+        description: "Every client's process is unique, and healing must be paced, resourced, and safe.",
       },
       {
-        icon: '🔥',
-        title: 'Transformation',
-        description: 'Embracing change as the pathway to your highest potential.',
+        title: 'Bridging the mystical and the practical',
+        description: 'Integrating somatics, EMDR, shadow work, and energy healing in a way that is grounded, responsible, and transformative.',
+      },
+      {
+        title: 'Decolonized and conscious spirituality',
+        description: 'Rejecting commercialized, appropriative, and exploitative healing trends in favor of ethics, respect, and responsibility.',
+      },
+      {
+        title: 'Empowerment over dependency',
+        description: "Healing is not about becoming reliant on a practitioner - it's about reclaiming self-trust, self-sovereignty, and embodiment.",
+      },
+      {
+        title: 'A safe space for all identities',
+        description: "This is not a space for spiritual bypassing, conspiracy theories, or harmful ideologies. We actively reject racism, homophobia, transphobia, fascism, and alt-right ideologies. Healing happens in safety.",
       },
     ],
   },
 
-  stats: {
-    items: [
-      { number: '500+', label: 'Clients Transformed' },
-      { number: '10+', label: 'Years Experience' },
-      { number: '5000+', label: 'Coaching Hours' },
-      { number: '98%', label: 'Client Satisfaction' },
+  mission: {
+    title: 'Mission',
+    manifesto: [
+      "I provide deep, ethical, trauma-informed healing.",
+      "I help you integrate your shadows.",
+      "Reconnect with your body.",
+      "Reclaim your authentic self.",
+      "I guide with integrity, discernment, and a blend of somatic, spiritual, and psychological wisdom.",
+      "This is real transformation.",
+      "Not quick fixes. Not spiritual bypassing.",
+      "This is the work.",
+    ],
+  },
+
+  personalNote: {
+    title: 'A Personal Note',
+    sections: [
+      {
+        paragraphs: [
+          "I see you. I hear you. And I want you to know that your divine weirdness and non-conformity are your greatest gifts. I know how it feels to be the one who always sticks out, to feel like you have to lose pieces of yourself just to fit in. I also know the power of reclaiming those lost parts, healing in your own way, and stepping fully into your own zone of genius.",
+        ],
+      },
+      {
+        pullQuote: "Healing isn't about becoming someone else — it's about becoming more YOU.",
+      },
+      {
+        paragraphs: [
+          "If my story resonates with you, if you're seeking deep, embodied transformation, I would love to walk alongside you on your journey.",
+          "If this resonates, let's connect. Whether you're seeking coaching, shadow work, somatic healing, or just a safe space to explore your next step, I'm here to support you.",
+        ],
+      },
     ],
   },
 
