@@ -8,22 +8,9 @@ export default function AboutPage() {
     <div className={cn('min-h-screen', designSystem.colors.background.inverse)}>
       {/* Hero - Full Width Video */}
       <section className={cn(designSystem.colors.background.primary, 'relative overflow-hidden')}>
-        {/* Decorative elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 opacity-10">
-          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
-        </div>
-        <div className="absolute bottom-10 left-10 w-48 h-48 opacity-10">
-          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
-        </div>
-
         <div className={cn(designSystem.layout.container, designSystem.spacing.section.full)}>
           <div className={cn(designSystem.layout.maxWidth['5xl'], designSystem.spacing.margin.horizontal.auto)}>
-            {/* Mystical star decoration */}
-            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.md)}>
-              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
-            </div>
-
-            <h1 className={cn(designSystem.text.display.lg, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
+            <h1 className={cn(designSystem.text.display.lg, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.xl, designSystem.layout.textAlign.center)}>
               {aboutPageContent.hero.title}
             </h1>
 
@@ -32,23 +19,24 @@ export default function AboutPage() {
               <YouTubeEmbed videoId={aboutPageContent.hero.videoId} title="Meet Alina Rain" />
             </div>
 
-            {/* Credentials as elegant badges */}
-            <div className={cn('flex flex-wrap justify-center', designSystem.spacing.gap.sm)}>
+            {/* Credentials - Clean and elegant */}
+            <div className={cn('grid grid-cols-2 md:grid-cols-4', designSystem.spacing.gap.sm, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
               {aboutPageContent.credentials.items.map((cred, index) => (
                 <div
                   key={index}
                   className={cn(
-                    'inline-flex items-center gap-3',
-                    designSystem.spacing.padding.sm,
+                    designSystem.spacing.padding.md,
                     designSystem.colors.background.secondary,
-                    designSystem.rounded.full,
+                    designSystem.rounded.lg,
                     'border',
                     designSystem.colors.border.primary,
-                    'hover:scale-105 transition-transform duration-300'
+                    'hover:border-vision-lion',
+                    'transition-all duration-300',
+                    'text-center'
                   )}
                 >
-                  <span className={designSystem.fontSize['2xl']}>{cred.icon}</span>
-                  <span className={cn(designSystem.text.body.sm, designSystem.colors.text.primary, designSystem.fontWeight.medium)}>{cred.title}</span>
+                  <h4 className={cn(designSystem.text.body.sm, designSystem.colors.text.primary, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.xs)}>{cred.title}</h4>
+                  <p className={cn(designSystem.fontSize.xs, designSystem.colors.text.secondary)}>{cred.description}</p>
                 </div>
               ))}
             </div>
@@ -56,15 +44,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Visual Break 1 - Ethereal Image */}
+      {/* Visual Break 1 */}
       <section className="relative h-64 md:h-96 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple-2/50 to-vision-dark-purple/80"></div>
         <div className={cn('absolute inset-0 flex items-center justify-center')}>
           <div className={cn(designSystem.layout.container, designSystem.layout.textAlign.center)}>
-            <p className={cn(designSystem.text.display.md, designSystem.colors.text.primary, 'italic')}>
-              ✦
-            </p>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.top.sm)}>
+            <p className={cn(designSystem.text.display.sm, designSystem.colors.text.primary)}>
               The journey to wholeness
             </p>
           </div>
@@ -76,12 +61,9 @@ export default function AboutPage() {
         <div className={designSystem.layout.container}>
           <div className={cn('grid lg:grid-cols-2', designSystem.spacing.gap.xl, 'items-start', designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
-                <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
-                  {aboutPageContent.professionallySpeaking.title}
-                </h2>
-              </div>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+                {aboutPageContent.professionallySpeaking.title}
+              </h2>
 
               {aboutPageContent.professionallySpeaking.sections.map((section, index) => (
                 <div key={index} className={designSystem.spacing.margin.bottom.lg}>
@@ -118,12 +100,9 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:sticky lg:top-8">
-              <div className="flex items-center gap-3 mb-6">
-                <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
-                <h3 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
-                  {aboutPageContent.timeline.title}
-                </h3>
-              </div>
+              <h3 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
+                {aboutPageContent.timeline.title}
+              </h3>
 
               <div className="relative">
                 <div className={cn('absolute left-8 top-0 bottom-0 w-0.5 opacity-30', designSystem.colors.background.accent)}></div>
@@ -145,26 +124,15 @@ export default function AboutPage() {
       {/* Visual Break 2 */}
       <section className="relative h-64 md:h-80 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-vision-isabelline/30 to-vision-dark-purple-2/90"></div>
-        <div className={cn('absolute inset-0 flex items-center justify-center')}>
-          <div className={cn(designSystem.layout.container, designSystem.layout.textAlign.center)}>
-            <p className={cn(designSystem.text.display.md, designSystem.colors.text.accent)}>
-              ✦ ✦ ✦
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* Personally Speaking */}
       <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary)}>
-                {aboutPageContent.personallySpeaking.title}
-              </h2>
-              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
-            </div>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+              {aboutPageContent.personallySpeaking.title}
+            </h2>
 
             {aboutPageContent.personallySpeaking.sections.map((section, index) => (
               <div key={index} className={designSystem.spacing.margin.bottom.lg}>
@@ -197,18 +165,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* My Values - Redesigned */}
-      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full, 'relative')}>
-        {/* Decorative background elements */}
-        <div className="absolute top-20 right-20 w-64 h-64 opacity-5">
-          <div className={cn('w-full h-full', designSystem.colors.background.accent, 'rounded-full blur-3xl')}></div>
-        </div>
-
+      {/* My Values */}
+      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.md)}>
-              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
-            </div>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
               {aboutPageContent.values.title}
             </h2>
@@ -220,36 +180,19 @@ export default function AboutPage() {
                   className={cn(
                     designSystem.spacing.padding.lg,
                     designSystem.colors.background.primary,
-                    designSystem.rounded.xl,
-                    'border-2',
-                    'border-transparent',
+                    designSystem.rounded.lg,
+                    'border',
+                    designSystem.colors.border.primary,
                     'hover:border-vision-lion',
-                    'transition-all duration-300',
-                    'group',
-                    'relative overflow-hidden'
+                    'transition-all duration-300'
                   )}
                 >
-                  {/* Subtle glow effect on hover */}
-                  <div className="absolute inset-0 bg-vision-lion/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                  <div className="relative z-10">
-                    <div className={cn(
-                      'w-12 h-12',
-                      designSystem.colors.background.accent,
-                      designSystem.rounded.full,
-                      'flex items-center justify-center',
-                      designSystem.spacing.margin.bottom.sm,
-                      'group-hover:scale-110 transition-transform duration-300'
-                    )}>
-                      <span className={cn(designSystem.fontSize['2xl'])}>✦</span>
-                    </div>
-                    <h3 className={cn(designSystem.text.h5, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
-                      {value.title}
-                    </h3>
-                    <p className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>
-                      {value.description}
-                    </p>
-                  </div>
+                  <h3 className={cn(designSystem.text.h5, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
+                    {value.title}
+                  </h3>
+                  <p className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary)}>
+                    {value.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -260,20 +203,12 @@ export default function AboutPage() {
       {/* Visual Break 3 */}
       <section className="relative h-48 md:h-64 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/80 to-vision-isabelline/30"></div>
-        <div className={cn('absolute inset-0 flex items-center justify-center')}>
-          <p className={cn(designSystem.text.display.md, designSystem.colors.text.inverse.primary)}>
-            ⟡
-          </p>
-        </div>
       </section>
 
       {/* Mission - Manifesto Style */}
       <section className={cn(designSystem.colors.background.inverse, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <div className={cn(designSystem.spacing.margin.bottom.md)}>
-              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.inverse.secondary)}>✦</span>
-            </div>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.xl)}>
               {aboutPageContent.mission.title}
             </h2>
@@ -297,16 +232,12 @@ export default function AboutPage() {
       </section>
 
       {/* A Personal Note */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary)}>
-                {aboutPageContent.personalNote.title}
-              </h2>
-              <span className={cn(designSystem.fontSize['3xl'], designSystem.colors.text.accent)}>✦</span>
-            </div>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+              {aboutPageContent.personalNote.title}
+            </h2>
 
             {aboutPageContent.personalNote.sections.map((section, index) => (
               <div key={index} className={designSystem.spacing.margin.bottom.lg}>
@@ -345,9 +276,6 @@ export default function AboutPage() {
       <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <div className={cn(designSystem.spacing.margin.bottom.md)}>
-              <span className={cn(designSystem.fontSize['4xl'], designSystem.colors.text.accent)}>✦</span>
-            </div>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
               {aboutPageContent.cta.title}
             </h2>

@@ -187,10 +187,10 @@ export const aboutPageContent = {
   credentials: {
     title: 'Credentials & Training',
     items: [
-      { icon: '🎓', title: 'ICF Certified Coach', description: 'International Coach Federation Accredited' },
-      { icon: '🧘', title: 'Embodiment Practitioner', description: 'Certified in Somatic Experiencing' },
-      { icon: '🔮', title: 'Tarot Master', description: '15+ years of archetypal study' },
-      { icon: '💜', title: 'Energy Healer', description: 'Reiki Master Teacher' },
+      { title: 'ICF Certified Coach', description: 'International Coach Federation Accredited' },
+      { title: 'Embodiment Practitioner', description: 'Certified in Somatic Experiencing' },
+      { title: 'Tarot Master', description: '15+ years of archetypal study' },
+      { title: 'Energy Healer', description: 'Reiki Master Teacher' },
     ],
   },
 
