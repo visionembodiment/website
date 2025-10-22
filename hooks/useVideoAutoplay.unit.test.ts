@@ -208,8 +208,7 @@ describe('useVideoAutoplay', () => {
 
     it('should handle null poster ref gracefully', async () => {
       // Arrange
-      const nullPosterRef = createRef<HTMLImageElement>();
-      (mockVideo as { readyState: number }).readyState =4;
+      (mockVideo as { readyState: number }).readyState = 4;
 
       // Act
       renderHook(() => useVideoAutoplay(videoRef));
@@ -225,7 +224,6 @@ describe('useVideoAutoplay', () => {
     it('should handle both refs being null gracefully', () => {
       // Arrange
       const nullVideoRef = createRef<HTMLVideoElement>();
-      const nullPosterRef = createRef<HTMLImageElement>();
 
       // Act & Assert
       expect(() => {

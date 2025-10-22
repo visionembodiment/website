@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { cn, designSystem } from '@/lib/design-system';
 import { useVideoAutoplay } from '@/hooks/useVideoAutoplay';
 
@@ -33,7 +34,7 @@ export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage
   }, [posterImage, mobilePosterImage, posterPlaceholder, mobilePosterPlaceholder]);
 
   useEffect(() => {
-    const img = new Image();
+    const img = new window.Image();
     img.onload = () => {
       setShowPlaceholder(false);
     };
@@ -45,11 +46,12 @@ export default function VideoHero({ title, videoUrl, mobileVideoUrl, posterImage
   return (
     <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-vision-licorice">
       {showPlaceholder && currentPlaceholder && (
-        <img
+        <Image
           src={currentPlaceholder}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
+          fill
+          priority
+          className="object-cover"
         />
       )}
       <video
