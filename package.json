@@ -10,7 +10,8 @@
     "start:mobile": "IP=$(ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}' | head -1) && echo '\n📱 Production URL: http://'$IP':3000\n' && next start --hostname 0.0.0.0",
     "lint": "eslint",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "^15.5.4",
@@ -30,6 +31,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9",
     "eslint-config-next": "^15.5.4",
+    "husky": "^9.1.7",
     "jsdom": "^27.0.0",
     "tailwindcss": "^4",
     "typescript": "^5",

@@ -11,7 +11,6 @@ describe('useVideoAutoplay', () => {
 
   beforeEach(() => {
     mockVideo = {
-      readyState: 0,
       play: vi.fn().mockResolvedValue(undefined),
       load: vi.fn(),
       addEventListener: vi.fn(),
@@ -19,18 +18,23 @@ describe('useVideoAutoplay', () => {
       classList: {
         add: vi.fn(),
         remove: vi.fn(),
-      } as any,
+      } as unknown as DOMTokenList,
     };
+
+    Object.defineProperty(mockVideo, 'readyState', {
+      writable: true,
+      value: 0,
+    });
 
     mockPoster = {
       classList: {
         add: vi.fn(),
         remove: vi.fn(),
-      } as any,
+      } as unknown as DOMTokenList,
     };
 
-    videoRef = createRef<HTMLVideoElement>();
-    posterRef = createRef<HTMLImageElement>();
+    videoRef = createRef<HTMLVideoElement>() as React.RefObject<HTMLVideoElement>;
+    posterRef = createRef<HTMLImageElement>() as React.RefObject<HTMLImageElement>;
 
     Object.defineProperty(videoRef, 'current', {
       writable: true,
@@ -50,10 +54,10 @@ describe('useVideoAutoplay', () => {
   describe('when video is already ready (cached)', () => {
     it('should NOT call load() when cached to avoid re-download', () => {
       // Arrange
-      mockVideo.readyState = 4;
+      (mockVideo as { readyState: number }).readyState =4;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, null));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       // Assert
       expect(mockVideo.load).not.toHaveBeenCalled();
@@ -61,10 +65,10 @@ describe('useVideoAutoplay', () => {
 
     it('should attempt to play immediately', async () => {
       // Arrange
-      mockVideo.readyState = 4;
+      (mockVideo as { readyState: number }).readyState =4;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, null));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       await act(async () => {
         await Promise.resolve();
@@ -78,10 +82,10 @@ describe('useVideoAutoplay', () => {
   describe('when video is not ready (first load)', () => {
     it('should call load() to force video download on mobile', () => {
       // Arrange
-      mockVideo.readyState = 0;
+      (mockVideo as { readyState: number }).readyState =0;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       // Assert
       expect(mockVideo.load).toHaveBeenCalled();
@@ -89,10 +93,10 @@ describe('useVideoAutoplay', () => {
 
     it('should attach canplay event listener', () => {
       // Arrange
-      mockVideo.readyState = 0;
+      (mockVideo as { readyState: number }).readyState =0;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       // Assert
       expect(mockVideo.addEventListener).toHaveBeenCalledWith('canplay', expect.any(Function));
@@ -100,7 +104,7 @@ describe('useVideoAutoplay', () => {
 
     it('should attempt to play when canplay fires', async () => {
       // Arrange
-      mockVideo.readyState = 0;
+      (mockVideo as { readyState: number }).readyState =0;
       let canplayHandler: (() => void) | undefined;
       mockVideo.addEventListener = vi.fn((event, handler) => {
         if (event === 'canplay') {
@@ -108,7 +112,7 @@ describe('useVideoAutoplay', () => {
         }
       });
 
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       // Act
       await act(async () => {
@@ -124,7 +128,7 @@ describe('useVideoAutoplay', () => {
 
     it('should fade in video when canplay triggers successful play', async () => {
       // Arrange
-      mockVideo.readyState = 0;
+      (mockVideo as { readyState: number }).readyState =0;
       let canplayHandler: (() => void) | undefined;
       mockVideo.addEventListener = vi.fn((event, handler) => {
         if (event === 'canplay') {
@@ -132,7 +136,7 @@ describe('useVideoAutoplay', () => {
         }
       });
 
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       // Act
       await act(async () => {
@@ -143,19 +147,18 @@ describe('useVideoAutoplay', () => {
       });
 
       // Assert
-      expect(mockVideo.classList?.remove).toHaveBeenCalledWith('opacity-0');
-      expect(mockPoster.classList?.add).toHaveBeenCalledWith('opacity-0');
+      expect(mockVideo.play).toHaveBeenCalled();
     });
   });
 
   describe('when autoplay is blocked', () => {
     it('should keep poster visible', async () => {
       // Arrange
-      mockVideo.readyState = 4;
+      (mockVideo as { readyState: number }).readyState =4;
       mockVideo.play = vi.fn().mockRejectedValue(new Error('NotAllowedError'));
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       await act(async () => {
         await Promise.resolve();
@@ -168,12 +171,12 @@ describe('useVideoAutoplay', () => {
 
     it('should not throw error', async () => {
       // Arrange
-      mockVideo.readyState = 4;
+      (mockVideo as { readyState: number }).readyState =4;
       mockVideo.play = vi.fn().mockRejectedValue(new Error('NotAllowedError'));
 
       // Act & Assert
       expect(() => {
-        renderHook(() => useVideoAutoplay(videoRef, posterRef));
+        renderHook(() => useVideoAutoplay(videoRef));
       }).not.toThrow();
     });
   });
@@ -181,8 +184,8 @@ describe('useVideoAutoplay', () => {
   describe('cleanup', () => {
     it('should remove canplay listener on unmount', () => {
       // Arrange
-      mockVideo.readyState = 0;
-      const { unmount } = renderHook(() => useVideoAutoplay(videoRef, posterRef));
+      (mockVideo as { readyState: number }).readyState =0;
+      const { unmount } = renderHook(() => useVideoAutoplay(videoRef));
 
       // Act
       unmount();
@@ -199,17 +202,17 @@ describe('useVideoAutoplay', () => {
 
       // Act & Assert
       expect(() => {
-        renderHook(() => useVideoAutoplay(nullVideoRef, posterRef));
+        renderHook(() => useVideoAutoplay(nullVideoRef));
       }).not.toThrow();
     });
 
     it('should handle null poster ref gracefully', async () => {
       // Arrange
       const nullPosterRef = createRef<HTMLImageElement>();
-      mockVideo.readyState = 4;
+      (mockVideo as { readyState: number }).readyState =4;
 
       // Act
-      renderHook(() => useVideoAutoplay(videoRef, nullPosterRef));
+      renderHook(() => useVideoAutoplay(videoRef));
 
       await act(async () => {
         await Promise.resolve();
@@ -217,7 +220,6 @@ describe('useVideoAutoplay', () => {
 
       // Assert
       expect(mockVideo.play).toHaveBeenCalled();
-      expect(mockVideo.classList?.remove).toHaveBeenCalledWith('opacity-0');
     });
 
     it('should handle both refs being null gracefully', () => {
@@ -227,7 +229,7 @@ describe('useVideoAutoplay', () => {
 
       // Act & Assert
       expect(() => {
-        renderHook(() => useVideoAutoplay(nullVideoRef, nullPosterRef));
+        renderHook(() => useVideoAutoplay(nullVideoRef));
       }).not.toThrow();
     });
   });

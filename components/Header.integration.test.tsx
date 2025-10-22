@@ -75,6 +75,7 @@ describe('Header Integration', () => {
   it('hides PromotionBanner when promotion is inactive', () => {
     // Arrange
     vi.mocked(contentModule).homePageContent = {
+      ...contentModule.homePageContent,
       promotion: {
         active: false,
         emoji: '🎉',
