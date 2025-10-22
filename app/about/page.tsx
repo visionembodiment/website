@@ -18,22 +18,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={designSystem.spacing.section.full}>
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn('grid lg:grid-cols-2', designSystem.spacing.gap.xl, 'items-start', designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
             <div>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.md)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
                 {aboutPageContent.journey.title}
               </h2>
 
-              <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.inverse.secondary)}>
+              <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
                 {aboutPageContent.journey.paragraphs.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
 
               <div className={designSystem.spacing.margin.top.lg}>
-                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.sm)}>
+                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
                   {aboutPageContent.philosophy.title}
                 </h3>
                 <div className={cn(designSystem.colors.background.secondary, designSystem.rounded.lg, designSystem.spacing.padding.md, 'border-l-4', designSystem.colors.border.primary)}>
@@ -45,7 +45,7 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.md)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
                 {aboutPageContent.credentials.title}
               </h2>
 
@@ -66,18 +66,18 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.md)}>
+              <h3 className={cn(designSystem.text.h3, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
                 {aboutPageContent.timeline.title}
               </h3>
 
               <div className="relative">
-                <div className={cn('absolute left-8 top-0 bottom-0 w-0.5', designSystem.colors.background.secondary)}></div>
+                <div className={cn('absolute left-8 top-0 bottom-0 w-0.5 opacity-30', designSystem.colors.background.accent)}></div>
                 {aboutPageContent.timeline.events.map((item, index) => (
                   <div key={index} className={cn('relative flex items-start', designSystem.spacing.margin.bottom.md)}>
-                    <div className={cn('absolute left-8 w-4 h-4', designSystem.colors.background.secondary, designSystem.rounded.full, '-translate-x-1/2')}></div>
+                    <div className={cn('absolute left-8 w-4 h-4', designSystem.colors.background.accent, designSystem.rounded.full, '-translate-x-1/2')}></div>
                     <div className="ml-16">
-                      <span className={cn(designSystem.colors.text.inverse.secondary, designSystem.fontWeight.semibold)}>{item.year}</span>
-                      <p className={designSystem.colors.text.inverse.primary}>{item.event}</p>
+                      <span className={cn(designSystem.colors.text.accent, designSystem.fontWeight.semibold)}>{item.year}</span>
+                      <p className={designSystem.colors.text.primary}>{item.event}</p>
                     </div>
                   </div>
                 ))}

@@ -2,9 +2,10 @@
 export const designSystem = {
   colors: {
     background: {
-      primary: 'bg-vision-dark-purple-2',        // Main background 
+      primary: 'bg-vision-dark-purple-2',        // Main background
       secondary: 'bg-vision-dark-purple',        // Section contrast
       inverse: 'bg-vision-isabelline',           // Light background
+      accent: 'bg-vision-lion',                  // Gold accent background
     },
     text: {
       primary: 'text-vision-isabelline',       // Lightest text for dark backgrounds (#f4f0ed)
