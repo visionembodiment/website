@@ -71,7 +71,7 @@ export default function ServicesPage() {
                       <td className={cn(designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, designSystem.fontWeight.medium, designSystem.colors.text.inverse.primary)}>Investment</td>
                       <td className={cn(designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, "text-center", designSystem.colors.text.inverse.secondary)}>
                         <span className="line-through text-gray-400">{comparison.pricing.mindGames.original}</span>
-                        <span className={cn("text-green-600 ml-2", designSystem.fontWeight.bold)}>{comparison.pricing.mindGames.sale}</span>
+                        <span className={cn("ml-2", designSystem.fontWeight.bold, designSystem.colors.text.inverse.secondary)}>{comparison.pricing.mindGames.sale}</span>
                       </td>
                       <td className={cn(designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, "text-center", designSystem.colors.text.inverse.secondary)}>{comparison.pricing.oneToOne}</td>
                       <td className={cn(designSystem.spacing.padding.horizontal.md, designSystem.spacing.padding.vertical.sm, "text-center", designSystem.colors.text.inverse.secondary)}>{comparison.pricing.tarot}</td>

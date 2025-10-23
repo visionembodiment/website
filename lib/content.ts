@@ -406,6 +406,431 @@ export const servicesPageContent = {
   },
 };
 
+export const mindGamesReadingContent = {
+  hero: {
+    title: 'Mind Games Reading',
+    subtitle: 'Unlock the hidden patterns of your mind and transform limiting beliefs into empowering truths through this powerful guided exploration.',
+    price: '$15',
+    originalPrice: '$150',
+    promotion: {
+      emoji: '🎉',
+      text: 'Limited Time: 90% OFF - Only $15!',
+    },
+    primaryButton: {
+      text: 'Book Now - Only $15',
+      href: '/booking?service=mind-games',
+    },
+    secondaryButton: {
+      text: 'Learn More',
+      href: '#learn-more',
+    },
+  },
+  whatIs: {
+    title: 'What Is a Mind Games Reading?',
+    description: [
+      "Your mind is playing games with you—but not in the way you might think. These \"games\" are the unconscious patterns, beliefs, and stories that shape your reality without your awareness.",
+      'A Mind Games Reading is a revolutionary approach that combines coaching psychology, neuroscience insights, and intuitive guidance to help you see through the illusions your mind creates.',
+      "In this 60-minute transformative session, we'll dive deep into your mental landscape, identify the games being played, and give you the tools to rewrite the rules in your favor.",
+    ],
+    benefits: [
+      'Identify and release limiting beliefs',
+      'Understand your subconscious patterns',
+      'Gain clarity on mental blocks',
+      'Transform negative thought loops',
+      'Activate your inner wisdom',
+      'Create new neural pathways',
+    ],
+  },
+  process: {
+    title: 'The Session Process',
+    steps: [
+      {
+        title: 'Opening & Grounding',
+        description: 'We begin with a centering practice to create a safe container for exploration.',
+      },
+      {
+        title: 'Pattern Identification',
+        description: 'Through guided questioning, we uncover the mental patterns running your life.',
+      },
+      {
+        title: 'Deep Dive Exploration',
+        description: 'We explore the root causes and hidden beliefs behind these patterns.',
+      },
+      {
+        title: 'Transformation & Integration',
+        description: "You'll receive tools and practices to transform these patterns into empowering beliefs.",
+      },
+    ],
+  },
+  testimonials: {
+    title: 'Client Experiences',
+    items: [
+      {
+        name: 'Emma Thompson',
+        content: "The Mind Games Reading helped me see patterns I've been blind to for years. Alina's approach is both gentle and profoundly transformative.",
+        rating: 5,
+      },
+      {
+        name: 'David Martinez',
+        content: 'I was skeptical at first, but this session completely shifted my perspective. Worth every penny!',
+        rating: 5,
+      },
+      {
+        name: 'Lisa Chen',
+        content: "Alina has an incredible gift for seeing through the mental fog and guiding you to clarity.",
+        rating: 5,
+      },
+    ],
+  },
+  pricing: {
+    title: 'Special Limited-Time Offer',
+    price: '$15',
+    originalPrice: '$150',
+    savings: 'Save $135!',
+    description: 'This special rate is available for a limited time only. Regular price returns soon.',
+    includes: [
+      '60-minute transformative session',
+      'Personalized insights and tools',
+      'Follow-up integration guide',
+    ],
+    buttonText: 'Claim Your $15 Session Now',
+    buttonHref: '/booking?service=mind-games',
+    note: 'Note: 24-hour cancellation policy applies. No refunds for completed sessions.',
+  },
+  faq: {
+    title: 'Common Questions',
+    items: [
+      {
+        question: 'Is this the same as therapy?',
+        answer: "No, Mind Games Reading is a coaching and guidance session focused on pattern recognition and transformation. It's not a replacement for therapy but can complement therapeutic work beautifully.",
+      },
+      {
+        question: 'How should I prepare?',
+        answer: 'Come with an open mind and perhaps a specific area of life where you feel stuck or confused. Have a journal ready to capture insights.',
+      },
+      {
+        question: 'What happens after the session?',
+        answer: "You'll receive a follow-up email with key insights from our session and integration practices to help you continue the transformation.",
+      },
+    ],
+  },
+  cta: {
+    title: 'Ready to See Through the Games?',
+    subtitle: "Your mind has been running the show long enough. It's time to take back control and create the reality you desire.",
+    buttonText: 'Book Your Mind Games Reading - $15',
+    buttonHref: '/booking?service=mind-games',
+  },
+};
+
+export const oneToOneCoachingContent = {
+  hero: {
+    title: 'One-to-One Coaching',
+    subtitle: "Your personalized journey to profound transformation. Work directly with me to bridge the gap between where you are and where you're meant to be.",
+    primaryButton: {
+      text: 'Book Discovery Call',
+      href: '/booking?service=one-to-one',
+    },
+    secondaryButton: {
+      text: 'View Packages',
+      href: '#packages',
+    },
+  },
+  whatIs: {
+    title: 'Transform Your Life From the Inside Out',
+    description: [
+      "One-to-One Coaching is more than just coaching—it's a sacred container for your transformation. Together, we'll dive deep into the patterns, beliefs, and stories that have been running your life unconsciously.",
+      "This is for you if you're ready to stop playing small, break free from cycles of self-sabotage, and step into the fullest expression of who you came here to be.",
+      "Through our work together, you'll not only achieve your goals but fundamentally transform how you relate to yourself, others, and life itself.",
+    ],
+    benefits: [
+      'Break free from limiting patterns and beliefs',
+      'Gain crystal clarity on your life purpose',
+      'Develop unshakeable self-confidence',
+      'Create aligned relationships',
+      'Manifest your dreams into reality',
+      'Access your inner wisdom and intuition',
+      'Transform fear into fuel for growth',
+      'Build sustainable success habits',
+    ],
+  },
+  process: {
+    title: 'Your Transformation Journey',
+    steps: [
+      {
+        title: 'Discovery',
+        description: 'We explore your current reality, dreams, and the gap between them.',
+      },
+      {
+        title: 'Clarity',
+        description: 'Uncover your authentic desires and create a clear vision for your future.',
+      },
+      {
+        title: 'Strategy',
+        description: 'Develop a personalized roadmap with actionable steps and milestones.',
+      },
+      {
+        title: 'Implementation',
+        description: 'Take aligned action with ongoing support and accountability.',
+      },
+      {
+        title: 'Integration',
+        description: 'Embody your transformation and create lasting change.',
+      },
+    ],
+  },
+  packages: {
+    title: 'Choose Your Transformation Package',
+    subtitle: 'Each package is designed to meet you exactly where you are',
+    items: [
+      {
+        name: 'Single Session',
+        price: '$200',
+        duration: '60 minutes',
+        features: [
+          'Deep-dive coaching session',
+          'Personalized action plan',
+          'Follow-up email summary',
+          '7-day email support',
+        ],
+        cta: 'Book Single Session',
+        popular: false,
+      },
+      {
+        name: '4-Session Journey',
+        price: '$750',
+        savings: 'Save $50',
+        duration: '4 weeks',
+        features: [
+          'Weekly 60-minute sessions',
+          'Customized transformation plan',
+          'Between-session email support',
+          'Integration practices',
+          'Progress tracking',
+        ],
+        cta: 'Start Your Journey',
+        popular: true,
+      },
+      {
+        name: '12-Week Transformation',
+        price: '$2,100',
+        savings: 'Save $300',
+        duration: '3 months',
+        features: [
+          'Weekly 60-minute sessions',
+          'Comprehensive life audit',
+          'Unlimited email support',
+          'Voice message check-ins',
+          'Custom resources & tools',
+          'Lifetime access to materials',
+        ],
+        cta: 'Begin Transformation',
+        popular: false,
+      },
+    ],
+  },
+  testimonials: {
+    title: 'Success Stories',
+    items: [
+      {
+        name: 'Sarah Mitchell',
+        title: 'Entrepreneur',
+        content: "Working with Alina changed my life in ways I never imagined possible. Through our 12-week journey, I not only achieved my career goals but completely transformed my relationship with myself. Her intuitive guidance and practical tools helped me break through years of limiting beliefs.",
+        rating: 5,
+      },
+      {
+        name: 'Michael Chen',
+        title: 'Creative Director',
+        content: "I came to Alina feeling stuck and confused about my life direction. Through our coaching sessions, I discovered my true purpose and the courage to pursue it. The transformation has been profound and lasting.",
+        rating: 5,
+      },
+    ],
+  },
+  faq: {
+    title: 'Frequently Asked Questions',
+    items: [
+      {
+        question: 'How do I know if coaching is right for me?',
+        answer: "Coaching is ideal if you're ready for change, willing to take responsibility for your life, and committed to doing the inner work. If you feel stuck, unfulfilled, or know you're meant for more, coaching can help you bridge that gap.",
+      },
+      {
+        question: "What's the difference between the packages?",
+        answer: 'Single sessions are great for specific challenges or breakthroughs. The 4-session journey allows for deeper exploration and habit formation. The 12-week transformation provides comprehensive support for major life changes and complete paradigm shifts.',
+      },
+      {
+        question: 'What happens between sessions?',
+        answer: "You'll receive personalized practices, integration exercises, and email support to help you implement insights from our sessions. The real transformation happens in your daily life between our calls.",
+      },
+      {
+        question: 'Can I upgrade my package later?',
+        answer: 'Yes! Many clients start with a single session or 4-session package and then upgrade to longer-term support. You can apply the value of your current package toward an upgrade within 30 days.',
+      },
+    ],
+  },
+  cta: {
+    title: 'Your Transformation Starts With a Single Decision',
+    subtitle: "Stop waiting for the perfect moment. The time is now. Your future self is calling you forward into the life you're meant to live.",
+    freeCallTitle: 'Free Discovery Call',
+    freeCallDescription: 'Not sure which package is right for you? Book a complimentary 30-minute discovery call to explore how we can work together.',
+    buttonText: 'Book Your Free Discovery Call',
+    buttonHref: '/booking?service=one-to-one',
+    note: 'Note: Spaces are limited. 24-hour cancellation policy applies.',
+  },
+};
+
+export const archetypalTarotContent = {
+  hero: {
+    title: 'Archetypal Tarot Reading',
+    subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',
+    price: '$175',
+    primaryButton: {
+      text: 'Book Your Reading - $175',
+      href: '/booking?service=archetypal-tarot',
+    },
+    secondaryButton: {
+      text: 'Explore the Archetypes',
+      href: '#learn-more',
+    },
+  },
+  whatIs: {
+    title: 'More Than Just a Tarot Reading',
+    description: [
+      "Archetypal Tarot is a revolutionary approach that weaves together the mystical wisdom of tarot with the psychological depth of Carl Jung's archetypal theory. This isn't fortune-telling—it's soul-mapping.",
+      'Each card represents universal patterns and energies that live within your psyche. By exploring these archetypes, we unlock the stories, patterns, and potentials that shape your life experience.',
+      "In our 90-minute journey together, we'll use the cards as a mirror to reflect your inner landscape, revealing insights about your past, present, and potential futures.",
+    ],
+    benefits: [
+      'Understand your life patterns and cycles',
+      'Connect with your archetypal wisdom',
+      'Gain clarity on major life decisions',
+      "Discover your soul's purpose",
+      'Uncover hidden gifts and shadows',
+      'Receive guidance from your higher self',
+      'Transform challenges into opportunities',
+      'Align with your authentic path',
+    ],
+  },
+  archetypes: {
+    title: 'The Living Archetypes',
+    subtitle: "Meet some of the archetypal energies we'll explore in your reading",
+    items: [
+      {
+        name: 'The Fool',
+        meaning: 'New beginnings, innocence, spontaneity',
+        description: 'Your journey of transformation and trust',
+      },
+      {
+        name: 'The Magician',
+        meaning: 'Manifestation, power, inspired action',
+        description: 'Your ability to create your reality',
+      },
+      {
+        name: 'The High Priestess',
+        meaning: 'Intuition, sacred knowledge, divine feminine',
+        description: 'Your inner wisdom and mysteries',
+      },
+      {
+        name: 'The Empress',
+        meaning: 'Abundance, nurturing, creativity',
+        description: 'Your creative power and fertility',
+      },
+    ],
+    note: 'And many more archetypes waiting to reveal themselves in your personal reading...',
+  },
+  sessionDetails: {
+    title: 'Your Archetypal Journey',
+    flow: {
+      title: 'The Session Flow',
+      steps: [
+        {
+          title: 'Sacred Opening',
+          description: 'We create a sacred container and connect with your intention',
+        },
+        {
+          title: 'Card Selection',
+          description: "You'll intuitively choose cards that reflect your energy",
+        },
+        {
+          title: 'Archetypal Exploration',
+          description: 'We dive deep into the symbols, patterns, and messages',
+        },
+        {
+          title: 'Integration',
+          description: 'Practical guidance for embodying the insights',
+        },
+      ],
+    },
+    includes: {
+      title: "What's Included",
+      items: [
+        '90-minute deep dive session via Zoom',
+        'Personalized archetypal reading',
+        'Integration of Jungian psychology',
+        'Connection to your life patterns',
+        'Recording of your session',
+        'Follow-up integration guide',
+        'Personalized ritual recommendations',
+      ],
+    },
+  },
+  testimonials: {
+    title: 'Sacred Reflections',
+    items: [
+      {
+        name: 'Jessica Palmer',
+        title: 'Therapist',
+        content: "The archetypal reading with Alina was unlike any tarot experience I've had. She wove together the symbolism with such depth and psychological insight that I left with a completely new understanding of my life patterns. The recording has become a treasured resource I return to often.",
+        rating: 5,
+      },
+      {
+        name: 'Robert Kim',
+        title: 'Executive',
+        content: "I was at a major crossroads in my life and the archetypal tarot reading provided exactly the clarity I needed. Alina's ability to connect the cards to my personal journey was remarkable. I made my decision with confidence.",
+        rating: 5,
+      },
+    ],
+  },
+  pricing: {
+    title: "Investment in Your Soul's Journey",
+    price: '$175',
+    duration: '90-minute Archetypal Tarot Reading',
+    includes: [
+      '90-minute deep dive session',
+      'Recording of your reading',
+      'Integration guide & rituals',
+    ],
+    buttonText: 'Book Your Archetypal Reading',
+    buttonHref: '/booking?service=archetypal-tarot',
+    note: '24-hour cancellation policy. No refunds for completed sessions.',
+  },
+  faq: {
+    title: 'Questions About Your Reading',
+    items: [
+      {
+        question: 'Do I need experience with tarot?',
+        answer: "No experience necessary! I'll guide you through everything. The archetypes speak to everyone, regardless of your familiarity with tarot.",
+      },
+      {
+        question: 'Is this fortune-telling or prediction?',
+        answer: 'No, this is about understanding your current energies, patterns, and potentials. We explore possibilities, not fixed futures. You always have free will.',
+      },
+      {
+        question: 'Can I ask about specific situations?',
+        answer: 'Absolutely! You can bring specific questions about relationships, career, life purpose, or any area where you seek clarity and guidance.',
+      },
+      {
+        question: 'How often should I get a reading?',
+        answer: 'Most clients find value in quarterly readings to align with seasonal cycles, or during major life transitions. Trust your intuition on timing.',
+      },
+    ],
+  },
+  cta: {
+    title: 'The Cards Are Calling You',
+    subtitle: 'Your archetypes are ready to reveal their wisdom. Book your journey into the depths of your psyche and emerge with clarity, purpose, and power.',
+    buttonText: 'Book Your Archetypal Tarot Reading',
+    buttonHref: '/booking?service=archetypal-tarot',
+  },
+};
+
 export const contactPageContent = {
   // Contact page specific content would go here
 };
