@@ -407,6 +407,15 @@ export const servicesPageContent = {
 };
 
 export const mindGamesReadingContent = {
+  sections: [
+    { id: 'hero', enabled: true },
+    { id: 'whatIs', enabled: true },
+    { id: 'pricing', enabled: true },
+    { id: 'process', enabled: true },
+    { id: 'testimonials', enabled: true },
+    { id: 'faq', enabled: true },
+    { id: 'cta', enabled: true },
+  ],
   hero: {
     title: 'Mind Games Reading',
     subtitle: 'Unlock the hidden patterns of your mind and transform limiting beliefs into empowering truths through this powerful guided exploration.',
@@ -523,6 +532,15 @@ export const mindGamesReadingContent = {
 };
 
 export const oneToOneCoachingContent = {
+  sections: [
+    { id: 'hero', enabled: true },
+    { id: 'whatIs', enabled: true },
+    { id: 'packages', enabled: true },
+    { id: 'process', enabled: true },
+    { id: 'testimonials', enabled: true },
+    { id: 'faq', enabled: true },
+    { id: 'cta', enabled: true },
+  ],
   hero: {
     title: 'One-to-One Coaching',
     subtitle: "Your personalized journey to profound transformation. Work directly with me to bridge the gap between where you are and where you're meant to be.",
@@ -678,6 +696,16 @@ export const oneToOneCoachingContent = {
 };
 
 export const archetypalTarotContent = {
+  sections: [
+    { id: 'hero', enabled: true },
+    { id: 'whatIs', enabled: true },
+    { id: 'archetypes', enabled: true },
+    { id: 'sessionDetails', enabled: true },
+    { id: 'pricing', enabled: true },
+    { id: 'testimonials', enabled: true },
+    { id: 'faq', enabled: true },
+    { id: 'cta', enabled: true },
+  ],
   hero: {
     title: 'Archetypal Tarot Reading',
     subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',

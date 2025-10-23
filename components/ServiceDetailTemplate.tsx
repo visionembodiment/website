@@ -3,6 +3,11 @@ import LazySection from './LazySection';
 import { designSystem, cn } from '@/lib/design-system';
 import React from 'react';
 
+interface SectionConfig {
+  id: string;
+  enabled: boolean;
+}
+
 interface HeroSection {
   title: string;
   subtitle: string;
@@ -16,7 +21,7 @@ interface HeroSection {
     text: string;
     href: string;
   };
-  secondaryButton: {
+  secondaryButton?: {
     text: string;
     href: string;
   };
@@ -71,28 +76,29 @@ interface CTASection {
 }
 
 interface ServiceDetailProps {
+  sections: SectionConfig[];
   hero: HeroSection;
   whatIs: WhatIsSection;
   process: ProcessSection;
   testimonials: TestimonialsSection;
   faq: FAQSection;
   cta: CTASection;
-  customSections?: React.ReactNode[];
+  customSections?: Record<string, React.ReactElement>;
 }
 
 export default function ServiceDetailTemplate({
+  sections,
   hero,
   whatIs,
   process,
   testimonials,
   faq,
   cta,
-  customSections = [],
+  customSections = {},
 }: ServiceDetailProps) {
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+  const builtInSections: Record<string, React.ReactElement> = {
+    hero: (
+      <section key="hero" className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             {hero.promotion && (
@@ -101,27 +107,22 @@ export default function ServiceDetailTemplate({
                 <span className={cn(designSystem.text.body.sm, designSystem.fontWeight.semibold)}>{hero.promotion.text}</span>
               </div>
             )}
-
             <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
               {hero.title}
             </h1>
-
             <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
               {hero.subtitle}
             </p>
-
-            <Link
-              href={hero.primaryButton.href}
-              className={designSystem.buttons.primary}
-            >
+            <Link href={hero.primaryButton.href} className={designSystem.buttons.primary}>
               {hero.primaryButton.text}
             </Link>
           </div>
         </div>
       </section>
+    ),
 
-      {/* What Is Section */}
-      <LazySection animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    whatIs: (
+      <LazySection key="whatIs" animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div id="learn-more" className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["5xl"], designSystem.spacing.margin.horizontal.auto)}>
             <div className={cn("grid lg:grid-cols-2", designSystem.spacing.gap.xl, "items-center")}>
@@ -137,7 +138,6 @@ export default function ServiceDetailTemplate({
                   ))}
                 </div>
               </div>
-
               <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg)}>
                 <h3 className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.md)}>
                   {hero.price ? 'Session Benefits' : "What You'll Discover"}
@@ -157,20 +157,15 @@ export default function ServiceDetailTemplate({
           </div>
         </div>
       </LazySection>
+    ),
 
-      {/* Custom Sections (for unique content like packages, archetypes, pricing) */}
-      {customSections.map((section, index) => (
-        <React.Fragment key={index}>{section}</React.Fragment>
-      ))}
-
-      {/* Process Section */}
-      <LazySection animation="fade" delay={100} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+    process: (
+      <LazySection key="process" animation="fade" delay={100} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
               {process.title}
             </h2>
-
             <div className={cn("space-y-8")}>
               {process.steps.map((step, index) => (
                 <div key={index} className={cn("flex", designSystem.spacing.gap.md)}>
@@ -191,15 +186,15 @@ export default function ServiceDetailTemplate({
           </div>
         </div>
       </LazySection>
+    ),
 
-      {/* Testimonials Section */}
-      <LazySection animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    testimonials: (
+      <LazySection key="testimonials" animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
               {testimonials.title}
             </h2>
-
             <div className={cn(testimonials.items.length > 2 ? "grid md:grid-cols-3" : "space-y-8", testimonials.items.length > 2 ? designSystem.spacing.gap.lg : "")}>
               {testimonials.items.map((testimonial, index) => (
                 <div key={index} className={cn(designSystem.cards.base, designSystem.spacing.padding.lg)}>
@@ -222,15 +217,15 @@ export default function ServiceDetailTemplate({
           </div>
         </div>
       </LazySection>
+    ),
 
-      {/* FAQ Section */}
-      <LazySection animation="slide-up" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+    faq: (
+      <LazySection key="faq" animation="slide-up" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
               {faq.title}
             </h2>
-
             <div className={cn("space-y-6")}>
               {faq.items.map((item, index) => (
                 <div key={index} className={cn("border-b pb-6")}>
@@ -246,9 +241,10 @@ export default function ServiceDetailTemplate({
           </div>
         </div>
       </LazySection>
+    ),
 
-      {/* CTA Section */}
-      <LazySection animation="fade" delay={250} className={cn(cta.freeCallTitle ? "bg-gradient-to-b from-vision-dark-purple to-vision-dark-purple-2 text-white" : designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    cta: (
+      <LazySection key="cta" animation="fade" delay={250} className={cn(cta.freeCallTitle ? "bg-gradient-to-b from-vision-dark-purple to-vision-dark-purple-2 text-white" : designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, cta.freeCallTitle ? "" : designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -292,6 +288,16 @@ export default function ServiceDetailTemplate({
           </div>
         </div>
       </LazySection>
+    ),
+  };
+
+  const allSections = { ...builtInSections, ...customSections };
+
+  return (
+    <div className="min-h-screen">
+      {sections
+        .filter(section => section.enabled)
+        .map(section => allSections[section.id])}
     </div>
   );
 }

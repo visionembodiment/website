@@ -5,10 +5,10 @@ import { designSystem, cn } from '@/lib/design-system';
 import { oneToOneCoachingContent } from '@/lib/content';
 
 export default function OneToOneCoachingPage() {
-  const { hero, whatIs, process, packages, testimonials, faq, cta } = oneToOneCoachingContent;
+  const { sections, hero, whatIs, process, packages, testimonials, faq, cta } = oneToOneCoachingContent;
 
   const packagesSection = (
-    <LazySection animation="slide-up" delay={100} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    <LazySection key="packages" animation="slide-up" delay={100} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
       <div id="packages" className={designSystem.layout.container}>
         <div className={cn(designSystem.layout.maxWidth["5xl"], designSystem.spacing.margin.horizontal.auto)}>
           <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.sm)}>
@@ -84,13 +84,14 @@ export default function OneToOneCoachingPage() {
 
   return (
     <ServiceDetailTemplate
+      sections={sections}
       hero={hero}
       whatIs={whatIs}
       process={process}
       testimonials={testimonials}
       faq={faq}
       cta={cta}
-      customSections={[packagesSection]}
+      customSections={{ packages: packagesSection }}
     />
   );
 }

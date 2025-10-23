@@ -5,7 +5,7 @@ import { designSystem, cn } from '@/lib/design-system';
 import { archetypalTarotContent } from '@/lib/content';
 
 export default function ArchetypalTarotPage() {
-  const { hero, whatIs, archetypes, sessionDetails, testimonials, pricing, faq, cta } = archetypalTarotContent;
+  const { sections, hero, whatIs, archetypes, sessionDetails, testimonials, pricing, faq, cta } = archetypalTarotContent;
 
   const archetypesSection = (
     <LazySection animation="fade" delay={100} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
@@ -130,13 +130,18 @@ export default function ArchetypalTarotPage() {
 
   return (
     <ServiceDetailTemplate
+      sections={sections}
       hero={hero}
       whatIs={whatIs}
       process={{ title: '', steps: [] }}
       testimonials={testimonials}
       faq={faq}
       cta={cta}
-      customSections={[archetypesSection, sessionDetailsSection, pricingSection]}
+      customSections={{
+        archetypes: archetypesSection,
+        sessionDetails: sessionDetailsSection,
+        pricing: pricingSection,
+      }}
     />
   );
 }
