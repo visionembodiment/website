@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { aboutPageContent } from '@/lib/content';
 import { designSystem, cn } from '@/lib/design-system';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
+import LazySection from '@/components/LazySection';
 
 export default function AboutPage() {
   return (
-    <div className={cn('min-h-screen', designSystem.colors.background.inverse)}>
+    <div className="min-h-screen">
       {/* Hero - Full Width Video */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
@@ -100,162 +101,172 @@ export default function AboutPage() {
       </section>
 
       {/* Personally Speaking */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-        {/* Subtle gradient overlay for differentiation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
-        <div className={cn(designSystem.layout.container, 'relative z-10')}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
-              {aboutPageContent.personallySpeaking.title}
-            </h2>
-
-            {aboutPageContent.personallySpeaking.sections.map((section, index) => (
-              <div key={index} className={designSystem.spacing.margin.bottom.lg}>
-                {section.paragraphs && (
-                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
-                    {section.paragraphs.map((paragraph, pIndex) => (
-                      <p key={pIndex}>{paragraph}</p>
-                    ))}
-                  </div>
-                )}
-                {section.pullQuote && (
-                  <div className={cn(
-                    designSystem.cards.base,
-                    designSystem.spacing.padding.lg,
-                    designSystem.spacing.margin.top.lg
-                  )}>
-                    <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, 'italic')}>
-                      {section.pullQuote}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* My Values */}
-      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
-                {aboutPageContent.values.title}
+      <LazySection animation="fade" delay={100}>
+        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+          {/* Subtle gradient overlay for differentiation */}
+          <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
+          <div className={cn(designSystem.layout.container, 'relative z-10')}>
+            <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
+                {aboutPageContent.personallySpeaking.title}
               </h2>
-            </div>
 
-            <div className={cn('grid md:grid-cols-2 lg:grid-cols-3', designSystem.spacing.gap.lg)}>
-              {aboutPageContent.values.items.map((value, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    designSystem.cards.base,
-                    designSystem.cards.padding,
-                    designSystem.cards.hover
+              {aboutPageContent.personallySpeaking.sections.map((section, index) => (
+                <div key={index} className={designSystem.spacing.margin.bottom.lg}>
+                  {section.paragraphs && (
+                    <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
+                      {section.paragraphs.map((paragraph, pIndex) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                    </div>
                   )}
-                >
-                  <h3 className={cn(designSystem.text.h4, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.sm)}>
-                    {value.title}
-                  </h3>
-                  <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary)}>
-                    {value.description}
-                  </p>
+                  {section.pullQuote && (
+                    <div className={cn(
+                      designSystem.cards.base,
+                      designSystem.spacing.padding.lg,
+                      designSystem.spacing.margin.top.lg
+                    )}>
+                      <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, 'italic')}>
+                        {section.pullQuote}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </LazySection>
+
+      {/* My Values */}
+      <LazySection animation="slide-up" delay={150}>
+        <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+          <div className={designSystem.layout.container}>
+            <div className={cn(designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
+              <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
+                <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
+                  {aboutPageContent.values.title}
+                </h2>
+              </div>
+
+              <div className={cn('grid md:grid-cols-2 lg:grid-cols-3', designSystem.spacing.gap.lg)}>
+                {aboutPageContent.values.items.map((value, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      designSystem.cards.base,
+                      designSystem.cards.padding,
+                      designSystem.cards.hover
+                    )}
+                  >
+                    <h3 className={cn(designSystem.text.h4, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.sm)}>
+                      {value.title}
+                    </h3>
+                    <p className={cn(designSystem.text.body.md, designSystem.colors.text.inverse.secondary)}>
+                      {value.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </LazySection>
 
       {/* Mission - Manifesto Style */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
-        <div className={cn(designSystem.layout.container, 'relative z-10')}>
-          <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
-              {aboutPageContent.mission.title}
-            </h2>
-            <div className={cn('space-y-4', designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto)}>
-              {aboutPageContent.mission.manifesto.map((line, index) => (
-                <p
-                  key={index}
-                  className={cn(
-                    designSystem.text.body.lg,
-                    index < 5 ? designSystem.colors.text.primary : designSystem.colors.text.secondary,
-                    index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal
+      <LazySection animation="fade" delay={200}>
+        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
+          {/* Subtle texture overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
+          <div className={cn(designSystem.layout.container, 'relative z-10')}>
+            <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+                {aboutPageContent.mission.title}
+              </h2>
+              <div className={cn('space-y-4', designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto)}>
+                {aboutPageContent.mission.manifesto.map((line, index) => (
+                  <p
+                    key={index}
+                    className={cn(
+                      designSystem.text.body.lg,
+                      index < 5 ? designSystem.colors.text.primary : designSystem.colors.text.secondary,
+                      index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal
+                    )}
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </LazySection>
+
+      {/* A Personal Note */}
+      <LazySection animation="fade" delay={250}>
+        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+          <div className={designSystem.layout.container}>
+            <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
+                {aboutPageContent.personalNote.title}
+              </h2>
+
+              {aboutPageContent.personalNote.sections.map((section, index) => (
+                <div key={index} className={designSystem.spacing.margin.bottom.lg}>
+                  {section.paragraphs && (
+                    <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
+                      {section.paragraphs.map((paragraph, pIndex) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                    </div>
                   )}
-                >
-                  {line}
-                </p>
+                  {section.pullQuote && (
+                    <div className={cn(
+                      designSystem.cards.base,
+                      designSystem.spacing.padding.lg,
+                      designSystem.spacing.margin.top.lg
+                    )}>
+                      <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, 'italic')}>
+                        {section.pullQuote}
+                      </p>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* A Personal Note */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
-              {aboutPageContent.personalNote.title}
-            </h2>
-
-            {aboutPageContent.personalNote.sections.map((section, index) => (
-              <div key={index} className={designSystem.spacing.margin.bottom.lg}>
-                {section.paragraphs && (
-                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
-                    {section.paragraphs.map((paragraph, pIndex) => (
-                      <p key={pIndex}>{paragraph}</p>
-                    ))}
-                  </div>
-                )}
-                {section.pullQuote && (
-                  <div className={cn(
-                    designSystem.cards.base,
-                    designSystem.spacing.padding.lg,
-                    designSystem.spacing.margin.top.lg
-                  )}>
-                    <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, 'italic')}>
-                      {section.pullQuote}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </LazySection>
 
       {/* CTA */}
-      <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
-        <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
-              {aboutPageContent.cta.title}
-            </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
-              {aboutPageContent.cta.subtitle}
-            </p>
-            <div className={cn('flex flex-col sm:flex-row', designSystem.spacing.gap.sm, 'justify-center')}>
-              <Link
-                href={aboutPageContent.cta.primaryButton.href}
-                className={designSystem.buttons.primary}
-              >
-                {aboutPageContent.cta.primaryButton.text}
-              </Link>
-              <Link
-                href={aboutPageContent.cta.secondaryButton.href}
-                className={designSystem.buttons.secondary}
-              >
-                {aboutPageContent.cta.secondaryButton.text}
-              </Link>
+      <LazySection animation="slide-up" delay={300}>
+        <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+          <div className={designSystem.layout.container}>
+            <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
+                {aboutPageContent.cta.title}
+              </h2>
+              <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+                {aboutPageContent.cta.subtitle}
+              </p>
+              <div className={cn('flex flex-col sm:flex-row', designSystem.spacing.gap.sm, 'justify-center')}>
+                <Link
+                  href={aboutPageContent.cta.primaryButton.href}
+                  className={designSystem.buttons.primary}
+                >
+                  {aboutPageContent.cta.primaryButton.text}
+                </Link>
+                <Link
+                  href={aboutPageContent.cta.secondaryButton.href}
+                  className={designSystem.buttons.secondary}
+                >
+                  {aboutPageContent.cta.secondaryButton.text}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </LazySection>
     </div>
   );
 }

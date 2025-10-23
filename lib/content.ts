@@ -1,4 +1,14 @@
 export const homePageContent = {
+  sections: [
+    { id: 'videoHero', enabled: true },
+    { id: 'hero', enabled: true },
+    { id: 'services', enabled: true },
+    { id: 'about', enabled: true },
+    { id: 'testimonials', enabled: true },
+    { id: 'newsletter', enabled: true },
+    { id: 'cta', enabled: true },
+  ],
+
   promotion: {
     active: true,
     emoji: '🎉',
@@ -81,7 +91,7 @@ export const homePageContent = {
     title: 'Client Transformations',
     subtitle: 'Real stories from real people who"ve transformed their lives',
     buttonText: 'Read More Success Stories',
-    buttonHref: '/testimonials',
+    buttonHref: '', //'/testimonials',
     items: [
       {
         name: 'Sarah Mitchell',
@@ -312,6 +322,15 @@ export const servicesPageContent = {
 export const contactPageContent = {
   // Contact page specific content would go here
 };
+
+export const navigationLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
+  // { name: 'Testimonials', href: '/testimonials' },
+  { name: 'Community', href: '/community' },
+  { name: 'Contact', href: '/contact' },
+];
 
 export const socialLinks = [
   { name: 'Email', href: 'mailto:vision.embodiment@gmail.com', icon: 'email', hidden: false },

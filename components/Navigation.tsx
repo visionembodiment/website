@@ -4,19 +4,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { designSystem, cn } from '@/lib/design-system';
+import { navigationLinks } from '@/lib/content';
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Community', href: '/community' },
-    { name: 'Contact', href: '/contact' },
-  ];
 
   const isActive = (href: string) => {
     return pathname === href;
@@ -42,7 +34,7 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className={cn("hidden md:flex items-center", designSystem.spacing.gap.lg)}>
-            {navigation.map((item) => (
+            {navigationLinks.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -89,7 +81,7 @@ export default function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden">
             <div className={cn(designSystem.spacing.padding.horizontal.sm, designSystem.spacing.padding.vertical.sm, designSystem.spacing.gap.xs, "flex flex-col")}>
-              {navigation.map((item) => (
+              {navigationLinks.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}

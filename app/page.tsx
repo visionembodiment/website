@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ServiceCard from '@/components/ServiceCard';
@@ -9,11 +10,12 @@ import { designSystem, cn } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
 export default function Home() {
-  const { videoHero, hero, services, about, testimonials, newsletter, cta } = homePageContent;
+  const { sections, videoHero, hero, services, about, testimonials, newsletter, cta } = homePageContent;
 
-  return (
-    <>
+  const sectionComponents: Record<string, React.ReactElement> = {
+    videoHero: (
       <VideoHero
+        key="videoHero"
         title={videoHero.title}
         videoUrl={videoHero.videoUrl}
         mobileVideoUrl={videoHero.mobileVideoUrl}
@@ -22,12 +24,11 @@ export default function Home() {
         mobilePosterImage={videoHero.mobilePosterImage}
         mobilePosterPlaceholder={videoHero.mobilePosterPlaceholder}
       />
-
-      {/* Hero Section */}
-      <section className={cn("relative", designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+    ),
+    hero: (
+      <section key="hero" className={cn("relative", designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn("grid md:grid-cols-2 items-center", designSystem.spacing.gap.xl)}>
-            {/* Left column - Hidden on mobile, visible on desktop */}
             <div className="hidden md:block">
               <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
                 {hero.title}
@@ -51,7 +52,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column - Profile card with buttons on mobile */}
             <div className="relative">
               <div className={cn(designSystem.cards.base, designSystem.spacing.padding.lg, designSystem.layout.textAlign.center)}>
                 <div className={cn("relative w-60 h-60 overflow-hidden", designSystem.colors.text.accent, designSystem.rounded.full, designSystem.shadows.elevated, designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.sm)}>
@@ -70,7 +70,6 @@ export default function Home() {
                   {hero.profile.description}
                 </p>
 
-                {/* Buttons - Only visible on mobile */}
                 <div className={cn("flex flex-col md:hidden", designSystem.spacing.gap.sm)}>
                   <Link
                     href={hero.primaryButton.href}
@@ -90,9 +89,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Services Section */}
-      <LazySection animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    ),
+    services: (
+      <LazySection key="services" animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -110,9 +109,9 @@ export default function Home() {
           </div>
         </div>
       </LazySection>
-
-      {/* About Preview Section */}
-      <LazySection animation="fade" delay={100} className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+    ),
+    about: (
+      <LazySection key="about" animation="fade" delay={100} className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -121,21 +120,23 @@ export default function Home() {
             <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.md)}>
               {about.intro}
             </p>
-            <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, about.buttonHref ? designSystem.spacing.margin.bottom.lg : "")}>
               {about.philosophy}
             </p>
-            <Link
-              href={about.buttonHref}
-              className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
-            >
-              {about.buttonText}
-            </Link>
+            {about.buttonHref && (
+              <Link
+                href={about.buttonHref}
+                className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
+              >
+                {about.buttonText}
+              </Link>
+            )}
           </div>
         </div>
       </LazySection>
-
-      {/* Testimonials Section */}
-      <LazySection animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    ),
+    testimonials: (
+      <LazySection key="testimonials" animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -152,19 +153,21 @@ export default function Home() {
             ))}
           </div>
 
-          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.top.xl)}>
-            <Link
-              href={testimonials.buttonHref}
-              className={cn(designSystem.buttons.secondary, designSystem.buttons.sizes.small)}
-            >
-              {testimonials.buttonText}
-            </Link>
-          </div>
+          {testimonials.buttonHref && (
+            <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.top.xl)}>
+              <Link
+                href={testimonials.buttonHref}
+                className={cn(designSystem.buttons.secondary, designSystem.buttons.sizes.small)}
+              >
+                {testimonials.buttonText}
+              </Link>
+            </div>
+          )}
         </div>
       </LazySection>
-
-      {/* Newsletter Section */}
-      <LazySection animation="fade" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+    ),
+    newsletter: (
+      <LazySection key="newsletter" animation="fade" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -185,26 +188,36 @@ export default function Home() {
           </div>
         </div>
       </LazySection>
-
-      {/* CTA Section */}
-      <LazySection animation="slide-up" delay={250} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    ),
+    cta: (
+      <LazySection key="cta" animation="slide-up" delay={250} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
               {cta.title}
             </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.layout.maxWidth["2xl"], designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.layout.maxWidth["2xl"], designSystem.spacing.margin.horizontal.auto, cta.buttonHref ? designSystem.spacing.margin.bottom.lg : "")}>
               {cta.subtitle}
             </p>
-            <Link
-              href={cta.buttonHref}
-              className={designSystem.buttons.secondary}
-            >
-              {cta.buttonText}
-            </Link>
+            {cta.buttonHref && (
+              <Link
+                href={cta.buttonHref}
+                className={designSystem.buttons.secondary}
+              >
+                {cta.buttonText}
+              </Link>
+            )}
           </div>
         </div>
       </LazySection>
+    ),
+  };
+
+  return (
+    <>
+      {sections
+        .filter(section => section.enabled)
+        .map(section => sectionComponents[section.id])}
     </>
   );
 }
