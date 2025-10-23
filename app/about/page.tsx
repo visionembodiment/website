@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import { aboutPageContent } from '@/lib/content';
-import { designSystem, cn } from '@/lib/design-system';
+import { designSystem, cn, getSectionBackground } from '@/lib/design-system';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
 import LazySection from '@/components/LazySection';
+import React from 'react';
 
 export default function AboutPage() {
-  return (
-    <div className="min-h-screen">
-      {/* Hero - Full Width Video */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+  const { sections } = aboutPageContent;
+
+  const allSections: Record<string, React.ReactElement> = {
+    hero: (
+      <section key="hero" className={cn(getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['5xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h1 className={cn(designSystem.text.heroTitle, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
@@ -40,8 +42,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Professionally Speaking with Timeline */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    ),
+
+    professionallySpeaking: (
+      <section key="professionallySpeaking" className={cn(getSectionBackground(sections, 'professionallySpeaking'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn('grid lg:grid-cols-2', designSystem.spacing.gap.xl, 'items-start', designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
             <div>
@@ -99,13 +103,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+    ),
 
-      {/* Personally Speaking */}
-      <LazySection animation="fade" delay={100}>
-        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-          {/* Subtle gradient overlay for differentiation */}
-          <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
-          <div className={cn(designSystem.layout.container, 'relative z-10')}>
+    personallySpeaking: (
+      <LazySection key="personallySpeaking" animation="fade" delay={100}>
+        <section className={cn(getSectionBackground(sections, 'personallySpeaking'), designSystem.spacing.section.full)}>
+          <div className={designSystem.layout.container}>
             <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
                 {aboutPageContent.personallySpeaking.title}
@@ -137,10 +140,11 @@ export default function AboutPage() {
           </div>
         </section>
       </LazySection>
+    ),
 
-      {/* My Values */}
-      <LazySection animation="slide-up" delay={150}>
-        <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+    values: (
+      <LazySection key="values" animation="slide-up" delay={150}>
+        <section className={cn(getSectionBackground(sections, 'values'), designSystem.spacing.section.full)}>
           <div className={designSystem.layout.container}>
             <div className={cn(designSystem.layout.maxWidth['6xl'], designSystem.spacing.margin.horizontal.auto)}>
               <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
@@ -172,13 +176,12 @@ export default function AboutPage() {
           </div>
         </section>
       </LazySection>
+    ),
 
-      {/* Mission - Manifesto Style */}
-      <LazySection animation="fade" delay={200}>
-        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-          {/* Subtle texture overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
-          <div className={cn(designSystem.layout.container, 'relative z-10')}>
+    mission: (
+      <LazySection key="mission" animation="fade" delay={200}>
+        <section className={cn(getSectionBackground(sections, 'mission'), designSystem.spacing.section.full)}>
+          <div className={designSystem.layout.container}>
             <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
                 {aboutPageContent.mission.title}
@@ -201,10 +204,11 @@ export default function AboutPage() {
           </div>
         </section>
       </LazySection>
+    ),
 
-      {/* A Personal Note */}
-      <LazySection animation="fade" delay={250}>
-        <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+    personalNote: (
+      <LazySection key="personalNote" animation="fade" delay={250}>
+        <section className={cn(getSectionBackground(sections, 'personalNote'), designSystem.spacing.section.full)}>
           <div className={designSystem.layout.container}>
             <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
@@ -237,10 +241,11 @@ export default function AboutPage() {
           </div>
         </section>
       </LazySection>
+    ),
 
-      {/* CTA */}
-      <LazySection animation="slide-up" delay={300}>
-        <section className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
+    cta: (
+      <LazySection key="cta" animation="slide-up" delay={300}>
+        <section className={cn(getSectionBackground(sections, 'cta'), designSystem.spacing.section.full)}>
           <div className={designSystem.layout.container}>
             <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -267,6 +272,15 @@ export default function AboutPage() {
           </div>
         </section>
       </LazySection>
+    ),
+  };
+
+  return (
+    <div className="min-h-screen">
+      {sections
+        .filter(section => section.enabled)
+        .map(section => allSections[section.id])
+        .filter(Boolean)}
     </div>
   );
 }

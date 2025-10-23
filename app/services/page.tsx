@@ -1,7 +1,7 @@
 import ServiceCard from '@/components/ServiceCard';
 import LazySection from '@/components/LazySection';
 import Link from 'next/link';
-import { designSystem, cn } from '@/lib/design-system';
+import { designSystem, cn, getSectionBackground } from '@/lib/design-system';
 import { servicesPageContent } from '@/lib/content';
 
 export default function ServicesPage() {
@@ -9,7 +9,7 @@ export default function ServicesPage() {
 
   const allSections: Record<string, React.ReactElement> = {
     hero: (
-      <section key="hero" className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
+      <section key="hero" className={cn(getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -28,7 +28,7 @@ export default function ServicesPage() {
     ),
 
     services: (
-      <LazySection key="services" animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection key="services" animation="slide-up" className={cn(getSectionBackground(sections, 'services'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg, designSystem.layout.maxWidth["6xl"], designSystem.spacing.margin.horizontal.auto)}>
             {services.map((service) => (
@@ -40,7 +40,7 @@ export default function ServicesPage() {
     ),
 
     comparison: (
-      <LazySection key="comparison" animation="fade" delay={100} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <LazySection key="comparison" animation="fade" delay={100} className={cn(getSectionBackground(sections, 'comparison'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["5xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
     ),
 
     process: (
-      <LazySection key="process" animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection key="process" animation="slide-up" delay={150} className={cn(getSectionBackground(sections, 'process'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["5xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
     ),
 
     faq: (
-      <LazySection key="faq" animation="fade" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <LazySection key="faq" animation="fade" delay={200} className={cn(getSectionBackground(sections, 'faq'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
     ),
 
     cta: (
-      <LazySection key="cta" animation="slide-up" delay={250} className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
+      <LazySection key="cta" animation="slide-up" delay={250} className={cn(getSectionBackground(sections, 'cta'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>

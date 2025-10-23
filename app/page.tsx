@@ -6,7 +6,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import VideoHero from '@/components/VideoHero';
 import LazySection from '@/components/LazySection';
 import NewsletterForm from '@/components/NewsletterForm';
-import { designSystem, cn } from '@/lib/design-system';
+import { designSystem, cn, getSectionBackground } from '@/lib/design-system';
 import { homePageContent } from '@/lib/content';
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       />
     ),
     hero: (
-      <section key="hero" className={cn("relative", designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
+      <section key="hero" className={cn("relative", getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn("grid md:grid-cols-2 items-center", designSystem.spacing.gap.xl)}>
             <div className="hidden md:block">
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
     ),
     services: (
-      <LazySection key="services" animation="slide-up" className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection key="services" animation="slide-up" className={cn(getSectionBackground(sections, 'services'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -111,7 +111,7 @@ export default function Home() {
       </LazySection>
     ),
     about: (
-      <LazySection key="about" animation="fade" delay={100} className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
+      <LazySection key="about" animation="fade" delay={100} className={cn(getSectionBackground(sections, 'about'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -136,7 +136,7 @@ export default function Home() {
       </LazySection>
     ),
     testimonials: (
-      <LazySection key="testimonials" animation="slide-up" delay={150} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection key="testimonials" animation="slide-up" delay={150} className={cn(getSectionBackground(sections, 'testimonials'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.xl)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -167,7 +167,7 @@ export default function Home() {
       </LazySection>
     ),
     newsletter: (
-      <LazySection key="newsletter" animation="fade" delay={200} className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <LazySection key="newsletter" animation="fade" delay={200} className={cn(getSectionBackground(sections, 'newsletter'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>
@@ -190,7 +190,7 @@ export default function Home() {
       </LazySection>
     ),
     cta: (
-      <LazySection key="cta" animation="slide-up" delay={250} className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <LazySection key="cta" animation="slide-up" delay={250} className={cn(getSectionBackground(sections, 'cta'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.sm)}>

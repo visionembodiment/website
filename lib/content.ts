@@ -9,13 +9,13 @@ export const promotionBannerContent = {
 
 export const homePageContent = {
   sections: [
-    { id: 'videoHero', enabled: true },
-    { id: 'hero', enabled: true },
-    { id: 'services', enabled: true },
-    { id: 'about', enabled: true },
-    { id: 'testimonials', enabled: true },
-    { id: 'newsletter', enabled: true },
-    { id: 'cta', enabled: true },
+    { id: 'videoHero', enabled: true, background: 'background.primary' },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'services', enabled: true, background: 'background.primary' },
+    { id: 'about', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'testimonials', enabled: true, background: 'background.primary' },
+    { id: 'newsletter', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'background.primary' },
   ],
 
   videoHero: {
@@ -133,6 +133,16 @@ export const homePageContent = {
 };
 
 export const aboutPageContent = {
+  sections: [
+    { id: 'hero', enabled: true, background: 'gradient.darkToLight' },
+    { id: 'professionallySpeaking', enabled: true, background: 'background.secondary' },
+    { id: 'personallySpeaking', enabled: true, background: 'background.primary' },
+    { id: 'values', enabled: true, background: 'background.secondary' },
+    { id: 'mission', enabled: true, background: 'background.primary' },
+    { id: 'personalNote', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'gradient.lightToDark' },
+  ],
+
   hero: {
     title: 'Meet Alina Rain',
     videoId: 'EqetHVj51cM',
@@ -301,12 +311,12 @@ export const aboutPageContent = {
 
 export const servicesPageContent = {
   sections: [
-    { id: 'hero', enabled: true },
-    { id: 'services', enabled: true },
-    { id: 'comparison', enabled: true },
-    { id: 'process', enabled: true },
-    { id: 'faq', enabled: true },
-    { id: 'cta', enabled: true },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'services', enabled: true, background: 'background.primary' },
+    { id: 'comparison', enabled: true, background: 'background.secondary' },
+    { id: 'process', enabled: true, background: 'background.primary' },
+    { id: 'faq', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'gradient.lightToDark' },
   ],
 
   hero: {
@@ -398,13 +408,13 @@ export const servicesPageContent = {
 
 export const mindGamesReadingContent = {
   sections: [
-    { id: 'hero', enabled: true },
-    { id: 'whatIs', enabled: true },
-    { id: 'pricing', enabled: false },
-    { id: 'process', enabled: true },
-    { id: 'testimonials', enabled: true },
-    { id: 'faq', enabled: true },
-    { id: 'cta', enabled: true },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'whatIs', enabled: true, background: 'background.primary' },
+    { id: 'pricing', enabled: false, background: 'gradient.darkToLight' },
+    { id: 'process', enabled: true, background: 'background.secondary' },
+    { id: 'testimonials', enabled: true, background: 'background.primary' },
+    { id: 'faq', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'background.primary' },
   ],
   hero: {
     title: 'Mind Games Reading',
@@ -524,13 +534,13 @@ export const mindGamesReadingContent = {
 
 export const oneToOneCoachingContent = {
   sections: [
-    { id: 'hero', enabled: true },
-    { id: 'whatIs', enabled: true },
-    { id: 'packages', enabled: true },
-    { id: 'process', enabled: true },
-    { id: 'testimonials', enabled: true },
-    { id: 'faq', enabled: true },
-    { id: 'cta', enabled: true },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'whatIs', enabled: true, background: 'background.primary' },
+    { id: 'packages', enabled: true, background: 'background.primary' },
+    { id: 'process', enabled: true, background: 'background.secondary' },
+    { id: 'testimonials', enabled: true, background: 'background.primary' },
+    { id: 'faq', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'gradient.darkToLight' },
   ],
   hero: {
     title: 'One-to-One Coaching',
@@ -689,14 +699,14 @@ export const oneToOneCoachingContent = {
 
 export const archetypalTarotContent = {
   sections: [
-    { id: 'hero', enabled: true },
-    { id: 'whatIs', enabled: true },
-    { id: 'archetypes', enabled: false },
-    { id: 'sessionDetails', enabled: true },
-    { id: 'pricing', enabled: true },
-    { id: 'testimonials', enabled: true },
-    { id: 'faq', enabled: true },
-    { id: 'cta', enabled: true },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
+    { id: 'whatIs', enabled: true, background: 'background.primary' },
+    { id: 'archetypes', enabled: false, background: 'background.secondary' },
+    { id: 'sessionDetails', enabled: true, background: 'background.primary' },
+    { id: 'pricing', enabled: true, background: 'background.secondary' },
+    { id: 'testimonials', enabled: true, background: 'background.primary' },
+    { id: 'faq', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'background.primary' },
   ],
   hero: {
     title: 'Archetypal Tarot Reading',

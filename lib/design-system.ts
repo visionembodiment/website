@@ -295,3 +295,16 @@ export const designSystem = {
 export function cn(...classes: (string | undefined | false)[]) {
   return classes.filter(Boolean).join(' ');
 }
+
+export function getSectionBackground(sections: Array<{ id: string; enabled: boolean; background: string }>, sectionId: string): string {
+  const section = sections.find(s => s.id === sectionId);
+  if (!section?.background) return '';
+
+  const parts = section.background.split('.');
+  if (parts.length === 2) {
+    const category = parts[0] as keyof typeof designSystem.colors;
+    const value = parts[1];
+    return designSystem.colors[category][value as keyof typeof designSystem.colors[typeof category]];
+  }
+  return '';
+}
