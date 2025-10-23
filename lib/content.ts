@@ -296,7 +296,7 @@ export const aboutPageContent = {
     subtitle: "Let's explore how we can work together to transform your vision into embodied reality.",
     primaryButton: {
       text: 'Book Discovery Session',
-      href: '/booking',
+      href: 'https://calendly.com/vision-embodiment/free-discovery-session',
     },
     secondaryButton: {
       text: 'Explore Services',
