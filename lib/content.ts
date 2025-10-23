@@ -410,7 +410,7 @@ export const mindGamesReadingContent = {
   sections: [
     { id: 'hero', enabled: true },
     { id: 'whatIs', enabled: true },
-    { id: 'pricing', enabled: true },
+    { id: 'pricing', enabled: false },
     { id: 'process', enabled: true },
     { id: 'testimonials', enabled: true },
     { id: 'faq', enabled: true },
@@ -421,6 +421,7 @@ export const mindGamesReadingContent = {
     subtitle: 'Unlock the hidden patterns of your mind and transform limiting beliefs into empowering truths through this powerful guided exploration.',
     price: '$15',
     originalPrice: '$150',
+    youtubeVideoId: 'EqetHVj51cM',
     promotion: {
       emoji: '🎉',
       text: 'Limited Time: 90% OFF - Only $15!',
@@ -544,6 +545,7 @@ export const oneToOneCoachingContent = {
   hero: {
     title: 'One-to-One Coaching',
     subtitle: "Your personalized journey to profound transformation. Work directly with me to bridge the gap between where you are and where you're meant to be.",
+    youtubeVideoId: '',
     primaryButton: {
       text: 'Book Discovery Call',
       href: '/booking?service=one-to-one',
@@ -710,6 +712,7 @@ export const archetypalTarotContent = {
     title: 'Archetypal Tarot Reading',
     subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',
     price: '$175',
+    youtubeVideoId: '',
     primaryButton: {
       text: 'Book Your Reading - $175',
       href: '/booking?service=archetypal-tarot',

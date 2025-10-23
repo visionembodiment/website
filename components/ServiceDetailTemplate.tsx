@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LazySection from './LazySection';
+import YouTubeEmbed from './YouTubeEmbed';
 import { designSystem, cn } from '@/lib/design-system';
 import React from 'react';
 
@@ -13,6 +14,7 @@ interface HeroSection {
   subtitle: string;
   price?: string;
   originalPrice?: string;
+  youtubeVideoId?: string;
   promotion?: {
     emoji: string;
     text: string;
@@ -113,6 +115,13 @@ export default function ServiceDetailTemplate({
             <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
               {hero.subtitle}
             </p>
+
+            {hero.youtubeVideoId && (
+              <div className={designSystem.spacing.margin.bottom.lg}>
+                <YouTubeEmbed videoId={hero.youtubeVideoId} title={hero.title} />
+              </div>
+            )}
+
             <Link href={hero.primaryButton.href} className={designSystem.buttons.primary}>
               {hero.primaryButton.text}
             </Link>
@@ -297,7 +306,8 @@ export default function ServiceDetailTemplate({
     <div className="min-h-screen">
       {sections
         .filter(section => section.enabled)
-        .map(section => allSections[section.id])}
+        .map(section => allSections[section.id])
+        .filter(Boolean)}
     </div>
   );
 }
