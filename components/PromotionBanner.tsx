@@ -19,7 +19,7 @@ export default function PromotionBanner({ promotion }: PromotionBannerProps) {
   return (
     <div
       className={cn(
-        designSystem.colors.gradient.primary,
+        designSystem.colors.gradient.lightToDark,
         designSystem.spacing.padding.vertical.sm,
         designSystem.spacing.padding.horizontal.sm,
         designSystem.layout.textAlign.center,

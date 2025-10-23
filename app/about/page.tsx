@@ -240,7 +240,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <LazySection animation="slide-up" delay={300}>
-        <section className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+        <section className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
           <div className={designSystem.layout.container}>
             <div className={cn(designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>

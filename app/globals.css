@@ -17,13 +17,22 @@
   --shadow-card-hover: 0 8px 24px 0 rgba(26, 14, 24, 0.35);
   --shadow-elevated: 0 8px 20px 0 rgba(26, 14, 24, 0.15);
 
-  --background-image-gradient-primary: linear-gradient(to bottom, #3d1f35, #1a0e18);
+  --background-image-gradient-light-to-dark: linear-gradient(to bottom, #3d1f35, #1a0e18);
+  --background-image-gradient-dark-to-light: linear-gradient(to bottom, #1a0e18, #3d1f35);
+}
+
+.bg-gradient-light-to-dark {
+  background-image: var(--background-image-gradient-light-to-dark);
+}
+
+.bg-gradient-dark-to-light {
+  background-image: var(--background-image-gradient-dark-to-light);
 }
 
 body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   line-height: var(--line-height-body);
-  background: var(--background-image-gradient-primary);
+  background: var(--background-image-gradient-light-to-dark);
   background-attachment: fixed;
   color: var(--color-vision-isabelline);
 }

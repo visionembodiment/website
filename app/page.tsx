@@ -26,7 +26,7 @@ export default function Home() {
       />
     ),
     hero: (
-      <section key="hero" className={cn("relative", designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+      <section key="hero" className={cn("relative", designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn("grid md:grid-cols-2 items-center", designSystem.spacing.gap.xl)}>
             <div className="hidden md:block">
@@ -111,7 +111,7 @@ export default function Home() {
       </LazySection>
     ),
     about: (
-      <LazySection key="about" animation="fade" delay={100} className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+      <LazySection key="about" animation="fade" delay={100} className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>

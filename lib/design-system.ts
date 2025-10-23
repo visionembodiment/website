@@ -24,7 +24,8 @@ export const designSystem = {
       inverse: 'border-vision-dark-purple',    // Dark purple border for light backgrounds (#3d1f35)
     },
     gradient: {
-      primary: 'bg-gradient-primary', // Uses --background-image-gradient-primary from globals.css
+      lightToDark: 'bg-gradient-light-to-dark', // Light purple to dark purple (top to bottom)
+      darkToLight: 'bg-gradient-dark-to-light', // Dark purple to light purple (top to bottom)
     },
     hover: {
       background: {

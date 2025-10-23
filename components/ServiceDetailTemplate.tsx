@@ -100,7 +100,7 @@ export default function ServiceDetailTemplate({
 }: ServiceDetailProps) {
   const builtInSections: Record<string, React.ReactElement> = {
     hero: (
-      <section key="hero" className={cn(designSystem.colors.gradient.primary, designSystem.spacing.section.full)}>
+      <section key="hero" className={cn(designSystem.colors.gradient.lightToDark, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             {hero.promotion && (
