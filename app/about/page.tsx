@@ -101,18 +101,18 @@ export default function AboutPage() {
 
       {/* Personally Speaking */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
+        {/* Subtle gradient overlay for differentiation */}
+        <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
         <div className={cn(designSystem.layout.container, 'relative z-10')}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
               {aboutPageContent.personallySpeaking.title}
             </h2>
 
             {aboutPageContent.personallySpeaking.sections.map((section, index) => (
               <div key={index} className={designSystem.spacing.margin.bottom.lg}>
                 {section.paragraphs && (
-                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
+                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
                     {section.paragraphs.map((paragraph, pIndex) => (
                       <p key={pIndex}>{paragraph}</p>
                     ))}
@@ -170,19 +170,19 @@ export default function AboutPage() {
 
       {/* Mission - Manifesto Style */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full, 'relative')}>
-        {/* Subtle gradient overlay for differentiation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-vision-dark-purple-2 via-vision-dark-purple to-vision-dark-purple-2/80"></div>
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-vision-dark-purple/50 via-vision-dark-purple-2 to-vision-dark-purple/50 opacity-60"></div>
         <div className={cn(designSystem.layout.container, 'relative z-10')}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+          <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.mission.title}
             </h2>
-            <div className={cn('space-y-6')}>
+            <div className={cn('space-y-4', designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto)}>
               {aboutPageContent.mission.manifesto.map((line, index) => (
                 <p
                   key={index}
                   className={cn(
-                    designSystem.text.body.xl,
+                    designSystem.text.body.lg,
                     index < 5 ? designSystem.colors.text.primary : designSystem.colors.text.secondary,
                     index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal
                   )}
@@ -198,15 +198,15 @@ export default function AboutPage() {
       {/* A Personal Note */}
       <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
-          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+          <div className={cn(designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg, designSystem.layout.textAlign.center)}>
               {aboutPageContent.personalNote.title}
             </h2>
 
             {aboutPageContent.personalNote.sections.map((section, index) => (
               <div key={index} className={designSystem.spacing.margin.bottom.lg}>
                 {section.paragraphs && (
-                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary)}>
+                  <div className={cn('space-y-4', designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.layout.textAlign.justify)}>
                     {section.paragraphs.map((paragraph, pIndex) => (
                       <p key={pIndex}>{paragraph}</p>
                     ))}
@@ -215,10 +215,10 @@ export default function AboutPage() {
                 {section.pullQuote && (
                   <div className={cn(
                     designSystem.cards.base,
-                    designSystem.spacing.padding.xl,
+                    designSystem.spacing.padding.lg,
                     designSystem.spacing.margin.top.lg
                   )}>
-                    <p className={cn(designSystem.text.display.sm, designSystem.colors.text.inverse.primary, 'italic')}>
+                    <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, 'italic')}>
                       {section.pullQuote}
                     </p>
                   </div>
