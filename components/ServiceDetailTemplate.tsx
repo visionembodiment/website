@@ -14,7 +14,7 @@ interface HeroSection {
   subtitle: string;
   price?: string;
   originalPrice?: string;
-  youtubeVideoId?: string;
+  videoId?: string;
   promotion?: {
     emoji: string;
     text: string;
@@ -116,9 +116,9 @@ export default function ServiceDetailTemplate({
               {hero.subtitle}
             </p>
 
-            {hero.youtubeVideoId && (
+            {hero.videoId && (
               <div className={designSystem.spacing.margin.bottom.lg}>
-                <YouTubeEmbed videoId={hero.youtubeVideoId} title={hero.title} />
+                <YouTubeEmbed videoId={hero.videoId} title={hero.title} />
               </div>
             )}
 

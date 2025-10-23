@@ -1,3 +1,12 @@
+export const promotionBannerContent = {
+  active: true,
+  emoji: '🎉',
+  title: 'Limited Time Offer!',
+  description: 'Mind Games Reading - Only $15 (Regular $150)',
+  buttonText: 'Book Now →',
+  href: '/services/mind-games-reading',
+};
+
 export const homePageContent = {
   sections: [
     { id: 'videoHero', enabled: true },
@@ -8,15 +17,6 @@ export const homePageContent = {
     { id: 'newsletter', enabled: true },
     { id: 'cta', enabled: true },
   ],
-
-  promotion: {
-    active: true,
-    emoji: '🎉',
-    title: 'Limited Time Offer!',
-    description: 'Mind Games Reading - Only $15 (Regular $150)',
-    buttonText: 'Book Now →',
-    href: '/services/mind-games-reading',
-  },
 
   videoHero: {
     videoUrl: '/videos/hero-background.mp4',
@@ -44,7 +44,6 @@ export const homePageContent = {
       title: 'Trauma Conscious Intuitive Healer',
       description: 'Helping visionaries and seekers transform their dreams into embodied reality through ancient wisdom and modern coaching techniques.',
       image: '/images/alina-profile.png',
-      emoji: '✨',
     },
   },
 
@@ -137,21 +136,6 @@ export const aboutPageContent = {
   hero: {
     title: 'Meet Alina Rain',
     videoId: 'EqetHVj51cM',
-  },
-
-  visualBreak1: {
-    image: '/images/about/mystical-nature-1.jpg',
-    alt: 'Ethereal forest light filtering through trees',
-  },
-
-  visualBreak2: {
-    image: '/images/about/mystical-nature-2.jpg',
-    alt: 'Sacred geometric patterns in nature',
-  },
-
-  visualBreak3: {
-    image: '/images/about/mystical-nature-3.jpg',
-    alt: 'Mystical energy and transformation',
   },
 
   professionallySpeaking: {
@@ -316,6 +300,15 @@ export const aboutPageContent = {
 };
 
 export const servicesPageContent = {
+  sections: [
+    { id: 'hero', enabled: true },
+    { id: 'services', enabled: true },
+    { id: 'comparison', enabled: true },
+    { id: 'process', enabled: true },
+    { id: 'faq', enabled: true },
+    { id: 'cta', enabled: true },
+  ],
+
   hero: {
     title: 'Transformative Services',
     subtitle: 'Choose your path to embodied transformation. Each service is designed to meet you exactly where you are and guide you to where you want to be.',
@@ -332,7 +325,6 @@ export const servicesPageContent = {
       duration: '60 minutes',
       href: '/services/mind-games-reading',
       bookingHref: '/booking?service=mind-games',
-      icon: '🧠',
     },
     {
       title: 'One-to-One Coaching',
@@ -341,7 +333,6 @@ export const servicesPageContent = {
       duration: '60 minutes',
       href: '/services/one-to-one',
       bookingHref: '/booking?service=one-to-one',
-      icon: '💜',
     },
     {
       title: 'Archetypal Tarot',
@@ -350,7 +341,6 @@ export const servicesPageContent = {
       duration: '90 minutes',
       href: '/services/archetypal-tarot',
       bookingHref: '/booking?service=archetypal-tarot',
-      icon: '🔮',
     },
   ],
   comparison: {
@@ -421,7 +411,7 @@ export const mindGamesReadingContent = {
     subtitle: 'Unlock the hidden patterns of your mind and transform limiting beliefs into empowering truths through this powerful guided exploration.',
     price: '$15',
     originalPrice: '$150',
-    youtubeVideoId: 'EqetHVj51cM',
+    videoId: 'EqetHVj51cM',
     promotion: {
       emoji: '🎉',
       text: 'Limited Time: 90% OFF - Only $15!',
@@ -545,7 +535,7 @@ export const oneToOneCoachingContent = {
   hero: {
     title: 'One-to-One Coaching',
     subtitle: "Your personalized journey to profound transformation. Work directly with me to bridge the gap between where you are and where you're meant to be.",
-    youtubeVideoId: '',
+    videoId: '',
     primaryButton: {
       text: 'Book Discovery Call',
       href: '/booking?service=one-to-one',
@@ -701,7 +691,7 @@ export const archetypalTarotContent = {
   sections: [
     { id: 'hero', enabled: true },
     { id: 'whatIs', enabled: true },
-    { id: 'archetypes', enabled: true },
+    { id: 'archetypes', enabled: false },
     { id: 'sessionDetails', enabled: true },
     { id: 'pricing', enabled: true },
     { id: 'testimonials', enabled: true },
@@ -712,7 +702,7 @@ export const archetypalTarotContent = {
     title: 'Archetypal Tarot Reading',
     subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',
     price: '$175',
-    youtubeVideoId: '',
+    videoId: '',
     primaryButton: {
       text: 'Book Your Reading - $175',
       href: '/booking?service=archetypal-tarot',

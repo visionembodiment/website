@@ -16,15 +16,13 @@ vi.mock('@/hooks/useScrollDirection', () => ({
 }));
 
 vi.mock('@/lib/content', () => ({
-  homePageContent: {
-    promotion: {
-      active: true,
-      emoji: '🎉',
-      title: 'Test Promotion',
-      description: 'Test description',
-      buttonText: 'Test Button',
-      href: '/test',
-    },
+  promotionBannerContent: {
+    active: true,
+    emoji: '🎉',
+    title: 'Test Promotion',
+    description: 'Test description',
+    buttonText: 'Test Button',
+    href: '/test',
   },
 }));
 
@@ -74,16 +72,13 @@ describe('Header Integration', () => {
 
   it('hides PromotionBanner when promotion is inactive', () => {
     // Arrange
-    vi.mocked(contentModule).homePageContent = {
-      ...contentModule.homePageContent,
-      promotion: {
-        active: false,
-        emoji: '🎉',
-        title: 'Inactive Promotion',
-        description: 'Should not show',
-        buttonText: 'Hidden',
-        href: '/test',
-      },
+    vi.mocked(contentModule).promotionBannerContent = {
+      active: false,
+      emoji: '🎉',
+      title: 'Inactive Promotion',
+      description: 'Should not show',
+      buttonText: 'Hidden',
+      href: '/test',
     };
 
     // Act

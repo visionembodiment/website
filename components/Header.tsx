@@ -4,13 +4,12 @@ import { useRef } from 'react';
 import Navigation from './Navigation';
 import PromotionBanner from './PromotionBanner';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { homePageContent } from '@/lib/content';
+import { promotionBannerContent } from '@/lib/content';
 import { cn } from '@/lib/design-system';
 
 export default function Header() {
   const headerRef = useRef<HTMLDivElement>(null);
   const { translateY, isSnapping } = useScrollDirection(headerRef);
-  const { promotion } = homePageContent;
 
   return (
     <div
@@ -24,7 +23,7 @@ export default function Header() {
       }}
     >
       <Navigation />
-      {promotion?.active && <PromotionBanner promotion={promotion} />}
+      {promotionBannerContent?.active && <PromotionBanner promotion={promotionBannerContent} />}
     </div>
   );
 }
