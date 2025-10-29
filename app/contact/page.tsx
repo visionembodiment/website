@@ -284,16 +284,16 @@ export default function ContactPage() {
       <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
               Ready for Your Free Discovery Call?
             </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
               Let&apos;s explore how we can work together to transform your life.
               Book a complimentary 30-minute call to discuss your journey.
             </p>
             <a
               href="/booking"
-              className={cn(designSystem.buttons.secondaryInverse, "text-lg")}
+              className={cn(designSystem.buttons.secondary, "text-lg")}
             >
               Schedule Discovery Call
             </a>
