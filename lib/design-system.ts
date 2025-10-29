@@ -6,6 +6,7 @@ export const designSystem = {
       secondary: 'bg-vision-dark-purple',        // Section contrast
       inverse: 'bg-vision-isabelline',           // Light background
       accent: 'bg-vision-lion',                  // Gold accent background
+      highlight: 'bg-green-100',                 // Highlight badge background
     },
     text: {
       primary: 'text-vision-isabelline',       // Lightest text for dark backgrounds (#f4f0ed)
@@ -16,6 +17,8 @@ export const designSystem = {
         secondary: 'text-vision-chinese-violet', // Secondary dark text on light backgrounds (#8d6b8f)
       },
       placeholder: 'placeholder-vision-chinese-violet', // Placeholder text (#674F69)
+      highlight: 'text-green-800',             // Highlight badge text
+      checkmark: 'text-green-600',             // Checkmark icons
       success: 'text-lime-600',                // Success messages
       error: 'text-red-400',                   // Error messages
     },

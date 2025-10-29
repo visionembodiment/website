@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { designSystem, cn } from '@/lib/design-system';
 
 export default function Community() {
   const [email, setEmail] = useState('');
@@ -201,7 +202,7 @@ export default function Community() {
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
@@ -209,9 +210,9 @@ export default function Community() {
                       <p className="text-gray-600">Receive transformational insights and practices every week</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
@@ -219,9 +220,9 @@ export default function Community() {
                       <p className="text-gray-600">Access meditation guides, templates, and tools</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
@@ -229,9 +230,9 @@ export default function Community() {
                       <p className="text-gray-600">Join monthly circles and workshops online</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
@@ -239,9 +240,9 @@ export default function Community() {
                       <p className="text-gray-600">Early access and discounts on services and programs</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
