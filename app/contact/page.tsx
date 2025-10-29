@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { designSystem, cn } from '@/lib/design-system';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -280,14 +281,38 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Newsletter Section */}
       <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.sm, designSystem.fontWeight.bold)}>
+              Stay Connected
+            </h2>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.secondary, designSystem.spacing.margin.bottom.lg)}>
+              Receive weekly wisdom, transformation tips, and exclusive offers
+            </p>
+            <div className={cn("max-w-2xl mx-auto")}>
+              <NewsletterForm
+                placeholder="Enter your email"
+                buttonText="Subscribe"
+                disclaimer="Join 1,000+ seekers. No spam, unsubscribe anytime."
+                successMessage="Thank you for subscribing! Check your email (including spam folder) for confirmation."
+                loadingText="Subscribing..."
+                successButtonText="Subscribed!"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
               Ready for Your Free Discovery Call?
             </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.inverse.primary, designSystem.spacing.margin.bottom.lg)}>
               Let&apos;s explore how we can work together to transform your life.
               Book a complimentary 30-minute call to discuss your journey.
             </p>
