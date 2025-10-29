@@ -863,9 +863,9 @@ export const archetypalTarotContent = {
 export const contactPageContent = {
   sections: [
     { id: 'hero', enabled: true, background: 'gradient.darkToLight' },
-    { id: 'main', enabled: true, background: 'background.primary' },
-    { id: 'newsletter', enabled: true, background: 'background.secondary' },
-    { id: 'cta', enabled: true, background: 'background.primary' },
+    { id: 'main', enabled: true, background: 'background.secondary' },
+    { id: 'newsletter', enabled: true, background: 'background.primary' },
+    { id: 'cta', enabled: true, background: 'gradient.lightToDark' },
   ],
 
   hero: {
