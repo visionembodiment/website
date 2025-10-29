@@ -935,6 +935,15 @@ export const productsPageContent = {
         href: '/products/archetypal-awakening',
         status: 'Available Now',
       },
+      {
+        title: 'Energy Mastery Fundamentals',
+        description: 'Learn to sense, clear, and direct energy for healing and manifestation in your daily life.',
+        price: '$117',
+        duration: '5 weeks',
+        includes: '18 video lessons, energy practices, guided meditations',
+        href: '/products/energy-mastery',
+        status: 'Available Now',
+      },
     ],
   },
 
@@ -1023,14 +1032,8 @@ export const productsPageContent = {
   cta: {
     title: 'Ready to Deepen Your Practice?',
     subtitle: 'Join thousands of students who have transformed their lives through our courses and programs.',
-    primaryButton: {
-      text: 'Browse All Products',
-      href: '#courses',
-    },
-    secondaryButton: {
-      text: 'Book a Discovery Call',
-      href: '/booking',
-    },
+    buttonText: 'Book a Discovery Call',
+    buttonHref: '/booking',
   },
 };
 

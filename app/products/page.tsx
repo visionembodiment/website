@@ -111,7 +111,7 @@ export default function ProductsPage() {
             </div>
 
             <div className={cn("grid md:grid-cols-3", designSystem.spacing.gap.lg)}>
-              {courses.items.map((course, index) => (
+              {courses.items.slice(0, 3).map((course, index) => (
                 <div
                   key={index}
                   className={cn(
@@ -193,7 +193,7 @@ export default function ProductsPage() {
             </div>
 
             <div className={cn("grid md:grid-cols-2 lg:grid-cols-4", designSystem.spacing.gap.md)}>
-              {resources.items.map((resource, index) => (
+              {resources.items.slice(0, 4).map((resource, index) => (
                 <Link
                   href={resource.href}
                   key={index}
@@ -333,20 +333,12 @@ export default function ProductsPage() {
             <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
               {cta.subtitle}
             </p>
-            <div className={cn('flex flex-col sm:flex-row', designSystem.spacing.gap.sm, 'justify-center')}>
-              <Link
-                href={cta.primaryButton.href}
-                className={designSystem.buttons.primary}
-              >
-                {cta.primaryButton.text}
-              </Link>
-              <Link
-                href={cta.secondaryButton.href}
-                className={designSystem.buttons.secondary}
-              >
-                {cta.secondaryButton.text}
-              </Link>
-            </div>
+            <Link
+              href={cta.buttonHref}
+              className={designSystem.buttons.primary}
+            >
+              {cta.buttonText}
+            </Link>
           </div>
         </div>
       </LazySection>
