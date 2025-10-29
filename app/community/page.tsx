@@ -1,334 +1,210 @@
-'use client';
-
-import { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { designSystem, cn } from '@/lib/design-system';
+import type { Metadata } from 'next';
+import LazySection from '@/components/LazySection';
+import NewsletterForm from '@/components/NewsletterForm';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
+import { designSystem, cn, getSectionBackground } from '@/lib/design-system';
+import { communityPageContent } from '@/lib/content';
 
-export default function Community() {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
+export const metadata: Metadata = {
+  title: 'Community - Vision Embodiment',
+  description: 'Join the Vision Embodiment community. A safe and soulful gathering space for seekers, healers, and embodied beings on their journey of transformation.',
+  openGraph: {
+    title: 'Vision Embodiment Community',
+    description: 'A community for deep conversation, deep practice, and deep transformation',
+    type: 'website',
+  },
+};
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter subscription
-    console.log('Newsletter subscription:', email);
-    setIsSubscribed(true);
-    // You would integrate with ConvertKit, EmailOctopus, or your preferred service here
-  };
+export default function CommunityPage() {
+  const { sections, hero, newsletter, discord, welcome, whatYouFind, values } = communityPageContent;
 
-  const resources = [
-    {
-      title: 'Free Meditation Guide',
-      description: 'A 10-minute daily practice to connect with your inner wisdom',
-      type: 'PDF Guide',
-      icon: '🧘‍♀️',
-    },
-    {
-      title: 'Vision Board Template',
-      description: 'Create a powerful visual representation of your dreams',
-      type: 'Digital Template',
-      icon: '🎨',
-    },
-    {
-      title: 'Weekly Wisdom Newsletter',
-      description: 'Transformational insights delivered to your inbox',
-      type: 'Email Series',
-      icon: '📧',
-    },
-    {
-      title: 'Community Circle',
-      description: 'Join our monthly online gatherings for support and connection',
-      type: 'Live Events',
-      icon: '🤝',
-    },
-  ];
-
-  const upcomingEvents = [
-    {
-      date: 'March 15, 2024',
-      time: '7:00 PM EST',
-      title: 'Full Moon Manifestation Circle',
-      description: 'Harness the power of the full moon to manifest your desires',
-      spots: 15,
-    },
-    {
-      date: 'March 22, 2024',
-      time: '6:00 PM EST',
-      title: 'Spring Equinox Celebration',
-      description: 'Welcome new beginnings with intention setting and ritual',
-      spots: 20,
-    },
-    {
-      date: 'March 29, 2024',
-      time: '7:30 PM EST',
-      title: 'Archetypal Journey Workshop',
-      description: 'Explore your inner archetypes through guided meditation',
-      spots: 10,
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-900 to-purple-800 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Join the Vision Embodiment Community
+  const sectionComponents: Record<string, React.ReactElement> = {
+    hero: (
+      <section key="hero" className={cn("relative", getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["5xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
+            <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+              {hero.title}
             </h1>
-            <p className="text-xl text-purple-100 mb-8">
-              Connect with like-minded souls on a journey of transformation, growth, and embodied wisdom
+
+            <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto, designSystem.spacing.margin.bottom.lg)}>
+              <YouTubeEmbed videoId={hero.videoId} title="Vision Embodiment Community" />
+            </div>
+
+            <p className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.sm, designSystem.fontWeight.semibold)}>
+              {hero.subtitle}
             </p>
-            
-            {!isSubscribed ? (
-              <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors font-medium"
-                  >
-                    Join Community
-                  </button>
-                </div>
-                <p className="mt-4 text-sm text-purple-200">
-                  Join 1,000+ members. Free forever. Unsubscribe anytime.
-                </p>
-              </form>
-            ) : (
-              <div className="bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md mx-auto">
-                <p className="text-lg font-semibold mb-2">Welcome to the community!</p>
-                <p className="text-purple-100">
-                  Check your email for a confirmation link and your welcome gifts.
-                </p>
-              </div>
-            )}
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
+              {hero.description}
+            </p>
           </div>
         </div>
       </section>
-
-      {/* Free Resources */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-purple-900 mb-4">
-              Free Resources for Your Journey
+    ),
+    newsletter: (
+      <LazySection key="newsletter" animation="fade" delay={50} className={cn(getSectionBackground(sections, 'newsletter'), designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.layout.textAlign.center, designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.sm, designSystem.fontWeight.bold)}>
+              {newsletter.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Access powerful tools and guidance to support your transformation
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+              {newsletter.subtitle}
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {resources.map((resource) => (
-              <div key={resource.title} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="text-4xl mb-4">{resource.icon}</div>
-                <h3 className="font-bold text-lg text-purple-900 mb-2">{resource.title}</h3>
-                <p className="text-gray-600 text-sm mb-3">{resource.description}</p>
-                <span className="inline-block bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full">
-                  {resource.type}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-gray-600">
-              Subscribe to our newsletter to unlock all free resources
-            </p>
+            <div className={cn("max-w-2xl mx-auto")}>
+              <NewsletterForm
+                placeholder={newsletter.placeholder}
+                buttonText={newsletter.buttonText}
+                disclaimer={newsletter.disclaimer}
+                successMessage={newsletter.successMessage}
+                loadingText={newsletter.loadingText}
+                successButtonText={newsletter.successButtonText}
+              />
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Community Events */}
-      <section className="py-20 bg-purple-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-purple-900 mb-4">
-              Upcoming Community Events
+      </LazySection>
+    ),
+    welcome: (
+      <LazySection key="welcome" animation="fade" className={cn(getSectionBackground(sections, 'welcome'), designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.sm, designSystem.fontWeight.bold)}>
+              {welcome.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our live online gatherings for connection, healing, and transformation
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.primary, designSystem.layout.textAlign.center)}>
+              {welcome.description}
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {upcomingEvents.map((event) => (
-              <div key={event.title} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="bg-purple-900 text-white p-4">
-                  <p className="font-semibold">{event.date}</p>
-                  <p className="text-sm text-purple-200">{event.time}</p>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-lg text-purple-900 mb-2">{event.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{event.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-500">{event.spots} spots left</span>
-                    <button className="bg-purple-900 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors text-sm font-medium">
-                      Reserve Spot
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/booking"
-              className="inline-block border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium"
-            >
-              View All Events
-            </Link>
-          </div>
         </div>
-      </section>
+      </LazySection>
+    ),
+    whatYouFind: (
+      <LazySection key="whatYouFind" animation="slide-up" delay={100} className={cn(getSectionBackground(sections, 'whatYouFind'), designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.fontWeight.bold)}>
+              {whatYouFind.title}
+            </h2>
+          </div>
 
-      {/* Community Benefits */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-purple-900 mb-6">
-                  Why Join Our Community?
-                </h2>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Weekly Wisdom</h3>
-                      <p className="text-gray-600">Receive transformational insights and practices every week</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Exclusive Resources</h3>
-                      <p className="text-gray-600">Access meditation guides, templates, and tools</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Live Events</h3>
-                      <p className="text-gray-600">Join monthly circles and workshops online</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Special Offers</h3>
-                      <p className="text-gray-600">Early access and discounts on services and programs</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <svg className={cn("w-6 h-6 mr-3 mt-1 flex-shrink-0", designSystem.colors.text.checkmark)} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Sacred Connection</h3>
-                      <p className="text-gray-600">Connect with like-minded souls on the path</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-purple-100 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-purple-900 mb-4">
-                  What Members Are Saying
+          <div className={cn("grid md:grid-cols-2", designSystem.spacing.gap.lg, designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto)}>
+            {whatYouFind.items.map((item) => (
+              <div
+                key={item.title}
+                className={cn(
+                  "border-l-2",
+                  designSystem.colors.border.primary,
+                  designSystem.spacing.padding.horizontal.lg,
+                  designSystem.spacing.padding.vertical.md,
+                  "space-y-4"
+                )}
+              >
+                <h3 className={cn(designSystem.text.h3, designSystem.colors.text.primary, designSystem.fontWeight.bold)}>
+                  {item.title}
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-gray-600 italic mb-2">
-                      &ldquo;The weekly emails are like a gentle reminder to stay connected to my highest self.&rdquo;
-                    </p>
-                    <p className="text-sm font-semibold text-purple-900">- Jessica M.</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-gray-600 italic mb-2">
-                      &ldquo;The community events have been transformational. I&apos;ve made deep connections!&rdquo;
-                    </p>
-                    <p className="text-sm font-semibold text-purple-900">- David L.</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-gray-600 italic mb-2">
-                      &ldquo;The free resources alone are worth joining. So much valuable content!&rdquo;
-                    </p>
-                    <p className="text-sm font-semibold text-purple-900">- Maria K.</p>
-                  </div>
+                <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary)}>
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </LazySection>
+    ),
+    values: (
+      <LazySection key="values" animation="fade" delay={150} className={cn(getSectionBackground(sections, 'values'), "py-16 md:py-20")}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto)}>
+            <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg, designSystem.fontWeight.bold)}>
+              {values.title}
+            </h2>
+            <div className={cn("w-16 h-0.5 mx-auto", designSystem.colors.background.accent, designSystem.spacing.margin.bottom.xl)} />
+
+            <div className={cn("space-y-6")}>
+              {values.principles.map((principle, index) => (
+                <div key={index} className={cn("flex items-start", designSystem.spacing.gap.md, "group")}>
+                  <div className={cn("flex-shrink-0 w-2 h-2 rounded-full mt-2.5", designSystem.colors.background.accent, "group-hover:scale-125 transition-transform")} />
+                  <p className={cn(designSystem.text.body.xl, designSystem.colors.text.primary, "leading-relaxed font-light")}>
+                    {principle}
+                  </p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </LazySection>
+    ),
+    discord: (
+      <LazySection key="discord" animation="fade" delay={100} className={cn(getSectionBackground(sections, 'discord'), designSystem.spacing.section.full)}>
+        <div className={designSystem.layout.container}>
+          <div className={cn(designSystem.layout.maxWidth["6xl"], designSystem.spacing.margin.horizontal.auto)}>
+            <div className={cn("grid lg:grid-cols-2", designSystem.spacing.gap.xl, "items-start")}>
+              {/* What We Stand For - Left Column */}
+              <div>
+                <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
+                  {values.title}
+                </h2>
+
+                <div className={cn("space-y-4")}>
+                  {values.principles.map((principle, index) => (
+                    <div key={index} className={cn("flex items-start", designSystem.spacing.gap.md, "group")}>
+                      <div className={cn("flex-shrink-0 w-2 h-2 rounded-full mt-2.5", designSystem.colors.background.accent, "group-hover:scale-125 transition-transform")} />
+                      <p className={cn(designSystem.text.body.lg, designSystem.colors.text.primary)}>
+                        {principle}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Discord Card - Right Column */}
+              <div className={cn(
+                "border-2",
+                designSystem.colors.border.primary,
+                designSystem.spacing.padding.lg,
+                designSystem.layout.textAlign.center,
+                designSystem.rounded["2xl"]
+              )}>
+                <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
+                  {discord.title}
+                </h2>
+                <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+                  {discord.description}
+                </p>
+                <Link
+                  href={discord.buttonHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(designSystem.buttons.secondary)}
+                >
+                  {discord.buttonText}
+                </Link>
+                <p className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary, designSystem.spacing.margin.top.md)}>
+                  {discord.fallbackText}{' '}
+                  <a
+                    href={`mailto:${discord.fallbackEmail}`}
+                    className={cn(designSystem.colors.text.accent, "underline", designSystem.colors.hover.text.dun, "font-medium")}
+                  >
+                    {discord.fallbackEmail}
+                  </a>
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </LazySection>
+    ),
+  };
 
-      {/* Newsletter Signup CTA */}
-      <section className="py-20 bg-gradient-to-b from-purple-900 to-purple-800 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-4">
-              Ready to Transform Your Life?
-            </h2>
-            <p className="text-xl mb-8 text-purple-100">
-              Join our community and receive weekly wisdom, free resources, and exclusive offers
-            </p>
-            
-            {!isSubscribed ? (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors font-medium"
-                >
-                  Subscribe
-                </button>
-              </form>
-            ) : (
-              <div className="bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md mx-auto">
-                <p className="text-lg font-semibold">You&apos;re all set!</p>
-                <p className="text-purple-100 mt-2">
-                  Welcome to the Vision Embodiment community.
-                </p>
-              </div>
-            )}
-            
-            <p className="mt-6 text-sm text-purple-200">
-              We respect your privacy. Read our{' '}
-              <Link href="/privacy" className="underline hover:text-white">
-                Privacy Policy
-              </Link>
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
+  return (
+    <>
+      {sections
+        .filter(section => section.enabled)
+        .map(section => sectionComponents[section.id])}
+    </>
   );
 }

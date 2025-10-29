@@ -13,7 +13,7 @@ export default function AboutPage() {
       <section key="hero" className={cn(getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth['5xl'], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
-            <h1 className={cn(designSystem.text.heroTitle, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
+            <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.lg)}>
               {aboutPageContent.hero.title}
             </h1>
 
@@ -183,22 +183,28 @@ export default function AboutPage() {
         <section className={cn(getSectionBackground(sections, 'mission'), designSystem.spacing.section.full)}>
           <div className={designSystem.layout.container}>
             <div className={cn(designSystem.colors.background.secondary, designSystem.rounded["2xl"], designSystem.spacing.padding.xl, designSystem.layout.maxWidth['4xl'], designSystem.spacing.margin.horizontal.auto)}>
-              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+              <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.sm)}>
                 {aboutPageContent.mission.title}
               </h2>
+              <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.layout.textAlign.center, designSystem.spacing.margin.bottom.lg)}>
+                {aboutPageContent.mission.subtitle}
+              </p>
               <div className={cn('space-y-4', designSystem.layout.maxWidth['3xl'], designSystem.spacing.margin.horizontal.auto)}>
                 {aboutPageContent.mission.manifesto.map((line, index) => (
-                  <p
-                    key={index}
-                    className={cn(
-                      designSystem.text.body.lg,
-                      index < 5 ? designSystem.colors.text.primary : designSystem.colors.text.secondary,
-                      index < 5 ? designSystem.fontWeight.semibold : designSystem.fontWeight.normal
-                    )}
-                  >
-                    {line}
-                  </p>
+                  <div key={index} className={cn("flex items-start", designSystem.spacing.gap.md)}>
+                    <svg className={cn("w-6 h-6 flex-shrink-0 mt-1", designSystem.colors.text.accent)} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <p className={cn(designSystem.text.body.lg, designSystem.colors.text.primary)}>
+                      {line}
+                    </p>
+                  </div>
                 ))}
+                {aboutPageContent.mission.footnote && (
+                  <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.spacing.margin.top.lg, "italic")}>
+                    {aboutPageContent.mission.footnote}
+                  </p>
+                )}
               </div>
             </div>
           </div>
