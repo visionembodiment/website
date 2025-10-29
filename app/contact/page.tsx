@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { designSystem, cn } from '@/lib/design-system';
+import { designSystem, cn, getSectionBackground } from '@/lib/design-system';
 import { contactPageContent } from '@/lib/content';
 import NewsletterForm from '@/components/NewsletterForm';
 
 export default function ContactPage() {
+  const { sections } = contactPageContent;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,7 +45,7 @@ export default function ContactPage() {
   return (
     <div className={cn("min-h-screen", designSystem.colors.background.primary)}>
       {/* Hero Section */}
-      <section className={cn(designSystem.colors.gradient.darkToLight, designSystem.spacing.section.full)}>
+      <section className={cn(getSectionBackground(sections, 'hero'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["4xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h1 className={cn(designSystem.text.h1, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
@@ -58,7 +59,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className={designSystem.spacing.section.full}>
+      <section className={cn(getSectionBackground(sections, 'main'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["6xl"], designSystem.spacing.margin.horizontal.auto)}>
             <div className={cn("grid lg:grid-cols-2", designSystem.spacing.gap.xl)}>
@@ -250,7 +251,7 @@ export default function ContactPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className={cn(designSystem.colors.background.secondary, designSystem.spacing.section.full)}>
+      <section className={cn(getSectionBackground(sections, 'newsletter'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.sm, designSystem.fontWeight.bold)}>
@@ -274,7 +275,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={cn(designSystem.colors.background.primary, designSystem.spacing.section.full)}>
+      <section className={cn(getSectionBackground(sections, 'cta'), designSystem.spacing.section.full)}>
         <div className={designSystem.layout.container}>
           <div className={cn(designSystem.layout.maxWidth["3xl"], designSystem.spacing.margin.horizontal.auto, designSystem.layout.textAlign.center)}>
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>

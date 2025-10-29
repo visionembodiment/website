@@ -861,6 +861,13 @@ export const archetypalTarotContent = {
 };
 
 export const contactPageContent = {
+  sections: [
+    { id: 'hero', enabled: true, background: 'gradient.darkToLight' },
+    { id: 'main', enabled: true, background: 'background.primary' },
+    { id: 'newsletter', enabled: true, background: 'background.secondary' },
+    { id: 'cta', enabled: true, background: 'background.primary' },
+  ],
+
   hero: {
     title: "Let's Connect",
     description: "Ready to begin your transformation journey? I'd love to hear from you.",
