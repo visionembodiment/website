@@ -131,9 +131,10 @@ describe('cn utility', () => {
 Test that content has the expected shape:
 
 ```typescript
-// lib/content.test.ts
+// lib/content/home.unit.test.ts
 import { describe, it, expect } from 'vitest'
-import { homePageContent, servicesPageContent } from './content'
+import { homePageContent } from './home'
+import { servicesPageContent } from './services'
 
 describe('Content validation', () => {
   it('homepage has all required sections', () => {
@@ -164,7 +165,7 @@ describe('Content validation', () => {
 ### SEO Content Validation
 
 ```typescript
-// lib/content.test.ts
+// lib/content/shared.unit.test.ts
 describe('SEO compliance', () => {
   it('meta descriptions are under 160 characters', () => {
     const descriptions = [

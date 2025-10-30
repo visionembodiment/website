@@ -25,7 +25,7 @@ import { designSystem } from '@/lib/design-system';
 
 ### Content First
 
-**CRITICAL RULE**: All text content must be in `lib/content.ts`, organized by page/section.
+**CRITICAL RULE**: All text content must be in `lib/content/`, organized by page in separate files.
 
 **Pattern**:
 ```typescript
@@ -38,9 +38,22 @@ import { homePageContent } from '@/lib/content';
 <h1>{homePageContent.hero.title}</h1>
 ```
 
+**Content Structure**:
+```
+lib/content/
+├── index.ts              # Re-exports all content
+├── shared.ts             # Shared content (navigation, social links)
+├── home.ts               # Home page content
+├── about.ts              # About page content
+├── services.ts           # Services overview
+└── [page-name].ts        # Other page content files
+```
+
 **Benefits**:
 - Easy content updates without touching code
 - Single source of truth for all copy
+- Organized by page for easier maintenance
+- Shared content (navigation, social) centralized
 - Easier to add i18n later
 - Type-safe content structure
 
@@ -115,7 +128,10 @@ components/
 
 lib/
 ├── design-system.ts            # Design tokens
-└── content.ts                  # All text content
+└── content/                    # Content organized by page
+    ├── index.ts                # Re-exports all content
+    ├── shared.ts               # Shared content (navigation, social)
+    └── [page-name].ts          # Page-specific content files
 ```
 
 ### Import Conventions
@@ -281,32 +297,49 @@ import { designSystem, cn } from '@/lib/design-system';
 
 ### Content Management Pattern
 
-All text lives in `lib/content.ts`, organized by page:
+All text lives in `lib/content/`, with one file per page:
 
 ```typescript
+// lib/content/home.ts
 export const homePageContent = {
-  promotion: {
-    title: "Special Offer",
-    description: "...",
-    // ...
-  },
+  sections: [...],
   hero: {
-    title: "Transform Your Vision",
-    subtitle: "...",
-    // ...
+    title: "The World Needs Your Vision Made Real!",
+    subtitle: "Professional coaching and spiritual guidance...",
+    primaryButton: { text: "Book Session", href: "/booking" },
+  },
+  services: {
+    title: "Transform Through Sacred Services",
+    items: [...],
   },
   // ... more sections
 }
 
-export const servicesPageContent = {
-  title: "Our Services",
-  items: [
-    {
-      title: "One-to-One Coaching",
-      // ...
-    }
-  ]
+// lib/content/shared.ts
+export const promotionBannerContent = { ... };
+export const navigationLinks = [ ... ];
+export const socialLinks = [ ... ];
+```
+
+**Working with Content**:
+
+1. **To update page content**: Edit the corresponding file in `lib/content/[page-name].ts`
+2. **To add shared content** (navigation, social links): Edit `lib/content/shared.ts`
+3. **To create new page content**: Create new file `lib/content/new-page.ts` and export from `lib/content/index.ts`
+4. **Import in components**: `import { pageContent, socialLinks } from '@/lib/content'`
+
+**Example - Updating Contact Page**:
+```typescript
+// 1. Edit lib/content/contact.ts
+export const contactPageContent = {
+  hero: {
+    title: "Let's Connect",  // ← Update this
+  },
+  // ...
 }
+
+// 2. Use in component
+import { contactPageContent } from '@/lib/content';  // ← No changes needed
 ```
 
 ### Server Actions Pattern (Future)
@@ -645,7 +678,8 @@ npm run build
 
 2. **Make changes**
    - Edit components in `components/` or `app/`
-   - Update content in `lib/content.ts`
+   - Update content in `lib/content/[page-name].ts`
+   - Update shared content in `lib/content/shared.ts`
    - Update styles in `lib/design-system.ts`
 
 3. **Test locally**
@@ -698,7 +732,7 @@ Primary colors (from design system):
 2. **One-to-One Coaching** - From $200
 3. **Archetypal Tarot** - $175
 
-All service details in `lib/content.ts`
+All service details in `lib/content/` organized by service page
 
 ### Future Enhancements
 

@@ -408,9 +408,10 @@ describe('Design System', () => {
 ## Testing Content
 
 ```typescript
-// lib/content.test.ts
+// lib/content/home.unit.test.ts
 import { describe, it, expect } from 'vitest'
-import { homePageContent, servicesPageContent } from './content'
+import { homePageContent } from './home'
+import { servicesPageContent } from './services'
 
 describe('Content', () => {
   describe('Homepage content', () => {

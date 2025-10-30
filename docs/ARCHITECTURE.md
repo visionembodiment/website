@@ -89,20 +89,29 @@ vision-embodiment-website/
 
 **Purpose**: Centralized content management for all text, copy, and structured data.
 
-**Location**: `lib/content.ts`
+**Location**: `lib/content/` (organized by page)
 
-**Pattern**: Export typed content objects organized by page/section
+**Pattern**: Export typed content objects, one file per page
+
+```
+lib/content/
+├── index.ts                    # Re-exports all content
+├── shared.ts                   # Shared content (promotion, navigation, social links)
+├── home.ts                     # Home page content
+├── about.ts                    # About page content
+├── services.ts                 # Services overview page
+├── mind-games-reading.ts       # Service detail pages
+├── one-to-one-coaching.ts
+├── archetypal-tarot.ts
+├── contact.ts                  # Contact page content
+├── products.ts                 # Products page content
+└── community.ts                # Community page content
+```
 
 ```typescript
-// lib/content.ts
+// lib/content/home.ts
 export const homePageContent = {
-  promotion: {
-    emoji: "🎉",
-    title: "Special Offer",
-    description: "Limited time pricing",
-    href: "/services/mind-games-reading",
-    buttonText: "Learn More"
-  },
+  sections: [...],
   hero: {
     title: "Transform Your Vision Into Reality",
     subtitle: "Professional coaching and spiritual guidance",
@@ -111,12 +120,19 @@ export const homePageContent = {
   },
   // ... more sections
 }
+
+// lib/content/shared.ts
+export const promotionBannerContent = { ... };
+export const navigationLinks = [ ... ];
+export const socialLinks = [ ... ];
 ```
 
 **Benefits**:
 - Easy content updates without touching component code
 - Type safety for content structure
 - Single source of truth for all copy
+- Organized by page for easier maintenance
+- Shared content (navigation, social) centralized
 - Easier translation/i18n in future
 
 ### 2. Design System Layer (Styling)
@@ -416,13 +432,16 @@ When you need component-specific styling:
 
 ### Centralized Content
 
-All text content lives in `lib/content.ts`, organized by page:
+All text content lives in `lib/content/`, with one file per page:
 
 ```typescript
-// lib/content.ts
+// lib/content/services.ts
 export const servicesPageContent = {
-  title: "Our Services",
-  subtitle: "Choose your transformation journey",
+  sections: [...],
+  hero: {
+    title: "Transformative Services",
+    subtitle: "Choose your transformation journey",
+  },
   services: [
     {
       title: "One-to-One Coaching",
