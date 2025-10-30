@@ -11,3 +11,5 @@ export * from './archetypal-tarot';
 export * from './contact';
 export * from './products';
 export * from './community';
+export * from './terms';
+export * from './privacy';

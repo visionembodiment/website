@@ -6,7 +6,7 @@ export const siteConfig = {
 };
 
 export const promotionBannerContent = {
-  active: true,
+  active: false,
   emoji: '🎉',
   title: 'Limited Time Offer!',
   description: 'Mind Games Reading - Only $15 (Regular $150)',
