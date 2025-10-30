@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { designSystem, cn } from '@/lib/design-system';
+import { commonButtonText } from '@/lib/content';
 
 interface ServiceCardProps {
   title: string;
@@ -8,6 +9,8 @@ interface ServiceCardProps {
   duration: string;
   href: string;
   bookingHref: string;
+  bookNowText?: string;
+  learnMoreText?: string;
 }
 
 export default function ServiceCard({
@@ -17,6 +20,8 @@ export default function ServiceCard({
   duration,
   href,
   bookingHref,
+  bookNowText = commonButtonText.bookNow,
+  learnMoreText = commonButtonText.learnMore,
 }: ServiceCardProps) {
   return (
     <div className={cn(designSystem.cards.base, designSystem.cards.hover)}>
@@ -42,13 +47,13 @@ export default function ServiceCard({
             href={bookingHref}
             className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
           >
-            Book Now
+            {bookNowText}
           </Link>
           <Link
             href={href}
             className={cn(designSystem.buttons.secondaryInverse, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
           >
-            Learn More
+            {learnMoreText}
           </Link>
         </div>
       </div>

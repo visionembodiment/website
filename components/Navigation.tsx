@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { designSystem, cn } from '@/lib/design-system';
-import { navigationLinks } from '@/lib/content';
+import { navigationLinks, navigationContent } from '@/lib/content';
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,7 +28,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <span className={cn(designSystem.text.h3, designSystem.colors.text.inverse.primary)}>
-              Vision Embodiment
+              {navigationContent.logo}
             </span>
           </Link>
 
@@ -51,10 +51,10 @@ export default function Navigation() {
               </Link>
             ))}
             <Link
-              href="/booking"
+              href={navigationContent.bookNowHref}
               className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small)}
             >
-              Book Now
+              {navigationContent.bookNowText}
             </Link>
           </div>
 
@@ -64,7 +64,7 @@ export default function Navigation() {
             className={cn("md:hidden inline-flex items-center justify-center", designSystem.spacing.padding.sm, designSystem.rounded.md, designSystem.colors.text.inverse.primary, designSystem.colors.hover.background.gold)}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">{navigationContent.mobileMenuLabel}</span>
             {mobileMenuOpen ? (
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -102,11 +102,11 @@ export default function Navigation() {
                 </Link>
               ))}
               <Link
-                href="/booking"
+                href={navigationContent.bookNowHref}
                 className={cn(designSystem.buttons.primary, designSystem.buttons.sizes.small, designSystem.buttons.layout.block)}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Book Now
+                {navigationContent.bookNowText}
               </Link>
             </div>
           </div>

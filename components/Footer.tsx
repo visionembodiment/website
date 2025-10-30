@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { FaInstagram, FaFacebook, FaLinkedin, FaTiktok, FaYoutube, FaTwitch, FaEnvelope } from 'react-icons/fa';
 import { SiKick } from 'react-icons/si';
 import { designSystem, cn } from '@/lib/design-system';
-import { socialLinks } from '@/lib/content';
+import { socialLinks, footerContent } from '@/lib/content';
 
 const SocialIcon = ({ icon }: { icon: string }) => {
   const icons = {
@@ -23,34 +23,15 @@ const SocialIcon = ({ icon }: { icon: string }) => {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    services: [
-      { name: 'Mind Games Reading', href: '/services/mind-games-reading' },
-      { name: 'One-to-One Coaching', href: '/services/one-to-one' },
-      { name: 'Archetypal Tarot', href: '/services/archetypal-tarot' },
-    ],
-    company: [
-      { name: 'About', href: '/about' },
-      { name: 'Testimonials', href: '/testimonials' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Community', href: '/community' },
-    ],
-    legal: [
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Cancellation Policy', href: '/terms#cancellation' },
-    ],
-  };
-
   return (
     <footer className={cn(designSystem.colors.background.primary, designSystem.colors.text.primary)}>
       <div className={cn(designSystem.layout.container, designSystem.spacing.padding.vertical.xl)}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="col-span-1">
-            <h3 className={cn(designSystem.text.h3, designSystem.spacing.margin.bottom.sm)}>Vision Embodiment</h3>
+            <h3 className={cn(designSystem.text.h3, designSystem.spacing.margin.bottom.sm)}>{footerContent.brand.name}</h3>
             <p className={cn(designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.sm)}>
-              Transform your vision into embodied reality through coaching and spiritual guidance.
+              {footerContent.brand.tagline}
             </p>
             <div className="flex space-x-4">
               {socialLinks.filter(link => !link.hidden).map((social) => (
@@ -73,7 +54,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Services</h4>
             <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
+              {footerContent.links.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -90,7 +71,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Company</h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {footerContent.links.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -107,7 +88,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Legal</h4>
             <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
+              {footerContent.links.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -125,7 +106,7 @@ export default function Footer() {
         <div className={cn(designSystem.spacing.margin.top.lg, designSystem.spacing.padding.vertical.lg, designSystem.dividers.horizontal)}>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className={cn(designSystem.colors.text.secondary, designSystem.text.body.sm, "mb-4 md:mb-0")}>
-              © {currentYear} Vision Embodiment. All rights reserved.
+              {footerContent.copyright.replace('{year}', currentYear.toString())}
             </p>
           </div>
         </div>

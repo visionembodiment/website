@@ -1,4 +1,6 @@
 export const siteConfig = {
+  name: 'Vision Embodiment',
+  tagline: 'Transform your vision into embodied reality through coaching and spiritual guidance.',
   contactEmail: 'vision.embodiment@gmail.com',
   supportEmail: 'vision.embodiment@gmail.com',
 };
@@ -12,6 +14,18 @@ export const promotionBannerContent = {
   href: '/services/mind-games-reading',
 };
 
+export const navigationContent = {
+  logo: siteConfig.name,
+  bookNowText: 'Book Now',
+  bookNowHref: '/booking',
+  mobileMenuLabel: 'Open main menu',
+};
+
+export const commonButtonText = {
+  bookNow: 'Book Now',
+  learnMore: 'Learn More',
+};
+
 export const navigationLinks = [
   { name: 'Home', href: '/' },
   { name: 'Products', href: '/products' },
@@ -21,6 +35,32 @@ export const navigationLinks = [
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
+
+export const footerContent = {
+  brand: {
+    name: siteConfig.name,
+    tagline: siteConfig.tagline,
+  },
+  links: {
+    services: [
+      { name: 'Mind Games Reading', href: '/services/mind-games-reading' },
+      { name: 'One-to-One Coaching', href: '/services/one-to-one' },
+      { name: 'Archetypal Tarot', href: '/services/archetypal-tarot' },
+    ],
+    company: [
+      { name: 'About', href: '/about' },
+      { name: 'Testimonials', href: '/testimonials' },
+      { name: 'Contact', href: '/contact' },
+      { name: 'Community', href: '/community' },
+    ],
+    legal: [
+      { name: 'Terms of Service', href: '/terms' },
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Cancellation Policy', href: '/terms#cancellation' },
+    ],
+  },
+  copyright: `© {year} ${siteConfig.name}. All rights reserved.`,
+};
 
 export const socialLinks = [
   { name: 'Email', href: 'mailto:vision.embodiment@gmail.com', icon: 'email', hidden: false },
