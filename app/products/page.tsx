@@ -83,12 +83,14 @@ export default function ProductsPage() {
                     ))}
                   </ul>
 
-                  <Link
-                    href={featured.product.buttonHref}
-                    className={cn(designSystem.buttons.primaryInverse, designSystem.buttons.layout.block)}
-                  >
-                    {featured.product.buttonText}
-                  </Link>
+                  {featured.product.buttonHref && (
+                    <Link
+                      href={featured.product.buttonHref}
+                      className={cn(designSystem.buttons.primaryInverse, designSystem.buttons.layout.block)}
+                    >
+                      {featured.product.buttonText}
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -330,15 +332,17 @@ export default function ProductsPage() {
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
               {cta.title}
             </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, cta.buttonHref ? designSystem.spacing.margin.bottom.lg : "")}>
               {cta.subtitle}
             </p>
-            <Link
-              href={cta.buttonHref}
-              className={designSystem.buttons.primary}
-            >
-              {cta.buttonText}
-            </Link>
+            {cta.buttonHref && (
+              <Link
+                href={cta.buttonHref}
+                className={designSystem.buttons.primary}
+              >
+                {cta.buttonText}
+              </Link>
+            )}
           </div>
         </div>
       </LazySection>

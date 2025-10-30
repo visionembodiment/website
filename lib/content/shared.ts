@@ -49,7 +49,7 @@ export const footerContent = {
     ],
     company: [
       { name: 'About', href: '/about' },
-      { name: 'Testimonials', href: '/testimonials' },
+      // { name: 'Testimonials', href: '/testimonials' },
       { name: 'Contact', href: '/contact' },
       { name: 'Community', href: '/community' },
     ],

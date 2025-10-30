@@ -286,15 +286,17 @@ export default function ContactPage() {
             <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
               {contactPageContent.cta.title}
             </h2>
-            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+            <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, contactPageContent.cta.buttonHref ? designSystem.spacing.margin.bottom.lg : "")}>
               {contactPageContent.cta.description}
             </p>
-            <a
-              href={contactPageContent.cta.buttonHref}
-              className={cn(designSystem.buttons.secondary, "text-lg")}
-            >
-              {contactPageContent.cta.buttonText}
-            </a>
+            {contactPageContent.cta.buttonHref && (
+              <a
+                href={contactPageContent.cta.buttonHref}
+                className={cn(designSystem.buttons.secondary, "text-lg")}
+              >
+                {contactPageContent.cta.buttonText}
+              </a>
+            )}
           </div>
         </div>
       </section>

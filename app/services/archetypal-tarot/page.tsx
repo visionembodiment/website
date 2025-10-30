@@ -112,12 +112,14 @@ export default function ArchetypalTarotPage() {
               </ul>
             </div>
 
-            <Link
-              href={pricing.buttonHref}
-              className={cn("inline-block bg-yellow-500 text-gray-900", designSystem.spacing.padding.horizontal.lg, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg, "hover:bg-yellow-400 transition-colors", designSystem.fontWeight.bold, designSystem.text.body.lg)}
-            >
-              {pricing.buttonText}
-            </Link>
+            {pricing.buttonHref && (
+              <Link
+                href={pricing.buttonHref}
+                className={cn("inline-block bg-yellow-500 text-gray-900", designSystem.spacing.padding.horizontal.lg, designSystem.spacing.padding.vertical.sm, designSystem.rounded.lg, "hover:bg-yellow-400 transition-colors", designSystem.fontWeight.bold, designSystem.text.body.lg)}
+              >
+                {pricing.buttonText}
+              </Link>
+            )}
 
             <p className={cn("mt-6 text-purple-200", designSystem.text.body.sm)}>
               {pricing.note}

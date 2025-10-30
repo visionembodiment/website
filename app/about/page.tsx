@@ -257,23 +257,29 @@ export default function AboutPage() {
               <h2 className={cn(designSystem.text.h2, designSystem.colors.text.primary, designSystem.spacing.margin.bottom.md)}>
                 {aboutPageContent.cta.title}
               </h2>
-              <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+              <p className={cn(designSystem.text.body.xl, designSystem.colors.text.secondary, (aboutPageContent.cta.primaryButton.href || aboutPageContent.cta.secondaryButton.href) ? designSystem.spacing.margin.bottom.lg : "")}>
                 {aboutPageContent.cta.subtitle}
               </p>
-              <div className={cn('flex flex-col sm:flex-row', designSystem.spacing.gap.sm, 'justify-center')}>
-                <Link
-                  href={aboutPageContent.cta.primaryButton.href}
-                  className={designSystem.buttons.primary}
-                >
-                  {aboutPageContent.cta.primaryButton.text}
-                </Link>
-                <Link
-                  href={aboutPageContent.cta.secondaryButton.href}
-                  className={designSystem.buttons.secondary}
-                >
-                  {aboutPageContent.cta.secondaryButton.text}
-                </Link>
-              </div>
+              {(aboutPageContent.cta.primaryButton.href || aboutPageContent.cta.secondaryButton.href) && (
+                <div className={cn('flex flex-col sm:flex-row', designSystem.spacing.gap.sm, 'justify-center')}>
+                  {aboutPageContent.cta.primaryButton.href && (
+                    <Link
+                      href={aboutPageContent.cta.primaryButton.href}
+                      className={designSystem.buttons.primary}
+                    >
+                      {aboutPageContent.cta.primaryButton.text}
+                    </Link>
+                  )}
+                  {aboutPageContent.cta.secondaryButton.href && (
+                    <Link
+                      href={aboutPageContent.cta.secondaryButton.href}
+                      className={designSystem.buttons.secondary}
+                    >
+                      {aboutPageContent.cta.secondaryButton.text}
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </section>

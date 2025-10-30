@@ -32,9 +32,11 @@ export default function MindGamesReadingPage() {
               </p>
             ))}
           </div>
-          <Link href={pricing.buttonHref} className={designSystem.buttons.secondary}>
-            {pricing.buttonText}
-          </Link>
+          {pricing.buttonHref && (
+            <Link href={pricing.buttonHref} className={designSystem.buttons.secondary}>
+              {pricing.buttonText}
+            </Link>
+          )}
           <p className={cn("mt-6 text-purple-200", designSystem.text.body.sm)}>{pricing.note}</p>
         </div>
       </div>

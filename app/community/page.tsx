@@ -172,17 +172,19 @@ export default function CommunityPage() {
                 <h2 className={cn(designSystem.text.h2, designSystem.colors.text.accent, designSystem.spacing.margin.bottom.md, designSystem.fontWeight.bold)}>
                   {discord.title}
                 </h2>
-                <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, designSystem.spacing.margin.bottom.lg)}>
+                <p className={cn(designSystem.text.body.lg, designSystem.colors.text.secondary, discord.buttonHref ? designSystem.spacing.margin.bottom.lg : "")}>
                   {discord.description}
                 </p>
-                <Link
-                  href={discord.buttonHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(designSystem.buttons.secondary)}
-                >
-                  {discord.buttonText}
-                </Link>
+                {discord.buttonHref && (
+                  <Link
+                    href={discord.buttonHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(designSystem.buttons.secondary)}
+                  >
+                    {discord.buttonText}
+                  </Link>
+                )}
                 <p className={cn(designSystem.text.body.sm, designSystem.colors.text.secondary, designSystem.spacing.margin.top.md)}>
                   {discord.fallbackText}{' '}
                   <a
