@@ -726,6 +726,30 @@ Primary colors (from design system):
 - **Body**: Inter (sans-serif, readable)
 - Configured in `app/layout.tsx` using `next/font`
 
+### Brand Voice & Tone
+
+**Essence**: Feminine Power + Luxury
+
+**Characteristics**:
+- **Luxurious** - High-end, refined aesthetic
+- **Grounded** - Practical and realistic, not overly mystical
+- **Safe** - Trustworthy and professional environment
+- **Professional** - Credible expertise and service
+- **Refined modern-classic** - Timeless elegance with contemporary sensibility
+- **Confident** - Self-assured without being pretentious
+
+**Not**:
+- Whimsical or "woo"
+- Pretentious or inaccessible
+- Overly casual or informal
+
+**Voice Guidelines**:
+- Use sophisticated but accessible language
+- Convey warmth without sacrificing professionalism
+- Balance spiritual concepts with practical applications
+- Emphasize transformation and empowerment
+- Maintain an elegant, confident tone
+
 ### Services Offered
 
 1. **Mind Games Reading** - $15 special pricing
