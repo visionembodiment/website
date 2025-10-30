@@ -54,7 +54,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Services</h4>
             <ul className="space-y-2">
-              {footerContent.links.services.map((link) => (
+              {footerContent.links.services.filter((link) => link.href).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -71,7 +71,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Company</h4>
             <ul className="space-y-2">
-              {footerContent.links.company.map((link) => (
+              {footerContent.links.company.filter((link) => link.href).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -88,7 +88,7 @@ export default function Footer() {
           <div>
             <h4 className={cn(designSystem.text.body.lg, designSystem.fontWeight.semibold, designSystem.spacing.margin.bottom.sm)}>Legal</h4>
             <ul className="space-y-2">
-              {footerContent.links.legal.map((link) => (
+              {footerContent.links.legal.filter((link) => link.href).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
