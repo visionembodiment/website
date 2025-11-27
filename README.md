@@ -24,6 +24,11 @@ npm run dev
 ```
 http://localhost:3000
 ```
+4. **Open your browser** and go to:
+```
+npm run dev:mobile
+```
+
 
 That's it! The website is now running on your computer.
 

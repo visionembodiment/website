@@ -39,30 +39,30 @@ export const homePageContent = {
   },
 
   services: {
-    title: 'Transform Through Sacred Services',
-    subtitle: "Choose the path that resonates with your soul's journey",
+    title: 'Commit to the Change You Keep Avoiding',
+    subtitle: "Claim the path that meets you where you are and moves you forward in a real way.",
     items: [
       {
         title: 'Mind Games Reading',
-        description: 'Unlock your subconscious patterns and transform limiting beliefs through guided exploration.',
-        price: '$15',
-        duration: '60 minutes',
+        description: 'Gain clarity on your self-sabotaging subconscious patterns and transform limiting beliefs.',
+        price: '30€',
+        duration: '30 minutes',
         href: '/services/mind-games-reading',
         bookingHref: '/booking?service=mind-games',
       },
       {
         title: 'One-to-One Coaching',
-        description: 'Personalized transformation journey with weekly sessions and continuous support.',
-        price: '$200',
-        duration: '60 minutes',
+        description: 'Access to my best skills and a personalized transformation journey.',
+        price: '90€',
+        duration: '90 minutes',
         href: '/services/one-to-one',
         bookingHref: '/booking?service=one-to-one',
       },
       {
-        title: 'Archetypal Tarot',
-        description: 'Deep dive into your archetypal patterns using ancient wisdom and modern psychology.',
-        price: '$175',
-        duration: '90 minutes',
+        title: 'Tarot Readings',
+        description: 'Deep dive into your patterns that keep you stuck in life.',
+        price: '60€',
+        duration: '60 minutes',
         href: '/services/archetypal-tarot',
         bookingHref: '/booking?service=archetypal-tarot',
       },
@@ -71,34 +71,34 @@ export const homePageContent = {
 
   about: {
     title: 'Meet Your Guide',
-    intro: "I'm Alina Rain, an embodiment coach and spiritual guide dedicated to helping you bridge the gap between your vision and reality. With over a decade of experience in transformational coaching, I combine ancient wisdom traditions with modern psychological insights.",
-    philosophy: "My approach is rooted in the belief that true transformation happens when we align our mind, body, and spirit. Through our work together, you'll discover your authentic self and learn to embody your highest potential.",
+    intro: "I’m Alina Rain. I work at the intersection of trauma, shadow, and embodiment. My focus is simple: helping you close the gap between who you say you want to be and how you actually show up. I draw from years of somatic work, EMDR-based methods, shadow work, parts work, and grounded energetic frameworks. No shortcuts. Just practical tools that create real change.",
+    philosophy: "Transformation lands when the body, the psyche, and the deeper self are finally on the same page. My work helps you meet the parts of you that keep repeating old patterns so you can build choices that hold under pressure. This is about becoming more you, not a performance of you. Through our work, you learn to inhabit your own life with clarity, honesty, and capacity.",
     buttonText: 'Read My Full Story',
     buttonHref: '/about',
   },
 
   testimonials: {
     title: 'Client Transformations',
-    subtitle: 'Real stories from real people who"ve transformed their lives',
+    subtitle: 'Real stories from real people who have transformed their lives',
     buttonText: 'Read More Success Stories',
     buttonHref: '', //'/testimonials',
     items: [
       {
-        name: 'Sarah Mitchell',
-        service: 'One-to-One Coaching',
-        content: "Working with Alina has been transformative. Her intuitive guidance helped me break through patterns I've struggled with for years.",
-        rating: 5,
-      },
-      {
-        name: 'Michael Chen',
-        service: 'Archetypal Tarot',
-        content: 'The archetypal reading was incredibly accurate and gave me profound insights into my life path. Highly recommended!',
-        rating: 5,
-      },
-      {
         name: 'Emma Thompson',
         service: 'Mind Games Reading',
-        content: "Alina's unique approach helped me understand my subconscious blocks. I feel more aligned and empowered than ever.",
+        content: "Alina’s Mind Games reading is unlike anything I’ve tried before. She named the exact protective strategies I’ve been running on autopilot and showed me how they’ve been shaping my reactions, relationships, and decisions. The reading wasn’t abstract at all. It gave me clarity, direction, and a sense of personal agency I haven’t felt in years. I left feeling grounded, not overwhelmed.",
+        rating: 5,
+      },
+      {
+        name: 'Lea G.',
+        service: 'One-to-One Coaching',
+        content: "My sessions with Alina helped me remove blockages and change limiting beliefs that kept me stuck in expressing myself for so long. Through energy healing and somatic exploration combined with EMDR, I was able to move through the energetic blockages and trauma that kept me from being able to express myself, especially under pressure. It was not a short process, but I am glad I moved through it and I enjoy my newfound freedom in expressing myself more authentically as I enter a meaningful new phase of my life and much-improved relationships.",
+        rating: 5,
+      },
+      {
+        name: 'Valerie C.',
+        service: 'Tarot Reading',
+        content: 'Working with Alina was nothing like the usual tarot reading. She didn’t tell me what would happen. She showed me what I’ve been avoiding. The cards became a mirror for patterns I’ve been repeating for years, and her guidance helped me name the truth without shame or panic. I walked away with clarity, direction, and an actual plan instead of vague messages.',
         rating: 5,
       },
     ],
