@@ -45,10 +45,11 @@ export const homePageContent = {
       {
         title: 'Mind Games Reading',
         description: 'Gain clarity on your self-sabotaging subconscious patterns and transform limiting beliefs.',
-        price: '30€',
+        price: '15€',
         duration: '30 minutes',
         href: '/services/mind-games-reading',
-        bookingHref: '/booking?service=mind-games',
+        bookingHref: 'https://visionembodiment.simplybook.it/v2/',
+        //bookingHref: '/booking?service=mind-games',
       },
       {
         title: 'One-to-One Coaching',
@@ -56,7 +57,8 @@ export const homePageContent = {
         price: '90€',
         duration: '90 minutes',
         href: '/services/one-to-one',
-        bookingHref: '/booking?service=one-to-one',
+        bookingHref: 'https://visionembodiment.simplybook.it/v2/',
+        // bookingHref: '/booking?service=one-to-one',
       },
       {
         title: 'Tarot Readings',
@@ -64,7 +66,8 @@ export const homePageContent = {
         price: '60€',
         duration: '60 minutes',
         href: '/services/archetypal-tarot',
-        bookingHref: '/booking?service=archetypal-tarot',
+        bookingHref: 'https://visionembodiment.simplybook.it/v2/',
+        // bookingHref: '/booking?service=archetypal-tarot',
       },
     ],
   },
