@@ -17,7 +17,8 @@ export const promotionBannerContent = {
 export const navigationContent = {
   logo: siteConfig.name,
   bookNowText: 'Book Now',
-  bookNowHref: '/booking',
+  bookNowHref: 'https://visionembodiment.simplybook.it/v2/',
+  // bookNowHref: '/booking',
   mobileMenuLabel: 'Open main menu',
 };
 
@@ -28,7 +29,7 @@ export const commonButtonText = {
 
 export const navigationLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' },
+ // { name: 'Products', href: '/products' },
   { name: 'Services', href: '/services' },
   // { name: 'Testimonials', href: '/testimonials' },
   { name: 'Community', href: '/community' },
