@@ -19,14 +19,15 @@ npm install
 ```bash
 npm run dev
 ```
+2. **Run on mobile ** and go to:
+```
+npm run dev:mobile
+```
+
 
 3. **Open your browser** and go to:
 ```
 http://localhost:3000
-```
-4. **Open your browser** and go to:
-```
-npm run dev:mobile
 ```
 
 
