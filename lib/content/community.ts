@@ -11,7 +11,8 @@ export const communityPageContent = {
     title: 'The World Needs Your Vision Made Real!',
     subtitle: 'Vision Embodiment Community',
     description: 'A community for deep conversation, deep practice, and deep transformation.',
-    videoId: 'EqetHVj51cM',
+    videoId: '',
+    // videoId: 'EqetHVj51cM',
   },
 
   welcome: {
@@ -36,7 +37,7 @@ export const communityPageContent = {
       },
       {
         title: 'Safe Haven',
-        description: 'A sanctuary for the soul—grounded, professional, and free from noise',
+        description: 'A sanctuary for the soul. Grounded in safety, non-judgemental, and free from noise',
       },
     ],
   },
@@ -73,7 +74,7 @@ export const communityPageContent = {
     title: 'Join Us on Discord',
     description: 'This is a free community, and engagement is up to you. Come as you are, bring your curiosity, and help us grow something meaningful together.',
     buttonText: 'Join on Discord',
-    buttonHref: 'https://discord.gg/visionembodiment',
+    buttonHref: 'https://discord.com/invite/XtdgNEgSyr',
     fallbackText: 'If the Discord link is expired, send me an email',
     fallbackEmail: 'vision.embodiment@gmail.com',
   },

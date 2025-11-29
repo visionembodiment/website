@@ -12,10 +12,10 @@ export const archetypalTarotContent = {
   hero: {
     title: 'Archetypal Tarot Reading',
     subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',
-    price: '$175',
+    price: '60€',
     videoId: '',
     primaryButton: {
-      text: 'Book Your Reading - $175',
+      text: 'Book Your Reading - 60€',
       href: '/booking?service=archetypal-tarot',
     },
     secondaryButton: {
@@ -79,7 +79,7 @@ export const archetypalTarotContent = {
         },
         {
           title: 'Card Selection',
-          description: "You'll intuitively choose cards that reflect your energy",
+          description: "We'll intuitively choose cards that reflect your energy",
         },
         {
           title: 'Archetypal Exploration',
@@ -94,11 +94,10 @@ export const archetypalTarotContent = {
     includes: {
       title: "What's Included",
       items: [
-        '90-minute deep dive session via Zoom',
+        '60-minute deep dive session via Zoom',
         'Personalized archetypal reading',
         'Integration of Jungian psychology',
         'Connection to your life patterns',
-        'Recording of your session',
         'Follow-up integration guide',
         'Personalized ritual recommendations',
       ],
@@ -108,30 +107,39 @@ export const archetypalTarotContent = {
     title: 'Sacred Reflections',
     items: [
       {
-        name: 'Jessica Palmer',
-        title: 'Therapist',
+        name: 'Jessica P.',
+        // title: 'Therapist',
         content: "The archetypal reading with Alina was unlike any tarot experience I've had. She wove together the symbolism with such depth and psychological insight that I left with a completely new understanding of my life patterns. The recording has become a treasured resource I return to often.",
         rating: 5,
       },
       {
-        name: 'Robert Kim',
-        title: 'Executive',
+        name: 'Robert K.',
+        // title: 'Executive',
         content: "I was at a major crossroads in my life and the archetypal tarot reading provided exactly the clarity I needed. Alina's ability to connect the cards to my personal journey was remarkable. I made my decision with confidence.",
         rating: 5,
       },
     ],
   },
   pricing: {
-    title: "Investment in Your Soul's Journey",
-    price: '$175',
-    duration: '90-minute Archetypal Tarot Reading',
+    title: "Investment in Your Growth",
+    price: '60€',
+    duration: '60-minute Archetypal Tarot Reading',
     includes: [
-      '90-minute deep dive session',
+      '60-minute deep dive session',
       'Recording of your reading',
       'Integration guide & rituals',
     ],
+    // title: "Investment in Your Soul's Journey",
+    // price: '$175',
+    // duration: '90-minute Archetypal Tarot Reading',
+    // includes: [
+    //   '90-minute deep dive session',
+    //   'Recording of your reading',
+    //   'Integration guide & rituals',
+    // ],
     buttonText: 'Book Your Archetypal Reading',
-    buttonHref: '/booking?service=archetypal-tarot',
+    buttonHref: 'https://visionembodiment.simplybook.it/v2/',
+    // buttonHref: '/booking?service=archetypal-tarot',
     note: '24-hour cancellation policy. No refunds for completed sessions.',
   },
   faq: {
@@ -159,7 +167,8 @@ export const archetypalTarotContent = {
     title: 'The Cards Are Calling You',
     subtitle: 'Your archetypes are ready to reveal their wisdom. Book your journey into the depths of your psyche and emerge with clarity, purpose, and power.',
     buttonText: 'Book Your Archetypal Tarot Reading',
-    buttonHref: '/booking?service=archetypal-tarot',
+    buttonHref: 'https://visionembodiment.simplybook.it/v2/',
+    // buttonHref: '/booking?service=archetypal-tarot',
   },
 };
 

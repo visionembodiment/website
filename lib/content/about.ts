@@ -11,7 +11,7 @@ export const aboutPageContent = {
 
   hero: {
     title: 'Meet Alina Rain',
-    videoId: 'EqetHVj51cM',
+    // videoId: 'EqetHVj51cM',
   },
 
   professionallySpeaking: {
@@ -30,7 +30,13 @@ export const aboutPageContent = {
         ],
       },
       {
-        pullQuote: "Healing is not just about understanding — it's about integration.",
+        pullQuote: "Healing is not just about understanding. It's about integration and the embodiment of new patterns into your lived experience.",
+      },
+      {
+        heading: 'Lessons from Academia',
+        paragraphs: [
+          "I worked as a research assistant in nanotechnology and began a PhD program in Physics in collaboration with another team from Berkeley. However, I ultimately dropped out due to burnout and the toxic environment created by working under a narcissistic supervisor. This was a pivotal realization for me, unhealthy relationship dynamics don't just exist in personal life, they show up in work environments too.",
+        ],
       },
       {
         heading: 'A Turning Point',
@@ -39,15 +45,9 @@ export const aboutPageContent = {
         ],
       },
       {
-        heading: 'Lessons from Academia',
-        paragraphs: [
-          "Before entering the tech industry, I also worked as a research assistant in nanotechnology and began a PhD program. However, I ultimately dropped out due to burnout and the toxic environment created by working under a narcissistic supervisor. This was a pivotal realization for me - unhealthy relationship dynamics don't just exist in personal life, they show up in work environments too.",
-        ],
-      },
-      {
         heading: 'My Approach',
         paragraphs: [
-          "While I am not a licensed therapist, I bring a deeply trauma-informed, client-centered, and intuitive approach to my work. Every client's journey is unique, and I meet them where they are - whether that means focusing on coaching, shadow work, somatic healing, energy work, or psychedelic integration.",
+          "While I am not a licensed therapist, I bring a deeply trauma-informed, client-centered, and intuitive approach to my work. Every client's journey is unique, and I meet them where they are, whether that means focusing on coaching, shadow work, somatic healing, energy work, or psychedelic integration.",
           "My work is not about quick fixes, it's about real transformation that honors the nervous system, the subconscious, and the soul.",
         ],
       },
@@ -57,10 +57,10 @@ export const aboutPageContent = {
   credentials: {
     title: 'Credentials & Training',
     items: [
-      { title: 'ICF Certified Coach', description: 'International Coach Federation Accredited' },
-      { title: 'Embodiment Practitioner', description: 'Certified in Somatic Experiencing' },
-      { title: 'Tarot Master', description: '15+ years of archetypal study' },
-      { title: 'Energy Healer', description: 'Reiki Master Teacher' },
+      { title: 'Trauma-Conscious Coach', description: 'Certified in mind body coaching, somatic EMDR, parts work, and integrative trauma tools from Embody Lab' },
+      { title: 'Somatic Practitioner', description: 'Trained in somatic integration, nervous system work, and embodied process facilitation' },
+      { title: 'Archetypal + Shadow Work Guide', description: '15+ years of archetypal study, subconscious exploration, and shadow work practice' },
+      { title: 'Energy + Subtle Work Facilitator', description: '13+ years Reiki Master Teacher with extensive experience in grounded energetic work' },
     ],
   },
 
@@ -69,12 +69,12 @@ export const aboutPageContent = {
     sections: [
       {
         paragraphs: [
-          "I am a seeker, a deep thinker, and a lifelong learner. My mind is hungry for knowledge - always curious, always exploring. Outside of my work, you can find me in nature, immersed in witchy rituals, music, and art.",
+          "I am a seeker, a deep thinker, and a lifelong learner. My mind is hungry for knowledge, always curious, always exploring. Outside of my work, you can find me in nature, immersed in witchy rituals, music, and art.",
           "I am passionate about slow living, honoring my neurodivergence (self-diagnosed AuDHD, CPTSD), and embodying my true essence instead of masking or conforming to a society that was not built for my nervous system.",
         ],
       },
       {
-        pullQuote: "My journey isn't about 'fixing' myself — it's about expanding my capacity for joy, embodiment, and self-expression.",
+        pullQuote: "I'm here to provoke, awake and create. My journey isn't about 'fixing' myself. It's about expanding my capacity for joy, embodiment, and self-expression, while challenging the status quo of what is acceptable in our society. ",
       },
       {
         paragraphs: [
@@ -88,12 +88,17 @@ export const aboutPageContent = {
   timeline: {
     title: 'My Timeline',
     events: [
-      { year: '2010', event: 'Started my spiritual awakening journey' },
-      { year: '2013', event: 'Completed first coaching certification' },
-      { year: '2015', event: 'Launched Vision Embodiment practice' },
-      { year: '2018', event: 'Published "Embodied Transformation" methodology' },
-      { year: '2020', event: 'Expanded to international online coaching' },
-      { year: '2024', event: 'Reached 500+ transformed clients milestone' },
+      { year: '2006', event: 'Started noticing family patterns and doing early shadow work.' },
+      { year: '2008', event: 'Began studying psychology and personal development more intentionally.' },
+      { year: '2012', event: 'Received my first Reiki initiation and stepped into deeper energy work.' },
+      { year: '2012–2015', event: 'Active in research throughout college, leading into more formal work.' },
+      { year: '2015', event: 'Started as a research assistant in nanotechnology. Later began a PhD in Physics in collaboration with a Berkeley team.' },
+      { year: '2017', event: 'Transitioned into software engineering.' },
+      { year: '2018', event: 'Started healing journey with plant medicine and self-experimenting with microdosing.' },
+      { year: '2023', event: 'Started getting involved with Somatic Healing more formally.'},
+      { year: 'Jan 2024', event: 'Laid off from my tech job and lost access to EMDR therapy in the middle of deep healing work. Started formal somatic trauma training with Embody Lab the same month.' },
+      { year: '2025', event: 'Started expanding my capacity for group energetic work by leading shamanic journey sessions on social media, holding space for thousands of people throughout the year.' },
+
     ],
   },
 
@@ -102,11 +107,11 @@ export const aboutPageContent = {
     items: [
       {
         title: 'Healing with integrity',
-        description: 'No spiritual bypassing, no quick fixes, no fake guru culture - just deep, ethical, and embodied transformation.',
+        description: 'No spiritual bypassing, no quick fixes, no fake guru culture. Just deep, ethical, and embodied transformation.',
       },
       {
         title: 'Trauma-informed and client-centered',
-        description: "Every client's process is unique, and healing must be paced, resourced, and safe.",
+        description: "Every client's process is unique, and healing must be adequately paced, resourced, and safe.",
       },
       {
         title: 'Bridging the mystical and the practical',
@@ -118,7 +123,7 @@ export const aboutPageContent = {
       },
       {
         title: 'Empowerment over dependency',
-        description: "Healing is not about becoming reliant on a practitioner - it's about reclaiming self-trust, self-sovereignty, and embodiment.",
+        description: "Healing is not about becoming reliant on a practitioner. It's about reclaiming self-trust, self-sovereignty, and embodiment.",
       },
       {
         title: 'A safe space for all identities',
@@ -132,7 +137,7 @@ export const aboutPageContent = {
     subtitle: 'I guide with integrity, discernment, and a blend of somatic, spiritual, and psychological wisdom.',
     manifesto: [
       "I provide deep, ethical, trauma-informed healing.",
-      "I help you integrate your shadows.",
+      "I help you integrate your shadow.",
       "Reconnect with your body.",
       "Reclaim your authentic self.",
     ],
@@ -148,7 +153,7 @@ export const aboutPageContent = {
         ],
       },
       {
-        pullQuote: "Healing isn't about becoming someone else — it's about becoming more YOU.",
+        pullQuote: "Healing isn't about becoming someone else. It's about becoming more YOU.",
       },
       {
         paragraphs: [
