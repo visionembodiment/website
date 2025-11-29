@@ -59,7 +59,9 @@ export default function OneToOneCoachingPage() {
                   </ul>
 
                   <Link
-                    href="/booking?service=one-to-one"
+                    href={pkg.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={cn(
                       "block w-full text-center",
                       designSystem.spacing.padding.vertical.sm,

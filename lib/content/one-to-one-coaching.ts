@@ -80,6 +80,7 @@ export const oneToOneCoachingContent = {
           'Follow-up email summary',
         ],
         cta: 'Book Single Session',
+        href: 'https://visionembodiment.simplybook.it/v2/#book/service/3/count/1/',
         popular: false,
       },
       {
@@ -94,6 +95,7 @@ export const oneToOneCoachingContent = {
           'Integration practices',
         ],
         cta: 'Start Your Journey',
+        href: 'https://visionembodiment.simplybook.it/v2/#book/service/5/count/1/provider/2/',
         popular: true,
       },
       {
@@ -110,6 +112,7 @@ export const oneToOneCoachingContent = {
           'Progress tracking',
         ],
         cta: 'Intensive Transformation',
+        href: 'https://visionembodiment.simplybook.it/v2/#book/service/6/count/1/provider/2/',
         popular: false,
       },
     ],
