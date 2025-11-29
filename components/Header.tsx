@@ -23,6 +23,7 @@ export default function Header() {
 
     window.addEventListener('resize', updateHeaderHeight);
     return () => window.removeEventListener('resize', updateHeaderHeight);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [promotionBannerContent?.active]);
 
   return (
