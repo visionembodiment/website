@@ -75,7 +75,7 @@ export const contactPageContent = {
       },
       {
         question: "What's the best way to reach you?",
-        answer: 'The contact form is the best way to ensure your message reaches me directly. For urgent matters, you can also email contact@visionembodiment.com.',
+        answer: 'The contact form is the best way to ensure your message reaches me directly. For urgent matters, you can also email visionembodiment@gmail.com.',
       },
       {
         question: 'Do you offer free consultations?',
