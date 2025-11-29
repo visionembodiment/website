@@ -11,7 +11,8 @@ export const aboutPageContent = {
 
   hero: {
     title: 'Meet Alina Rain',
-    // videoId: 'EqetHVj51cM',
+        // videoId: 'EqetHVj51cM',
+    videoId: '6068e9Pggh8',
   },
 
   professionallySpeaking: {

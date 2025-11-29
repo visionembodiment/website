@@ -11,7 +11,7 @@ export const oneToOneCoachingContent = {
   hero: {
     title: 'One-to-One Coaching',
     subtitle: "Your personalized journey to profound transformation. Work directly with me to bridge the gap between where you are and where you're meant to be.",
-    videoId: '',
+    videoId: '6068e9Pggh8',
     primaryButton: {
       text: 'Book Discovery Call',
       href: 'https://calendly.com/vision-embodiment/free-discovery-session',
@@ -118,14 +118,14 @@ export const oneToOneCoachingContent = {
     title: 'Success Stories',
     items: [
       {
-        name: 'Sarah Mitchell',
-        title: 'Entrepreneur',
-        content: "Working with Alina changed my life in ways I never imagined possible. Through our 12-week journey, I not only achieved my career goals but completely transformed my relationship with myself. Her intuitive guidance and practical tools helped me break through years of limiting beliefs.",
+        name: 'Sarah M/',
+        // title: 'Entrepreneur',
+        content: "Working with Alina changed my life in ways I never imagined possible. Through our journey, I completely transformed my relationship with myself. Her intuitive guidance and practical tools helped me break through years of limiting beliefs.",
         rating: 5,
       },
       {
-        name: 'Michael Chen',
-        title: 'Creative Director',
+        name: 'Michael C.',
+        // title: 'Creative Director',
         content: "I came to Alina feeling stuck and confused about my life direction. Through our coaching sessions, I discovered my true purpose and the courage to pursue it. The transformation has been profound and lasting.",
         rating: 5,
       },
@@ -140,7 +140,7 @@ export const oneToOneCoachingContent = {
       },
       {
         question: "What's the difference between the packages?",
-        answer: 'Single sessions are great for specific challenges or breakthroughs. The 4-session journey allows for deeper exploration and habit formation. The 12-week transformation provides comprehensive support for major life changes and complete paradigm shifts.',
+        answer: 'Single sessions are great for specific challenges or breakthroughs. The 3-session journey allows for deeper exploration and habit formation. The 9-session transformation provides comprehensive support for major life changes and complete paradigm shifts.',
       },
       {
         question: 'What happens between sessions?',
@@ -148,7 +148,7 @@ export const oneToOneCoachingContent = {
       },
       {
         question: 'Can I upgrade my package later?',
-        answer: 'Yes! Many clients start with a single session or 4-session package and then upgrade to longer-term support. You can apply the value of your current package toward an upgrade within 30 days.',
+        answer: 'Yes! Many clients start with a single session or 3-session package and then upgrade to longer-term support. You can apply the value of your current package toward an upgrade within 30 days.',
       },
     ],
   },

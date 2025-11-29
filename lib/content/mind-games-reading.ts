@@ -1,6 +1,6 @@
 export const mindGamesReadingContent = {
   sections: [
-    { id: 'hero', enabled: false, background: 'gradient.lightToDark' },
+    { id: 'hero', enabled: true, background: 'gradient.lightToDark' },
     { id: 'whatIs', enabled: true, background: 'background.primary' },
     { id: 'pricing', enabled: false, background: 'gradient.darkToLight' },
     { id: 'process', enabled: true, background: 'background.secondary' },
@@ -13,7 +13,7 @@ export const mindGamesReadingContent = {
     subtitle: 'Unlock the hidden patterns of your mind and transform limiting beliefs into empowering truths through this powerful guided exploration.',
     price: '$15',
     originalPrice: '$150',
-    videoId: 'EqetHVj51cM',
+    videoId: '6068e9Pggh8',
     promotion: {
       emoji: '🎉',
       text: 'Limited Time: 90% OFF - Only $15!',

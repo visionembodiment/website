@@ -13,7 +13,7 @@ export const archetypalTarotContent = {
     title: 'Archetypal Tarot Reading',
     subtitle: 'Journey into the depths of your psyche through the ancient wisdom of tarot combined with Jungian archetypal psychology for profound self-discovery.',
     price: '60€',
-    videoId: '',
+    videoId: '6068e9Pggh8',
     primaryButton: {
       text: 'Book Your Reading - 60€',
       href: '/booking?service=archetypal-tarot',
