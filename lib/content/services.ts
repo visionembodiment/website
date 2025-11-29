@@ -33,7 +33,7 @@ export const servicesPageContent = {
       price: '90€',
       duration: '90 minutes',
       href: '/services/one-to-one',
-      bookingHref: 'https://visionembodiment.simplybook.it/v2/',
+      bookingHref: 'https://visionembodiment.simplybook.it/v2/#book',
       // bookingHref: 'https://calendar.app.google/tJ5r5yWepubr9f8F6',
       //bookingHref: '/booking?service=one-to-one',
     },
